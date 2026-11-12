@@ -99,26 +99,28 @@ class _VoiceTutorPanelState extends State<VoiceTutorPanel> {
     final listening = controller.state == VoiceTutorState.listening;
     final speaking = controller.state == VoiceTutorState.speaking;
     final compact = MediaQuery.sizeOf(context).height < 500;
+    // With the on-screen keyboard open there is little room: drop secondary text.
+    final keyboardOpen = MediaQuery.viewInsetsOf(context).bottom > 0;
     return Dialog(
-      insetPadding: EdgeInsets.all(compact ? 10 : 20),
+      insetPadding: EdgeInsets.all(keyboardOpen ? 4 : (compact ? 10 : 20)),
       child: ConstrainedBox(
         constraints: BoxConstraints(
           maxWidth: 760,
           maxHeight: compact ? MediaQuery.sizeOf(context).height * 0.94 : 620,
         ),
         child: Padding(
-          padding: EdgeInsets.all(compact ? 12 : 20),
+          padding: EdgeInsets.all(keyboardOpen ? 6 : (compact ? 12 : 20)),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
                 'Talk to Resonant',
                 style: TextStyle(
-                  fontSize: compact ? 20 : 24,
+                  fontSize: keyboardOpen ? 16 : (compact ? 20 : 24),
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 4),
+              SizedBox(height: keyboardOpen ? 0 : 4),
               Semantics(
                 container: true,
                 liveRegion: true,
@@ -151,7 +153,9 @@ class _VoiceTutorPanelState extends State<VoiceTutorPanel> {
                     }
                   },
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 12),
+                    padding: EdgeInsets.symmetric(
+                      vertical: keyboardOpen ? 4 : 12,
+                    ),
                     child: Text(
                       '${controller.statusText} ${listening || speaking ? 'Swipe down to stop.' : 'Swipe up to listen again.'}',
                       key: const ValueKey('tutor-state'),
@@ -159,14 +163,16 @@ class _VoiceTutorPanelState extends State<VoiceTutorPanel> {
                   ),
                 ),
               ),
-              SizedBox(height: compact ? 2 : 8),
-              Text(
-                compact
-                    ? 'English tutor. Hindi and Kannada voice are not yet verified.'
-                    : 'English voice tutor is enabled. Hindi and Kannada voice support is not yet verified.',
-                style: compact ? const TextStyle(fontSize: 12) : null,
-              ),
-              if (!compact) ...[
+              if (!keyboardOpen) ...[
+                SizedBox(height: compact ? 2 : 8),
+                Text(
+                  compact
+                      ? 'English tutor. Hindi and Kannada voice are not yet verified.'
+                      : 'English voice tutor is enabled. Hindi and Kannada voice support is not yet verified.',
+                  style: compact ? const TextStyle(fontSize: 12) : null,
+                ),
+              ],
+              if (!compact && !keyboardOpen) ...[
                 const SizedBox(height: 6),
                 const Text(
                   'Speech recognition may use your phone’s online service. Raw audio and this conversation are not saved.',
@@ -241,7 +247,7 @@ class _VoiceTutorPanelState extends State<VoiceTutorPanel> {
                   key: const ValueKey('tutor-typed-question'),
                   controller: _input,
                   minLines: 1,
-                  maxLines: compact ? 2 : 3,
+                  maxLines: keyboardOpen ? 1 : (compact ? 2 : 3),
                   textInputAction: TextInputAction.send,
                   onSubmitted: (value) => controller.send(value),
                   decoration: InputDecoration(
@@ -250,12 +256,13 @@ class _VoiceTutorPanelState extends State<VoiceTutorPanel> {
                         : 'Type a question, then press the keyboard send key',
                     hintText:
                         'Ask about Braille, your lesson, or a verified example',
-                    border: OutlineInputBorder(),
+                    isDense: keyboardOpen,
+                    border: const OutlineInputBorder(),
                   ),
                 ),
               ),
-              const SizedBox(height: 10),
-              if (controller.reply.isNotEmpty)
+              SizedBox(height: keyboardOpen ? 4 : 10),
+              if (controller.reply.isNotEmpty && !keyboardOpen)
                 Semantics(
                   label: 'Tutor reply. ${controller.reply}',
                   customSemanticsActions: {

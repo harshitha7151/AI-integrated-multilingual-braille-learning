@@ -1419,7 +1419,7 @@ class _ResonantHomeState extends State<ResonantHome> {
                                   : Colors.white54,
                             ),
                             title: Text(
-                              '${exIdx + 1}. ${ch.exercises[exIdx].answer.toUpperCase()} â€” ${ch.exercises[exIdx].prompt}',
+                              '${exIdx + 1}. ${ch.exercises[exIdx].answer.toUpperCase()} — ${ch.exercises[exIdx].prompt}',
                               style: const TextStyle(fontSize: 16),
                             ),
                             selected: chIdx == chapter && exIdx == lessonItem,
@@ -1458,12 +1458,12 @@ class _ResonantHomeState extends State<ResonantHome> {
   Widget _buildCourseGestureFooter(BuildContext context) {
     var swipeDistance = 0.0;
     final prompt = courseComplete
-        ? 'Swipe up to begin the word chapter Â· Swipe down to hear the next lesson'
+        ? 'Swipe up to begin the word chapter · Swipe down to hear the next lesson'
         : wordAssessment
-        ? 'Swipe up to start the word test Â· Swipe down to repeat'
+        ? 'Swipe up to start the word test · Swipe down to repeat'
         : lessonTaught
-        ? 'Swipe up to practise with the Braille keyboard Â· Swipe down to repeat'
-        : 'Swipe up to hear the explanation Â· Swipe down to repeat';
+        ? 'Swipe up to practise with the Braille keyboard · Swipe down to repeat'
+        : 'Swipe up to hear the explanation · Swipe down to repeat';
     return Padding(
       padding: const EdgeInsets.only(bottom: 48),
       child: Semantics(
@@ -2551,7 +2551,7 @@ class _BrailleKeyboardState extends State<BrailleKeyboard> {
                                       '$message Current selection: $spokenDotLabel. Pattern $pattern. Swipe left, right, up, or down here to check this cell. ${widget.statusMessage ?? ''}',
                                   child: ExcludeSemantics(
                                     child: Text(
-                                      '$message  â€¢  Dots: $dotLabel  â€¢  $pattern\nSwipe left, right, up, or down here to check',
+                                      '$message  •  Dots: $dotLabel  •  $pattern\nSwipe left, right, up, or down here to check',
                                       maxLines: 3,
                                       overflow: TextOverflow.ellipsis,
                                       style: const TextStyle(
@@ -3140,7 +3140,7 @@ class _WordChapterScreenState extends State<WordChapterScreen> {
                   label:
                       '${lesson.title}. Word ${wordIndex + 1} of ${lesson.words.length}. $completed completed.',
                   child: Text(
-                    '${lesson.title}  Â·  Word ${wordIndex + 1} of ${lesson.words.length}',
+                    '${lesson.title}  ·  Word ${wordIndex + 1} of ${lesson.words.length}',
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20,
