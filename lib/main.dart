@@ -1,4 +1,5 @@
-﻿import 'package:flutter/material.dart';
+﻿import 'theme/app_theme.dart';
+import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:flutter/semantics.dart';
@@ -39,15 +40,7 @@ class ResonantApp extends StatelessWidget {
     return MaterialApp(
       title: 'Resonant',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        brightness: Brightness.dark,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF2468D9),
-          brightness: Brightness.dark,
-        ),
-        scaffoldBackgroundColor: const Color(0xFF202124),
-      ),
+      theme: buildAppTheme(),
       home: const _RoleGateRoot(),
     );
   }
@@ -1334,7 +1327,7 @@ class _ResonantHomeState extends State<ResonantHome> {
     showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
-      backgroundColor: const Color(0xFF202124),
+      backgroundColor: AppColors.background,
       builder: (sheetContext) => SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -1373,8 +1366,8 @@ class _ResonantHomeState extends State<ResonantHome> {
                         child: FilledButton(
                           style: FilledButton.styleFrom(
                             backgroundColor: selectedLanguage == lang
-                                ? const Color(0xFF2468D9)
-                                : const Color(0xFF303134),
+                                ? AppColors.primary
+                                : AppColors.surface,
                             minimumSize: const Size(0, 52),
                           ),
                           onPressed: () {
@@ -1422,7 +1415,7 @@ class _ResonantHomeState extends State<ResonantHome> {
                               color: completedLessonQuestions.contains(
                                     ch.exercises[exIdx].id,
                                   )
-                                  ? const Color(0xFF9FE0B5)
+                                  ? AppColors.success
                                   : Colors.white54,
                             ),
                             title: Text(
@@ -1582,7 +1575,7 @@ class _ResonantHomeState extends State<ResonantHome> {
     final brand = Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const Icon(Icons.circle, color: Color(0xFF65A1FF), size: 13),
+        const Icon(Icons.circle, color: AppColors.accent, size: 13),
         const SizedBox(width: 8),
         const Text(
           'RESONANT',
@@ -1646,7 +1639,7 @@ class _ResonantHomeState extends State<ResonantHome> {
                             child: Text(
                               'Swipe up here to talk',
                               textAlign: TextAlign.end,
-                              style: TextStyle(color: Color(0xFFB8D1FF)),
+                              style: TextStyle(color: AppColors.primaryTint),
                             ),
                           ),
                         ],
@@ -1890,7 +1883,7 @@ class _ResonantHomeState extends State<ResonantHome> {
                 children: [
                   const Icon(
                     Icons.menu_book,
-                    color: Color(0xFF65A1FF),
+                    color: AppColors.accent,
                     size: 36,
                   ),
                   const SizedBox(height: 6),
@@ -1915,7 +1908,7 @@ class _ResonantHomeState extends State<ResonantHome> {
                   Text(
                     'Exercise ${lessonItem + 1} of ${currentChapter.exercises.length}. '
                     '${completedLessonQuestions.length} completed this session.',
-                    style: const TextStyle(color: Color(0xFFB8D1FF)),
+                    style: const TextStyle(color: AppColors.primaryTint),
                   ),
                   const SizedBox(height: 12),
                   Text(
@@ -1940,9 +1933,9 @@ class _ResonantHomeState extends State<ResonantHome> {
                           style: OutlinedButton.styleFrom(
                             foregroundColor: selectedLessonAnswer == option
                                 ? Colors.white
-                                : const Color(0xFFB8D1FF),
+                                : AppColors.primaryTint,
                             backgroundColor: selectedLessonAnswer == option
-                                ? const Color(0xFF2468D9)
+                                ? AppColors.primary
                                 : Colors.transparent,
                             minimumSize: const Size(104, 48),
                           ),
@@ -1959,8 +1952,8 @@ class _ResonantHomeState extends State<ResonantHome> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: lessonAnswerCorrect
-                              ? const Color(0xFF9FE0B5)
-                              : const Color(0xFFFFD18A),
+                              ? AppColors.success
+                              : AppColors.warning,
                         ),
                       ),
                     ),
@@ -2415,13 +2408,13 @@ class _BrailleKeyboardState extends State<BrailleKeyboard> {
                                 shape: const CircleBorder(),
                                 padding: EdgeInsets.zero,
                                 backgroundColor: selectedDots.contains(dot)
-                                    ? const Color(0xFF2468D9)
+                                    ? AppColors.primary
                                     : Colors.white,
                                 foregroundColor: selectedDots.contains(dot)
                                     ? Colors.white
-                                    : const Color(0xFF2468D9),
+                                    : AppColors.primary,
                                 side: const BorderSide(
-                                  color: Color(0xFF8CB5FF),
+                                  color: AppColors.accent,
                                   width: 2,
                                 ),
                               ),
@@ -2455,9 +2448,9 @@ class _BrailleKeyboardState extends State<BrailleKeyboard> {
       height: diameter,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: active || selected ? const Color(0xFF2468D9) : Colors.white,
+        color: active || selected ? AppColors.primary : Colors.white,
         shape: BoxShape.circle,
-        border: Border.all(color: const Color(0xFF8CB5FF), width: 2),
+        border: Border.all(color: AppColors.accent, width: 2),
         boxShadow: const [
           BoxShadow(color: Colors.black26, blurRadius: 5, offset: Offset(0, 2)),
         ],
@@ -2467,7 +2460,7 @@ class _BrailleKeyboardState extends State<BrailleKeyboard> {
         style: TextStyle(
           fontSize: diameter * 0.43,
           fontWeight: FontWeight.bold,
-          color: active || selected ? Colors.white : const Color(0xFF2468D9),
+          color: active || selected ? Colors.white : AppColors.primary,
         ),
       ),
     );
@@ -2487,7 +2480,7 @@ class _BrailleKeyboardState extends State<BrailleKeyboard> {
         final diameter = (keyboardHeight * 0.28).clamp(48.0, 104.0).toDouble();
 
         return Container(
-          color: const Color(0xFF080A1B),
+          color: AppColors.keyboardBackdrop,
           child: Column(
             children: [
               Expanded(
@@ -2562,7 +2555,7 @@ class _BrailleKeyboardState extends State<BrailleKeyboard> {
                                       maxLines: 3,
                                       overflow: TextOverflow.ellipsis,
                                       style: const TextStyle(
-                                        color: Color(0xFFB8D1FF),
+                                        color: AppColors.primaryTint,
                                         fontSize: 12,
                                       ),
                                     ),
@@ -2606,7 +2599,7 @@ class _BrailleKeyboardState extends State<BrailleKeyboard> {
                                       child: Text(
                                         'Swipe up here to talk',
                                         style: TextStyle(
-                                          color: Color(0xFFB8D1FF),
+                                          color: AppColors.primaryTint,
                                           fontSize: 12,
                                         ),
                                       ),
@@ -3158,7 +3151,7 @@ class _WordChapterScreenState extends State<WordChapterScreen> {
               ),
               Text(
                 '$completed/${lesson.words.length} complete',
-                style: const TextStyle(color: Color(0xFFB8D1FF)),
+                style: const TextStyle(color: AppColors.primaryTint),
               ),
               IconButton(
                 tooltip: 'Repeat current lesson prompt',
@@ -3173,7 +3166,7 @@ class _WordChapterScreenState extends State<WordChapterScreen> {
           child: Text(
             lesson.description,
             textAlign: TextAlign.center,
-            style: const TextStyle(color: Color(0xFFB8D1FF)),
+            style: const TextStyle(color: AppColors.primaryTint),
           ),
         ),
         Expanded(
@@ -3349,7 +3342,7 @@ class _BrailleCellSymbol extends StatelessWidget {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: cell & (1 << (dot - 1)) != 0
-                            ? const Color(0xFF65A1FF)
+                            ? AppColors.accent
                             : Colors.white24,
                       ),
                     ),

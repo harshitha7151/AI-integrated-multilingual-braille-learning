@@ -1,3 +1,4 @@
+import '../theme/app_theme.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -116,7 +117,7 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF202124),
+      backgroundColor: AppColors.background,
       body: SafeArea(
         child: Column(
           children: [
@@ -132,7 +133,7 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
                     child: ElevatedButton(
                       key: const ValueKey('teacher-button'),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF2468D9),
+                        backgroundColor: AppColors.primary,
                         foregroundColor: Colors.white,
                         minimumSize: const Size(240, 96),
                         shape: RoundedRectangleBorder(
@@ -152,7 +153,7 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
             ),
 
             // ── Divider ────────────────────────────────────────────────
-            const Divider(color: Color(0xFF5F6368), thickness: 1, height: 1),
+            const Divider(color: AppColors.outline, thickness: 1, height: 1),
 
             // ── Bottom: Learner swipe zone (60 % height) ───────────────
             Expanded(
@@ -177,14 +178,14 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
                       children: [
                         const Icon(
                           Icons.keyboard_arrow_up,
-                          color: Color(0xFF8AB4F8),
+                          color: AppColors.accent,
                           size: 56,
                         ),
                         const SizedBox(height: 12),
                         const Text(
                           'Swipe up — I am a Learner',
                           style: TextStyle(
-                            color: Color(0xFFE8EAED),
+                            color: AppColors.textPrimary,
                             fontSize: 24,
                             fontWeight: FontWeight.w600,
                           ),
@@ -194,7 +195,7 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
                         Text(
                           _prompt,
                           style: const TextStyle(
-                            color: Color(0xFF9AA0A6),
+                            color: AppColors.textMuted,
                             fontSize: 14,
                           ),
                           textAlign: TextAlign.center,
@@ -280,7 +281,7 @@ class _RoleGateState extends State<RoleGate> {
   @override
   Widget build(BuildContext context) {
     if (_loading) {
-      return const Scaffold(backgroundColor: Color(0xFF202124));
+      return const Scaffold(backgroundColor: AppColors.background);
     }
     if (_role == null) {
       return RoleSelectionPage(

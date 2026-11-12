@@ -39,6 +39,7 @@ dependencies:
   path_provider: ^2.1.5
   http: ^1.6.0
   speech_to_text: ^7.4.0
+  file: ^7.0.1
 
 dev_dependencies:
   flutter_test:

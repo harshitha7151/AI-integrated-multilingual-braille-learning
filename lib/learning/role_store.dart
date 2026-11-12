@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:file/memory.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:path_provider/path_provider.dart';
 
 /// The two selectable roles in Resonant.
@@ -25,6 +27,8 @@ class RoleStore implements RoleStorage {
   RoleStore(this.file);
 
   static Future<RoleStore> forApplication() async {
+    // Browsers have no filesystem: keep state in memory for the session.
+    if (kIsWeb) return RoleStore(MemoryFileSystem().file('/role.json'));
     final directory = await getApplicationDocumentsDirectory();
     return RoleStore(
       File('${directory.path}${Platform.pathSeparator}role.json'),
