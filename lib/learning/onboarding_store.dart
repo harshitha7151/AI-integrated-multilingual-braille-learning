@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:file/memory.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:path_provider/path_provider.dart';
 
 abstract interface class OnboardingProgress {
@@ -18,6 +20,8 @@ class OnboardingStore implements OnboardingProgress {
   OnboardingStore(this.file);
 
   static Future<OnboardingStore> forApplication() async {
+    // Browsers have no filesystem: keep state in memory for the session.
+    if (kIsWeb) return OnboardingStore(MemoryFileSystem().file('/onboarding.json'));
     final directory = await getApplicationDocumentsDirectory();
     return OnboardingStore(
       File('${directory.path}${Platform.pathSeparator}onboarding.json'),

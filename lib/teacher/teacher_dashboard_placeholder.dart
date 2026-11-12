@@ -1,3 +1,4 @@
+import '../theme/app_theme.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -78,7 +79,7 @@ class _TeacherDashboardBodyState extends State<_TeacherDashboardBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: const ValueKey('teacher-dashboard'),
-      backgroundColor: const Color(0xFF202124),
+      backgroundColor: AppColors.background,
       body: SafeArea(
         child: Semantics(
           label: 'Teacher dashboard. Coming soon.',
@@ -94,7 +95,7 @@ class _TeacherDashboardBodyState extends State<_TeacherDashboardBody> {
                       'Teacher Dashboard',
                       key: ValueKey('teacher-dashboard-title'),
                       style: TextStyle(
-                        color: Color(0xFFE8EAED),
+                        color: AppColors.textPrimary,
                         fontSize: 32,
                         fontWeight: FontWeight.bold,
                       ),
@@ -104,7 +105,7 @@ class _TeacherDashboardBodyState extends State<_TeacherDashboardBody> {
                   const SizedBox(height: 20),
                   const Text(
                     'Teacher dashboard coming soon.',
-                    style: TextStyle(color: Color(0xFF9AA0A6), fontSize: 18),
+                    style: TextStyle(color: AppColors.textMuted, fontSize: 18),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 48),
@@ -114,7 +115,7 @@ class _TeacherDashboardBodyState extends State<_TeacherDashboardBody> {
                     child: ElevatedButton.icon(
                       key: const ValueKey('switch-role-button'),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF5F6368),
+                        backgroundColor: AppColors.outline,
                         foregroundColor: Colors.white,
                         minimumSize: const Size(220, 72),
                         shape: RoundedRectangleBorder(

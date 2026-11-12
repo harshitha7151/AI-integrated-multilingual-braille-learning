@@ -1,7 +1,9 @@
-﻿import 'dart:convert';
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:file/memory.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:path_provider/path_provider.dart';
 
 typedef JsonMap = Map<String, dynamic>;
@@ -14,9 +16,11 @@ class LessonProgressStore {
   LessonProgressStore(this.file);
 
   File get _resumeFile =>
-      File('${file.parent.path}${Platform.pathSeparator}resume-state.json');
+      File('${file.parent.path}/resume-state.json');
 
   static Future<LessonProgressStore> forApplication() async {
+    // Browsers have no filesystem: keep state in memory for the session.
+    if (kIsWeb) return LessonProgressStore(MemoryFileSystem().file('/lesson-progress.json'));
     final directory = await getApplicationDocumentsDirectory();
     return LessonProgressStore(
       File('${directory.path}${Platform.pathSeparator}lesson-progress.json'),

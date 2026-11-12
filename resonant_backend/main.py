@@ -4,6 +4,7 @@ from typing import Literal
 from uuid import UUID
 
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 import requests
 from psycopg.errors import ForeignKeyViolation
@@ -36,6 +37,15 @@ from knowledge_base import (
 
 
 app = FastAPI(title="Resonant AI Braille Tutor")
+
+# Development CORS so the Flutter web build opened from a phone can call the API.
+# Restrict RESONANT_CORS_ORIGINS (comma-separated) before any real deployment.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[o.strip() for o in os.getenv("RESONANT_CORS_ORIGINS", "*").split(",")],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 OLLAMA_BASE_URL = os.getenv("RESONANT_OLLAMA_URL", "http://localhost:11434").rstrip("/")
 OLLAMA_URL = f"{OLLAMA_BASE_URL}/api/chat"
