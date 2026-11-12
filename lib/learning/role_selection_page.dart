@@ -10,8 +10,8 @@ import 'role_store.dart';
 /// Full-screen role-selection shown before any other app content.
 ///
 /// Behaviour:
-/// - TTS speaks the prompt immediately and repeats every ~10 s until a choice
-///   is made (via [onSpeak]/[onStop] callbacks, matching [WelcomeOnboarding]).
+/// - TTS speaks the prompt immediately and repeats up to twice (every 20 s) until a
+///   choice is made (via [onSpeak]/[onStop] callbacks, matching [WelcomeOnboarding]).
 /// - Swipe up anywhere on the learner zone → learner.
 /// - Tap the Teacher button → teacher.
 /// - Voice "learner" / "i am a learner" or "teacher" / "i am a teacher" →
@@ -59,7 +59,13 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
   void initState() {
     super.initState();
     _speakPrompt();
-    _repeatTimer = Timer.periodic(const Duration(seconds: 10), (_) {
+    // Repeat the prompt a couple of times only, then stay quiet.
+    var repeats = 0;
+    _repeatTimer = Timer.periodic(const Duration(seconds: 20), (timer) {
+      if (++repeats > 2) {
+        timer.cancel();
+        return;
+      }
       _speakPrompt();
     });
     _voiceSub = widget.voiceInputStream?.listen(_handleVoice);
@@ -167,40 +173,44 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
                   label: 'Learner area. Swipe up to continue as a learner.',
                   hint: 'Swipe up anywhere in this area.',
                   customSemanticsActions: {
-                    const CustomSemanticsAction(label: 'I am a learner'):
-                        () => _choose(AppRole.learner),
+                    const CustomSemanticsAction(label: 'I am a learner'): () =>
+                        _choose(AppRole.learner),
                   },
-                  child: Container(
-                    width: double.infinity,
-                    color: Colors.transparent,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Icon(
-                          Icons.keyboard_arrow_up,
-                          color: AppColors.accent,
-                          size: 56,
-                        ),
-                        const SizedBox(height: 12),
-                        const Text(
-                          'Swipe up — I am a Learner',
-                          style: TextStyle(
-                            color: AppColors.textPrimary,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600,
+                  child: GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: () => _choose(AppRole.learner),
+                    child: Container(
+                      width: double.infinity,
+                      color: Colors.transparent,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(
+                            Icons.keyboard_arrow_up,
+                            color: AppColors.accent,
+                            size: 56,
                           ),
-                          textAlign: TextAlign.center,
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          _prompt,
-                          style: const TextStyle(
-                            color: AppColors.textMuted,
-                            fontSize: 14,
+                          const SizedBox(height: 12),
+                          const Text(
+                            'Swipe up or tap — I am a Learner',
+                            style: TextStyle(
+                              color: AppColors.textPrimary,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w600,
+                            ),
+                            textAlign: TextAlign.center,
                           ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
+                          const SizedBox(height: 8),
+                          Text(
+                            _prompt,
+                            style: const TextStyle(
+                              color: AppColors.textMuted,
+                              fontSize: 14,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -297,4 +307,3 @@ class _RoleGateState extends State<RoleGate> {
     return widget.learnerHome;
   }
 }
-
