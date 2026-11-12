@@ -1,3 +1,4 @@
+import '../core/braille/braille_dispatcher.dart';
 import '../core/braille/english_grade1_engine.dart';
 
 class LessonExercise {
@@ -162,6 +163,31 @@ class LessonCatalog {
     'Z',
   ];
 
+  static const List<String> hindiCharacters = [
+    'अ', 'आ', 'इ', 'ई', 'उ', 'ऊ', 'ए', 'ऐ', 'ओ', 'औ',
+    'क', 'ख', 'ग', 'घ', 'च', 'छ', 'ज', 'झ', 'ट', 'ठ',
+    'ड', 'ढ', 'ण', 'त', 'थ', 'द', 'ध', 'न', 'प', 'फ',
+    'ब', 'भ', 'म', 'य', 'र', 'ल', 'व', 'श', 'ष', 'स', 'ह',
+  ];
+
+  static const List<String> kannadaCharacters = [
+    'ಅ', 'ಆ', 'ಇ', 'ಈ', 'ಉ', 'ಊ', 'ಎ', 'ಏ', 'ಐ', 'ಒ', 'ಓ', 'ಔ',
+    'ಕ', 'ಖ', 'ಗ', 'ಘ', 'ಚ', 'ಛ', 'ಜ', 'ಝ', 'ಟ', 'ಠ',
+    'ಡ', 'ಢ', 'ಣ', 'ತ', 'ಥ', 'ದ', 'ಧ', 'ನ', 'ಪ', 'ಫ',
+    'ಬ', 'ಭ', 'ಮ', 'ಯ', 'ರ', 'ಲ', 'ವ', 'ಶ', 'ಷ', 'ಸ', 'ಹ', 'ಳ',
+  ];
+
+  static List<LessonChapter> chaptersFor(AppLanguage lang) {
+    switch (lang) {
+      case AppLanguage.english:
+        return english;
+      case AppLanguage.hindi:
+        return hindi;
+      case AppLanguage.kannada:
+        return kannada;
+    }
+  }
+
   static bool wordUsesOnly(String word, String allowedLetters) =>
       word.isNotEmpty &&
       word.toLowerCase().split('').every(allowedLetters.contains);
@@ -242,6 +268,108 @@ class LessonCatalog {
     ),
   ];
 
+  static final List<LessonChapter> hindi = [
+    LessonChapter(
+      title: 'अध्याय 1: ब्रेल परिचय (Braille Basics)',
+      exercises: [
+        LessonExercise(
+          id: 'hi-dot-top-left',
+          skillId: 'hi-dot-position-1',
+          exerciseType: 'dot_recognition',
+          prompt: 'बाएं कॉलम में सबसे ऊपर कौन सा बिंदु होता है?',
+          options: ['बिंदु 1', 'बिंदु 2', 'बिंदु 4', 'बिंदु 5'],
+          answer: 'बिंदु 1',
+          hint: 'मानक ब्रेल सेल में बाएं कॉलम में ऊपर से नीचे बिंदु 1, 2, 3 होते हैं।',
+          explanation: 'बिंदु 1 बाएं कॉलम में सबसे ऊपर होता है।',
+        ),
+        LessonExercise(
+          id: 'hi-dot-top-right',
+          skillId: 'hi-dot-position-4',
+          exerciseType: 'dot_recognition',
+          prompt: 'दाएं कॉलम में सबसे ऊपर कौन सा बिंदु होता है?',
+          options: ['बिंदु 1', 'बिंदु 3', 'बिंदु 4', 'बिंदु 6'],
+          answer: 'बिंदु 4',
+          hint: 'दाएं कॉलम में ऊपर से नीचे बिंदु 4, 5, 6 होते हैं।',
+          explanation: 'बिंदु 4 दाएं कॉलम में सबसे ऊपर होता है।',
+        ),
+      ],
+    ),
+    LessonChapter(
+      title: 'अध्याय 2: हिंदी वर्णमाला (भारती ब्रेल)',
+      exercises: [
+        for (final ch in hindiCharacters)
+          _vernacularExercise(ch, AppLanguage.hindi),
+      ],
+    ),
+    LessonChapter(
+      title: 'अध्याय 3: सरल हिंदी शब्द',
+      exercises: [
+        for (final word in ['अब', 'कमल', 'जल', 'घर', 'मन'])
+          LessonExercise(
+            id: 'hi-word-$word',
+            skillId: 'hi-word-$word',
+            exerciseType: 'word_transcription',
+            prompt: 'शब्द "$word" के भारती ब्रेल बिंदु लिखें।',
+            options: [word, 'अब', 'कमल', 'जल'],
+            answer: word,
+            hint: 'प्रत्येक अक्षर के भारती ब्रेल बिंदु क्रम से दर्ज करें।',
+            explanation: 'शब्द $word भारती ब्रेल में अक्षर दर अक्षर लिखा जाता है।',
+          ),
+      ],
+    ),
+  ];
+
+  static final List<LessonChapter> kannada = [
+    LessonChapter(
+      title: 'ಅಧ್ಯಾಯ 1: ಬ್ರೈಲ್ ಪರಿಚಯ (Braille Basics)',
+      exercises: [
+        LessonExercise(
+          id: 'kn-dot-top-left',
+          skillId: 'kn-dot-position-1',
+          exerciseType: 'dot_recognition',
+          prompt: 'ಎಡ ಕಾಲಂನ ಮೇಲ್ಭಾಗದಲ್ಲಿ ಯಾವ ಚುಕ್ಕೆ ಇರುತ್ತದೆ?',
+          options: ['ಚುಕ್ಕೆ 1', 'ಚುಕ್ಕೆ 2', 'ಚುಕ್ಕೆ 4', 'ಚುಕ್ಕೆ 5'],
+          answer: 'ಚುಕ್ಕೆ 1',
+          hint: 'ಎಡ ಕಾಲಂನಲ್ಲಿ ಮೇಲಿನಿಂದ ಕೆಳಗೆ 1, 2, 3 ಚುಕ್ಕೆಗಳಿರುತ್ತವೆ.',
+          explanation: 'ಚುಕ್ಕೆ 1 ಎಡ ಕಾಲಂನ ಮೇಲ್ಭಾಗದಲ್ಲಿದೆ.',
+        ),
+        LessonExercise(
+          id: 'kn-dot-top-right',
+          skillId: 'kn-dot-position-4',
+          exerciseType: 'dot_recognition',
+          prompt: 'ಬಲ ಕಾಲಂನ ಮೇಲ್ಭಾಗದಲ್ಲಿ ಯಾವ ಚುಕ್ಕೆ ಇರುತ್ತದೆ?',
+          options: ['ಚುಕ್ಕೆ 1', 'ಚುಕ್ಕೆ 3', 'ಚುಕ್ಕೆ 4', 'ಚುಕ್ಕೆ 6'],
+          answer: 'ಚುಕ್ಕೆ 4',
+          hint: 'ಬಲ ಕಾಲಂನಲ್ಲಿ ಮೇಲಿನಿಂದ ಕೆಳಗೆ 4, 5, 6 ಚುಕ್ಕೆಗಳಿರುತ್ತವೆ.',
+          explanation: 'ಚುಕ್ಕೆ 4 ಬಲ ಕಾಲಂನ ಮೇಲ್ಭಾಗದಲ್ಲಿದೆ.',
+        ),
+      ],
+    ),
+    LessonChapter(
+      title: 'ಅಧ್ಯಾಯ 2: ಕನ್ನಡ ವರ್ಣಮಾಲೆ (ಭಾರತಿ ಬ್ರೈಲ್)',
+      exercises: [
+        for (final ch in kannadaCharacters)
+          _vernacularExercise(ch, AppLanguage.kannada),
+      ],
+    ),
+    LessonChapter(
+      title: 'ಅಧ್ಯಾಯ 3: ಸರಳ ಕನ್ನಡ ಪದಗಳು',
+      exercises: [
+        for (final word in ['ಅಮ್ಮ', 'ಕಮಲ', 'ಮನೆ', 'ಜಲ', 'ನಮನ'])
+          LessonExercise(
+            id: 'kn-word-$word',
+            skillId: 'kn-word-$word',
+            exerciseType: 'word_transcription',
+            prompt: '"$word" ಪದದ ಭಾರತಿ ಬ್ರೈಲ್ ಚುಕ್ಕೆಗಳನ್ನು ಬರೆಯಿರಿ.',
+            options: [word, 'ಅಮ್ಮ', 'ಕಮಲ', 'ಮನೆ'],
+            answer: word,
+            hint: 'ಪ್ರತಿ ಅಕ್ಷರದ ಭಾರತಿ ಬ್ರೈಲ್ ಚುಕ್ಕೆಗಳನ್ನು ಕ್ರಮವಾಗಿ ನಮೂದಿಸಿ.',
+            explanation: '$word ಪದವನ್ನು ಭಾರತಿ ಬ್ರೈಲ್‌ನಲ್ಲಿ ಅಕ್ಷರಗಳಾಗಿ ಬರೆಯಲಾಗುತ್ತದೆ.',
+          ),
+      ],
+    ),
+  ];
+
   static LessonExercise _letterExercise(String letter) {
     final dots = EnglishGrade1Engine.dotsForCell(
       EnglishGrade1Engine.encode(letter.toLowerCase()).single,
@@ -265,6 +393,32 @@ class LessonCatalog {
           'Explore the active dots in the lesson explanation, then choose the matching letter.',
       explanation:
           '${dots.length == 1 ? 'Dot' : 'Dots'} ${dots.join(', ')} ${dots.length == 1 ? 'is' : 'are'} the uncontracted letter $answer.',
+    );
+  }
+
+  static LessonExercise _vernacularExercise(String char, AppLanguage lang) {
+    final masks = BrailleDispatcher.encodeToBitmasks(char, lang);
+    final dots = BrailleDispatcher.dotsForBitmask(masks.first);
+    final isHindi = lang == AppLanguage.hindi;
+    final pool = isHindi ? hindiCharacters : kannadaCharacters;
+    return LessonExercise(
+      id: '${lang.code}-char-$char',
+      skillId: '${lang.code}-bharati-$char',
+      exerciseType: 'letter_recognition',
+      prompt: isHindi
+          ? 'भारती ब्रेल में बिंदु ${dots.join(', ')} किस अक्षर के लिए हैं?'
+          : 'ಭಾರತಿ ಬ್ರೈಲ್‌ನಲ್ಲಿ ಚುಕ್ಕೆಗಳು ${dots.join(', ')} ಯಾವ ಅಕ್ಷರವನ್ನು ಸೂಚಿಸುತ್ತವೆ?',
+      options: [
+        char,
+        ...pool.where((item) => item != char).take(3),
+      ],
+      answer: char,
+      hint: isHindi
+          ? 'अक्षर $char के लिए बिंदु ${dots.join(', ')} दबाएं।'
+          : '$char ಅಕ್ಷರಕ್ಕಾಗಿ ಚುಕ್ಕೆಗಳು ${dots.join(', ')} ಒತ್ತಿರಿ.',
+      explanation: isHindi
+          ? 'अक्षर $char के लिए भारती ब्रेल बिंदु ${dots.join(', ')} हैं।'
+          : '$char ಅಕ್ಷರಕ್ಕೆ ಭಾರತಿ ಬ್ರೈಲ್ ಚುಕ್ಕೆಗಳು ${dots.join(', ')} ಆಗಿವೆ.',
     );
   }
 }
