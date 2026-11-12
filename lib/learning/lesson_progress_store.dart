@@ -1,16 +1,20 @@
-import 'dart:convert';
+﻿import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
 import 'package:path_provider/path_provider.dart';
 
-/// Small durable offline event log. Events stay pending until a future sync
-/// client acknowledges their idempotent submission IDs.
+typedef JsonMap = Map<String, dynamic>;
+
+/// Small durable offline event log and resume state store.
 class LessonProgressStore {
   final File file;
   Future<void> _writes = Future<void>.value();
 
   LessonProgressStore(this.file);
+
+  File get _resumeFile =>
+      File('${file.parent.path}${Platform.pathSeparator}resume-state.json');
 
   static Future<LessonProgressStore> forApplication() async {
     final directory = await getApplicationDocumentsDirectory();
@@ -19,7 +23,38 @@ class LessonProgressStore {
     );
   }
 
-  Future<List<Map<String, dynamic>>> readEvents() async {
+  Future<JsonMap> readResumeState() async {
+    if (file.path.startsWith('unused-') || !await _resumeFile.exists()) return {};
+    try {
+      final decoded = jsonDecode(await _resumeFile.readAsString());
+      return decoded is Map ? JsonMap.from(decoded) : {};
+    } catch (_) {
+      return {};
+    }
+  }
+
+  Future<void> saveResumeState({
+    required String languageCode,
+    required int chapter,
+    required int lessonItem,
+    required int wordLessonIndex,
+  }) async {
+    if (file.path.startsWith('unused-')) return;     await file.parent.create(recursive: true);     final temporary = File('${_resumeFile.path}.tmp');
+    await temporary.writeAsString(
+      jsonEncode({
+        'language': languageCode,
+        'chapter': chapter,
+        'lesson_item': lessonItem,
+        'word_lesson_index': wordLessonIndex,
+        'updated_at': DateTime.now().toUtc().toIso8601String(),
+      }),
+      flush: true,
+    );
+    if (await _resumeFile.exists()) await _resumeFile.delete();
+    await temporary.rename(_resumeFile.path);
+  }
+
+  Future<List<JsonMap>> readEvents() async {
     final temporary = File('${file.path}.tmp');
     final source = await file.exists() ? file : temporary;
     if (!await source.exists()) return [];
@@ -28,8 +63,8 @@ class LessonProgressStore {
       throw const FormatException('Invalid lesson progress file.');
     }
     return decoded
-        .whereType<Map>()
-        .map((event) => Map<String, dynamic>.from(event))
+        .whereType()
+        .map((event) => JsonMap.from(event))
         .toList();
   }
 
@@ -49,7 +84,11 @@ class LessonProgressStore {
         'submission_id': _newId(),
         'exercise_id': exerciseId,
         'skill_id': skillId,
-        'language': 'English',
+        'language': exerciseId.startsWith('hi-')
+            ? 'Hindi'
+            : exerciseId.startsWith('kn-')
+            ? 'Kannada'
+            : 'English',
         'exercise_type': exerciseType,
         'outcome': correct ? 'correct' : 'incorrect',
         'response_time_ms': responseTimeMs,
@@ -80,3 +119,5 @@ class LessonProgressStore {
     return '${hex.substring(0, 8)}-${hex.substring(8, 12)}-${hex.substring(12, 16)}-${hex.substring(16, 20)}-${hex.substring(20)}';
   }
 }
+
+

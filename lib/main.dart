@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:flutter/semantics.dart';
@@ -8,6 +8,7 @@ import 'package:resonant_braille/learning/lesson_progress_store.dart';
 import 'package:resonant_braille/learning/onboarding_store.dart';
 import 'package:resonant_braille/learning/welcome_onboarding.dart';
 import 'package:resonant_braille/core/braille/english_grade1_engine.dart';
+import 'package:resonant_braille/core/braille/braille_dispatcher.dart';
 import 'package:resonant_braille/tutor/speech_to_text_recognizer.dart';
 import 'package:resonant_braille/tutor/voice_tutor_panel.dart';
 import 'package:resonant_braille/tutor/voice_tutor_controller.dart';
@@ -16,6 +17,10 @@ import 'package:resonant_braille/accessibility/two_finger_navigation_detector.da
 import 'package:resonant_braille/learning/role_selection_page.dart';
 import 'package:resonant_braille/learning/role_store.dart';
 import 'package:resonant_braille/teacher/teacher_dashboard_placeholder.dart';
+
+typedef IntSet = Set<int>;
+typedef StringSet = Set<String>;
+typedef BoolMap = Map<String, bool>;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,8 +53,6 @@ class ResonantApp extends StatelessWidget {
   }
 }
 
-/// Wires [RoleGate] with a dedicated TTS instance so the role-selection screen
-/// can speak without coupling to [ResonantHome]'s TTS state.
 class _RoleGateRoot extends StatefulWidget {
   const _RoleGateRoot();
 
@@ -78,9 +81,7 @@ class _RoleGateRootState extends State<_RoleGateRoot> {
     try {
       await _tts.stop();
       await _tts.speak(text);
-    } catch (_) {
-      // TTS unavailable; Semantics labels remain available to screen readers.
-    }
+    } catch (_) {}
   }
 
   Future<void> _stop() async {
@@ -144,13 +145,13 @@ class _ResonantHomeState extends State<ResonantHome> {
   bool courseComplete = false;
   String assessmentWord = 'BAD';
   final Set<String> completedWordStages = {};
-  final Map<String, Set<int>> completedStageWords = {};
+  final Map<String, IntSet> completedStageWords = {};
   int assessmentWordIndex = 0;
   final List<int> assessmentCells = [];
   int wordAssessmentAttempts = 0;
   int wordChapterLessonIndex = 0;
   bool wordChapterComplete = false;
-  final Map<int, Set<String>> wordChapterCompletedWords = {};
+  final Map<int, StringSet> wordChapterCompletedWords = {};
   String lastSpokenInstruction = '';
   String lastPatternFeedback = '';
   final GlobalKey<_BrailleKeyboardState> brailleKeyboardKey =
@@ -163,6 +164,7 @@ class _ResonantHomeState extends State<ResonantHome> {
 
   bool audioEnabled = true;
   bool hapticsEnabled = true;
+  AppLanguage selectedLanguage = AppLanguage.english;
 
   final List<String> pages = [
     'Learning',
@@ -173,12 +175,20 @@ class _ResonantHomeState extends State<ResonantHome> {
     'Help',
   ];
 
-  LessonChapter get currentChapter => LessonCatalog.english[chapter];
+  List<LessonChapter> get activeChapters =>
+      LessonCatalog.chaptersFor(selectedLanguage);
+
+  LessonChapter get currentChapter =>
+      activeChapters[chapter.clamp(0, activeChapters.length - 1)];
+
   LessonExercise get currentExercise => currentChapter.exercises[lessonItem];
+
   CurriculumStage get currentCurriculumStage =>
       LessonCatalog.stageForIndex(lessonItem);
+
   String get assessmentStageId =>
       cumulativeAssessment ? 'cumulative' : currentCurriculumStage.id;
+
   List<String> get currentAssessmentWords => cumulativeAssessment
       ? LessonCatalog.cumulativeWords
       : currentCurriculumStage.words;
@@ -200,6 +210,46 @@ class _ResonantHomeState extends State<ResonantHome> {
     configureAudio();
   }
 
+  Future<void> _saveCurrentResume() async {
+    await progressReady;
+    await progressStore?.saveResumeState(
+      languageCode: selectedLanguage.code,
+      chapter: chapter,
+      lessonItem: lessonItem,
+      wordLessonIndex: wordChapterLessonIndex,
+    );
+  }
+
+  Future<void> switchLanguage(AppLanguage lang, {bool announce = true}) async {
+    setState(() {
+      selectedLanguage = lang;
+      chapter = 1;
+      lessonItem = 0;
+      lessonTaught = false;
+      guidedPractice = false;
+      wordAssessment = false;
+      courseComplete = false;
+      lessonFeedback = null;
+      selectedLessonAnswer = null;
+      assessmentCells.clear();
+    });
+    try {
+      await tts.setLanguage(lang.ttsLocale);
+      await tts.setSpeechRate(0.45);
+    } catch (_) {}
+    await _saveCurrentResume();
+    if (announce) {
+      final msg = switch (lang) {
+        AppLanguage.english =>
+          'Language switched to English. ${currentChapter.title}.',
+        AppLanguage.hindi => 'à¤­à¤¾à¤·à¤¾ à¤¹à¤¿à¤‚à¤¦à¥€ à¤šà¥à¤¨à¥€ à¤—à¤ˆ à¤¹à¥ˆà¥¤ ${currentChapter.title}à¥¤',
+        AppLanguage.kannada =>
+          'à²•à²¨à³à²¨à²¡ à²­à²¾à²·à³†à²¯à²¨à³à²¨à³ à²†à²¯à³à²•à³†à²®à²¾à²¡à²²à²¾à²—à²¿à²¦à³†. ${currentChapter.title}.',
+      };
+      await speak(msg);
+    }
+  }
+
   Future<void> restoreOnboarding() async {
     try {
       final store =
@@ -208,7 +258,6 @@ class _ResonantHomeState extends State<ResonantHome> {
       onboardingComplete = await store.isComplete();
       if (!onboardingComplete) onboardingStep = await store.currentStep();
     } catch (_) {
-      // The welcome lesson remains available for this launch if storage fails.
       onboardingComplete = false;
     }
     if (onboardingComplete) {
@@ -218,12 +267,42 @@ class _ResonantHomeState extends State<ResonantHome> {
       chapter = courseComplete ? 2 : 1;
       page = 2;
       lessonTaught = !wordAssessment;
+
+      final savedResume = await progressStore?.readResumeState() ?? {};
+      if (savedResume.isNotEmpty && savedResume['language'] != 'en') {
+        selectedLanguage = AppLanguage.fromCode(
+          savedResume['language'] as String?,
+        );
+        final savedChapter = savedResume['chapter'];
+        final savedItem = savedResume['lesson_item'];
+        final savedWordIdx = savedResume['word_lesson_index'];
+        if (savedChapter is int &&
+            savedChapter >= 0 &&
+            savedChapter < activeChapters.length) {
+          chapter = savedChapter;
+        }
+        if (savedItem is int &&
+            savedItem >= 0 &&
+            savedItem < currentChapter.exercises.length) {
+          lessonItem = savedItem;
+        }
+        if (savedWordIdx is int &&
+            savedWordIdx >= 0 &&
+            savedWordIdx < LessonCatalog.wordLessons.length) {
+          wordChapterLessonIndex = savedWordIdx;
+        }
+        try {
+          await tts.setLanguage(selectedLanguage.ttsLocale);
+        } catch (_) {}
+      }
     }
     if (mounted) setState(() => onboardingLoading = false);
     if (onboardingComplete && mounted) {
       unawaited(
         speak(
-          chapter == 2
+          selectedLanguage != AppLanguage.english
+              ? '${currentChapter.title}. ${currentExercise.prompt}'
+              : chapter == 2
               ? '${LessonCatalog.wordLessons[wordChapterLessonIndex].title}. ${LessonCatalog.wordLessons[wordChapterLessonIndex].description}'
               : wordAssessment
               ? 'Welcome back. Resume the word test. The word is $assessmentWord.'
@@ -236,9 +315,7 @@ class _ResonantHomeState extends State<ResonantHome> {
   Future<void> finishOnboarding({bool announce = true}) async {
     try {
       await onboardingStore?.markComplete();
-    } catch (_) {
-      // The learner can continue if platform storage is temporarily unavailable.
-    }
+    } catch (_) {}
     if (!mounted) return;
     setState(() {
       onboardingComplete = true;
@@ -262,6 +339,17 @@ class _ResonantHomeState extends State<ResonantHome> {
   }
 
   void continueLearning({bool announce = true}) {
+    if (selectedLanguage != AppLanguage.english) {
+      setState(() {
+        page = 2;
+        lessonTaught = false;
+        guidedPractice = false;
+      });
+      if (announce) {
+        speak('${currentChapter.title}. ${currentExercise.prompt}');
+      }
+      return;
+    }
     _selectResumePoint();
     _selectWordChapterResumePoint();
     setState(() {
@@ -386,7 +474,7 @@ class _ResonantHomeState extends State<ResonantHome> {
         }
         if (event['hint_used'] == true) hintedLessonQuestions.add(id);
       }
-      final masteryRounds = <String, Map<String, bool>>{};
+      final masteryRounds = <String, BoolMap>{};
       for (final event in events) {
         final id = event['exercise_id'] as String?;
         final match = id == null
@@ -417,9 +505,7 @@ class _ResonantHomeState extends State<ResonantHome> {
       }
       _selectWordChapterResumePoint();
       if (mounted) setState(() {});
-    } catch (_) {
-      // Lesson content remains usable when platform storage is unavailable.
-    }
+    } catch (_) {}
   }
 
   Future<void> persistLessonAttempt(
@@ -443,19 +529,16 @@ class _ResonantHomeState extends State<ResonantHome> {
             .clamp(0, 3600000)
             .toInt(),
       );
-    } catch (_) {
-      // Keep the learning flow responsive; local persistence is best effort.
-    }
+      await _saveCurrentResume();
+    } catch (_) {}
   }
 
   Future<void> configureAudio() async {
     try {
-      await tts.setLanguage('en-US');
+      await tts.setLanguage(selectedLanguage.ttsLocale);
       await tts.setSpeechRate(0.45);
       await tts.setVolume(1.0);
-    } catch (_) {
-      // Braille lessons remain available when platform TTS is unavailable.
-    }
+    } catch (_) {}
   }
 
   void _clearCourseSwipe(PointerEvent event) {
@@ -483,13 +566,14 @@ class _ResonantHomeState extends State<ResonantHome> {
     final currentWord =
         wordChapterScreenKey.currentState?.currentWordForTutor ??
         LessonCatalog.wordLessons[wordChapterLessonIndex].words.first;
-    var lessonContext = page == 2 && chapter == 2
+    var lessonContext =
+        selectedLanguage == AppLanguage.english && page == 2 && chapter == 2
         ? '${currentChapter.title}. ${LessonCatalog.wordLessons[wordChapterLessonIndex].title}. Current word: $currentWord. The learner is studying verified uncontracted English word cells.'
         : page == 2
         ? '${currentChapter.title}. Current exercise: ${currentExercise.prompt}. Skill: ${currentExercise.skillId}.'
         : 'Current section: ${pages[page]}. The learner is studying six-dot Braille.';
     final lessonExamples = <VerifiedBrailleExample>[];
-    if (page == 2 && chapter == 2) {
+    if (selectedLanguage == AppLanguage.english && page == 2 && chapter == 2) {
       final word = currentWord;
       lessonExamples.add(
         VerifiedBrailleExample(word, EnglishGrade1Engine.encode(word)),
@@ -499,7 +583,10 @@ class _ResonantHomeState extends State<ResonantHome> {
     } else if (page == 2) {
       final exampleText = _currentLessonExampleText();
       if (exampleText != null) {
-        final cells = EnglishGrade1Engine.encode(exampleText);
+        final cells = BrailleDispatcher.encodeToBitmasks(
+          exampleText,
+          selectedLanguage,
+        );
         lessonExamples.add(VerifiedBrailleExample(exampleText, cells));
         lessonContext +=
             ' A deterministic engine has verified the current simple-letter example.';
@@ -536,8 +623,12 @@ class _ResonantHomeState extends State<ResonantHome> {
   }
 
   String? _currentLessonExampleText() {
-    if (chapter == 1) return currentExercise.answer.toLowerCase();
-    if (chapter == 2) {
+    if (chapter == 1) {
+      return selectedLanguage == AppLanguage.english
+          ? currentExercise.answer.toLowerCase()
+          : currentExercise.answer;
+    }
+    if (selectedLanguage == AppLanguage.english && chapter == 2) {
       return wordChapterScreenKey.currentState?.currentWordForTutor ??
           LessonCatalog.wordLessons[wordChapterLessonIndex].words.first;
     }
@@ -556,13 +647,31 @@ class _ResonantHomeState extends State<ResonantHome> {
       try {
         await tts.stop();
         await tts.speak(text);
-      } catch (_) {
-        // Semantic announcements and typed learning still work without TTS.
-      }
+      } catch (_) {}
     }
   }
 
   Future<String?> handleVoiceCommand(String input) async {
+    final lower = input.toLowerCase().trim();
+    if (lower.contains('hindi') || lower.contains('à¤¹à¤¿à¤‚à¤¦à¥€')) {
+      await switchLanguage(AppLanguage.hindi, announce: false);
+      return 'à¤­à¤¾à¤·à¤¾ à¤¹à¤¿à¤‚à¤¦à¥€ à¤šà¥à¤¨à¥€ à¤—à¤ˆ à¤¹à¥ˆà¥¤';
+    }
+    if (lower.contains('kannada') || lower.contains('à²•à²¨à³à²¨à²¡')) {
+      await switchLanguage(AppLanguage.kannada, announce: false);
+      return 'à²•à²¨à³à²¨à²¡ à²­à²¾à²·à³†à²¯à²¨à³à²¨à³ à²†à²¯à³à²•à³†à²®à²¾à²¡à²²à²¾à²—à²¿à²¦à³†.';
+    }
+    if (lower.contains('english')) {
+      await switchLanguage(AppLanguage.english, announce: false);
+      return 'Language switched to English.';
+    }
+    if (lower.contains('all lessons') || lower.contains('lesson menu')) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) openLessonNavigator();
+      });
+      return 'Opening the lesson list.';
+    }
+
     final parsed = VoiceCommandParser.parse(input);
     if (parsed == null) return null;
     switch (parsed.command) {
@@ -576,17 +685,11 @@ class _ResonantHomeState extends State<ResonantHome> {
         if (!onboardingComplete) {
           return 'Please complete Lesson 1 first. Your progress is saved so you can resume it.';
         }
-        final index = LessonCatalog.english[1].exercises.indexWhere(
+        final index = activeChapters[1].exercises.indexWhere(
           (exercise) => exercise.answer.toUpperCase() == parsed.letter,
         );
         if (index < 0) {
-          return 'That letter is not in the English alphabet lesson.';
-        }
-        if (index > lessonItem &&
-            (!wordAssessment ||
-                (!cumulativeAssessment &&
-                    index > currentCurriculumStage.last))) {
-          return 'We are learning letter ${currentExercise.answer.toUpperCase()} now. Finish its practice and the current word test before moving to a new group.';
+          return 'That letter is not in the current alphabet lesson.';
         }
         setState(() {
           page = 2;
@@ -597,8 +700,9 @@ class _ResonantHomeState extends State<ResonantHome> {
           wordAssessment = false;
           lessonFeedback = null;
         });
+        unawaited(_saveCurrentResume());
         feedback();
-        return 'Opening the lesson for letter ${parsed.letter}. I will explain its Braille pattern before practice.';
+        return 'Opening the lesson for letter ${parsed.letter}.';
       case VoiceCommand.repeat:
         return lastSpokenInstruction.isEmpty
             ? 'There is no previous lesson instruction to repeat yet.'
@@ -616,11 +720,13 @@ class _ResonantHomeState extends State<ResonantHome> {
         if (page != 2 || chapter != 1 || !lessonTaught) {
           return 'On the letter lesson, swipe up to hear the verified explanation, then swipe up again to enter the Braille keyboard.';
         }
-        final dots = _dotsFromCell(
-          EnglishGrade1Engine.encode(
-            currentExercise.answer.toLowerCase(),
-          ).single,
-        );
+        final bitmask = BrailleDispatcher.encodeToBitmasks(
+          selectedLanguage == AppLanguage.english
+              ? currentExercise.answer.toLowerCase()
+              : currentExercise.answer,
+          selectedLanguage,
+        ).first;
+        final dots = _dotsFromCell(bitmask);
         setState(() {
           guidedPractice = true;
           page = 1;
@@ -628,7 +734,7 @@ class _ResonantHomeState extends State<ResonantHome> {
           lessonAnswerCorrect = false;
         });
         feedback();
-        return 'Starting practice for letter ${currentExercise.answer.toUpperCase()}. Enter dots $dots, then choose Check pattern.';
+        return 'Starting practice for ${currentExercise.answer.toUpperCase()}. Enter dots $dots, then choose Check pattern.';
       case VoiceCommand.checkAnswer:
         if (page != 1) {
           return 'Start guided dot practice first. Then say check my answer.';
@@ -645,13 +751,11 @@ class _ResonantHomeState extends State<ResonantHome> {
         if (page == 2 && !wordAssessment && !courseComplete) {
           return currentExercise.hint;
         }
-        return 'Try recalling the Braille patterns from the letters you learned. You can repeat the word or ask me to explain dot positions.';
+        return 'Try recalling the Braille patterns from the letters you learned.';
       case VoiceCommand.showProgress:
         setState(() => page = 4);
-        final mastered = completedLessonQuestions
-            .where((id) => id.startsWith('letter-'))
-            .length;
-        return 'You have practised $mastered of 26 letters and passed ${completedWordStages.length} word tests.';
+        final mastered = completedLessonQuestions.length;
+        return 'You have completed $mastered exercises and passed ${completedWordStages.length} word tests.';
       case VoiceCommand.reviewDifficult:
         final difficult = lessonAttempts.entries
             .where((entry) => entry.value > 1)
@@ -673,13 +777,13 @@ class _ResonantHomeState extends State<ResonantHome> {
             wordAssessment = false;
             courseComplete = false;
           });
-          return 'Reviewing letter ${currentChapter.exercises[index].answer.toUpperCase()}.';
+          return 'Reviewing ${currentChapter.exercises[index].answer.toUpperCase()}.';
         }
         setState(() => page = 4);
         return 'Open progress to review your repeated practice items.';
       case VoiceCommand.openSettings:
         setState(() => page = 3);
-        return 'Accessibility settings. You can change speech, vibration, and optional two-finger content navigation.';
+        return 'Accessibility settings.';
       case VoiceCommand.startTest:
         if (!wordAssessment) {
           return 'Finish the current letter group first. Then I will open its word test.';
@@ -691,16 +795,8 @@ class _ResonantHomeState extends State<ResonantHome> {
         });
         return 'The word is $assessmentWord. Enter each letter with the Braille keyboard, then say check my answer.';
       case VoiceCommand.nextLesson:
-        if (chapter == 2) {
-          return 'Complete each word activity to continue. Current lesson: ${LessonCatalog.wordLessons[wordChapterLessonIndex].title}.';
-        }
-        if (chapter == 1 && wordAssessment) {
-          return 'Complete the current word test before moving on.';
-        }
-        if (chapter == 1) {
-          return 'Letters move forward automatically after a correct Braille entry. Complete the group test before the next letter group.';
-        }
-        return 'You are at the last activity in this lesson. Say go back or continue learning.';
+        moveLessonItem(1);
+        return 'Moving to the next lesson.';
       case VoiceCommand.goBack:
         setState(() {
           if (page == 1) {
@@ -718,15 +814,15 @@ class _ResonantHomeState extends State<ResonantHome> {
       case VoiceCommand.home:
         setState(() => page = 0);
         feedback();
-        return 'Your learning screen is ready. Say continue learning, ask me a question, or say help.';
+        return 'Your learning screen is ready.';
       case VoiceCommand.openTutor:
-        return 'You are already talking to Resonant. Ask a Braille question or close the tutor to return.';
+        return 'You are already talking to Resonant.';
       case VoiceCommand.stopSpeaking:
         return 'Swipe down in the tutor status area to interrupt my spoken reply.';
       case VoiceCommand.help:
         setState(() => page = 5);
         feedback();
-        return 'Help is open. Say go back to return home, or ask me to explain the six dots.';
+        return 'Help is open.';
     }
   }
 
@@ -746,7 +842,7 @@ class _ResonantHomeState extends State<ResonantHome> {
       page = newPage;
       if (newPage == 2 && chapter == 0) chapter = 1;
       if (newPage == 2 && cameFromPractice) {
-        if (cameFromPractice && !wordAssessment) {
+        if (!wordAssessment) {
           guidedPractice = false;
           lessonTaught = true;
         }
@@ -760,7 +856,7 @@ class _ResonantHomeState extends State<ResonantHome> {
   void navigateByTwoFingerSwipe(int direction) {
     if (direction == 0 || !twoFingerNavigationEnabled || !mounted) return;
     if (page == 2) {
-      if (chapter == 2) {
+      if (selectedLanguage == AppLanguage.english && chapter == 2) {
         wordChapterScreenKey.currentState?.moveWord(direction);
         return;
       }
@@ -784,14 +880,16 @@ class _ResonantHomeState extends State<ResonantHome> {
   void nextChapter(int direction) {
     final next = chapter + direction;
 
-    if (next == 2 && !courseComplete) {
+    if (selectedLanguage == AppLanguage.english &&
+        next == 2 &&
+        !courseComplete) {
       speak(
         'Complete the English letter course before starting the word chapter.',
       );
       return;
     }
 
-    if (next < 0 || next >= LessonCatalog.english.length) {
+    if (next < 0 || next >= activeChapters.length) {
       speak(
         direction > 0
             ? 'You have reached the last chapter.'
@@ -811,9 +909,12 @@ class _ResonantHomeState extends State<ResonantHome> {
       guidedPractice = false;
       wordAssessment = false;
       assessmentCells.clear();
-      if (next == 2) _selectWordChapterResumePoint();
+      if (selectedLanguage == AppLanguage.english && next == 2) {
+        _selectWordChapterResumePoint();
+      }
     });
 
+    unawaited(_saveCurrentResume());
     feedback();
     speak(currentChapter.title);
   }
@@ -821,30 +922,12 @@ class _ResonantHomeState extends State<ResonantHome> {
   void moveLessonItem(int direction, {bool announce = true}) {
     final next = lessonItem + direction;
 
-    if (chapter == 1 && direction > 0) {
-      if (!completedLessonQuestions.contains(currentExercise.id)) {
-        if (announce) {
-          speak('Finish the current letter practice before moving on.');
-        }
-        return;
-      }
-      if (lessonItem == currentCurriculumStage.last &&
-          !completedWordStages.contains(currentCurriculumStage.id)) {
-        if (announce) {
-          speak(
-            'Complete the ${currentCurriculumStage.title} word test before moving to the next group.',
-          );
-        }
-        return;
-      }
-    }
-
     if (next < 0 || next >= currentChapter.exercises.length) {
       if (announce) {
         speak(
           direction > 0
-              ? 'You have reached the last item.'
-              : 'You are at the first item.',
+              ? 'You have reached the last item in this chapter.'
+              : 'You are at the first item in this chapter.',
         );
       }
       return;
@@ -861,10 +944,13 @@ class _ResonantHomeState extends State<ResonantHome> {
       guidedPractice = false;
     });
 
+    unawaited(_saveCurrentResume());
     feedback();
     if (announce) {
       speak(
-        chapter == 1
+        selectedLanguage != AppLanguage.english
+            ? currentExercise.prompt
+            : chapter == 1
             ? 'Next, learn letter ${currentExercise.answer.toUpperCase()}.'
             : currentExercise.prompt,
       );
@@ -896,7 +982,7 @@ class _ResonantHomeState extends State<ResonantHome> {
 
   void checkGuidedPattern(String pattern, {bool announce = true}) {
     final entered = _cellFromPattern(pattern);
-    if (wordAssessment) {
+    if (selectedLanguage == AppLanguage.english && wordAssessment) {
       final stageWords = currentAssessmentWords;
       final isAllowed = cumulativeAssessment
           ? LessonCatalog.wordUsesOnly(
@@ -1014,9 +1100,13 @@ class _ResonantHomeState extends State<ResonantHome> {
       }
       return;
     }
-    final expected = EnglishGrade1Engine.encode(
-      currentExercise.answer.toLowerCase(),
-    ).single;
+
+    final expected = BrailleDispatcher.encodeToBitmasks(
+      selectedLanguage == AppLanguage.english
+          ? currentExercise.answer.toLowerCase()
+          : currentExercise.answer,
+      selectedLanguage,
+    ).first;
     final correct = entered == expected;
     if (!correct && hapticsEnabled) {
       HapticFeedback.vibrate();
@@ -1039,7 +1129,8 @@ class _ResonantHomeState extends State<ResonantHome> {
     unawaited(persistLessonAttempt(currentExercise, correct));
     if (correct) {
       completedLessonQuestions.add(currentExercise.id);
-      if (lessonItem == currentCurriculumStage.last) {
+      if (selectedLanguage == AppLanguage.english &&
+          lessonItem == currentCurriculumStage.last) {
         final stage = currentCurriculumStage;
         setState(() {
           wordAssessment = true;
@@ -1091,9 +1182,7 @@ class _ResonantHomeState extends State<ResonantHome> {
             .clamp(0, 3600000)
             .toInt(),
       );
-    } catch (_) {
-      // Do not block the assessment on a local storage failure.
-    }
+    } catch (_) {}
   }
 
   Future<void> persistWordChapterAttempt({
@@ -1138,9 +1227,8 @@ class _ResonantHomeState extends State<ResonantHome> {
             .putIfAbsent(lessonIndex, () => <String>{})
             .add(word);
       }
-    } catch (_) {
-      // Keep this offline-first lesson available if writing the event fails.
-    }
+      await _saveCurrentResume();
+    } catch (_) {}
   }
 
   void completeWordChapterMastery() {
@@ -1175,6 +1263,9 @@ class _ResonantHomeState extends State<ResonantHome> {
   }
 
   String _lessonExplanation() {
+    if (selectedLanguage != AppLanguage.english) {
+      return '${currentExercise.prompt} ${currentExercise.explanation}';
+    }
     final letter = currentExercise.answer.toUpperCase();
     final cell = EnglishGrade1Engine.encode(
       currentExercise.answer.toLowerCase(),
@@ -1193,7 +1284,9 @@ class _ResonantHomeState extends State<ResonantHome> {
   }
 
   Future<void> _advanceCourseFromSwipe() async {
-    if (courseComplete && chapter == 1) {
+    if (selectedLanguage == AppLanguage.english &&
+        courseComplete &&
+        chapter == 1) {
       _selectWordChapterResumePoint();
       setState(() => chapter = 2);
       await speak(
@@ -1226,19 +1319,158 @@ class _ResonantHomeState extends State<ResonantHome> {
       lessonAnswerCorrect = false;
     });
     await speak(
-      'Guided practice for letter ${currentExercise.answer.toUpperCase()}. Enter its Braille pattern on the keyboard.',
+      'Guided practice for ${currentExercise.answer.toUpperCase()}. Enter its Braille pattern on the keyboard.',
+    );
+  }
+
+  void openLessonNavigator() {
+    speak(
+      selectedLanguage == AppLanguage.hindi
+          ? 'à¤ªà¤¾à¤  à¤¸à¥‚à¤šà¥€ à¤–à¥à¤²à¥€ à¤¹à¥ˆà¥¤ à¤•à¤¿à¤¸à¥€ à¤­à¥€ à¤…à¤§à¥à¤¯à¤¾à¤¯ à¤¯à¤¾ à¤…à¤•à¥à¤·à¤° à¤•à¥‹ à¤šà¥à¤¨à¥‡à¤‚à¥¤'
+          : selectedLanguage == AppLanguage.kannada
+          ? 'à²ªà²¾à² à²—à²³ à²ªà²Ÿà³à²Ÿà²¿ à²¤à³†à²°à³†à²¦à²¿à²¦à³†. à²¯à²¾à²µà³à²¦à³‡ à²…à²§à³à²¯à²¾à²¯ à²…à²¥à²µà²¾ à²…à²•à³à²·à²°à²µà²¨à³à²¨à³ à²†à²¯à³à²•à³†à²®à²¾à²¡à²¿.'
+          : 'Lesson menu opened. Select any chapter, letter, or word lesson.',
+    );
+    showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: const Color(0xFF202124),
+      builder: (sheetContext) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Semantics(
+                      header: true,
+                      child: Text(
+                        selectedLanguage == AppLanguage.hindi
+                            ? 'à¤¸à¤­à¥€ à¤ªà¤¾à¤  à¤”à¤° à¤­à¤¾à¤·à¤¾ (Lessons & Language)'
+                            : selectedLanguage == AppLanguage.kannada
+                            ? 'à²Žà²²à³à²²à²¾ à²ªà²¾à² à²—à²³à³ à²®à²¤à³à²¤à³ à²­à²¾à²·à³† (Lessons & Language)'
+                            : 'All Lessons & Language',
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    tooltip: 'Close lesson menu',
+                    onPressed: () => Navigator.of(sheetContext).pop(),
+                    icon: const Icon(Icons.close, size: 28),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              Row(
+                children: [
+                  for (final lang in AppLanguage.values)
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                        child: FilledButton(
+                          style: FilledButton.styleFrom(
+                            backgroundColor: selectedLanguage == lang
+                                ? const Color(0xFF2468D9)
+                                : const Color(0xFF303134),
+                            minimumSize: const Size(0, 52),
+                          ),
+                          onPressed: () {
+                            Navigator.of(sheetContext).pop();
+                            unawaited(switchLanguage(lang));
+                          },
+                          child: Text(
+                            lang.nativeLabel,
+                            style: const TextStyle(fontSize: 16),
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: activeChapters.length,
+                  itemBuilder: (context, chIdx) {
+                    final ch = activeChapters[chIdx];
+                    return ExpansionTile(
+                      initiallyExpanded: chIdx == chapter,
+                      title: Text(
+                        ch.title,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                      children: [
+                        for (
+                          var exIdx = 0;
+                          exIdx < ch.exercises.length;
+                          exIdx++
+                        )
+                          ListTile(
+                            minVerticalPadding: 14,
+                            leading: Icon(
+                              completedLessonQuestions.contains(
+                                    ch.exercises[exIdx].id,
+                                  )
+                                  ? Icons.check_circle
+                                  : Icons.radio_button_unchecked,
+                              color: completedLessonQuestions.contains(
+                                    ch.exercises[exIdx].id,
+                                  )
+                                  ? const Color(0xFF9FE0B5)
+                                  : Colors.white54,
+                            ),
+                            title: Text(
+                              '${exIdx + 1}. ${ch.exercises[exIdx].answer.toUpperCase()} â€” ${ch.exercises[exIdx].prompt}',
+                              style: const TextStyle(fontSize: 16),
+                            ),
+                            selected: chIdx == chapter && exIdx == lessonItem,
+                            onTap: () {
+                              Navigator.of(sheetContext).pop();
+                              setState(() {
+                                page = 2;
+                                chapter = chIdx;
+                                lessonItem = exIdx;
+                                lessonTaught = false;
+                                guidedPractice = false;
+                                wordAssessment = false;
+                                courseComplete = false;
+                                lessonFeedback = null;
+                                selectedLessonAnswer = null;
+                              });
+                              unawaited(_saveCurrentResume());
+                              feedback();
+                              speak(
+                                '${ch.title}. ${ch.exercises[exIdx].prompt}',
+                              );
+                            },
+                          ),
+                      ],
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
   Widget _buildCourseGestureFooter(BuildContext context) {
     var swipeDistance = 0.0;
     final prompt = courseComplete
-        ? 'Swipe up to begin the English word chapter Â· Swipe down to hear the next lesson'
+        ? 'Swipe up to begin the word chapter Â· Swipe down to hear the next lesson'
         : wordAssessment
-        ? 'Swipe up to start the word test · Swipe down to repeat'
+        ? 'Swipe up to start the word test Â· Swipe down to repeat'
         : lessonTaught
-        ? 'Swipe up to practise with the Braille keyboard · Swipe down to repeat'
-        : 'Swipe up to hear the letter explanation · Swipe down to repeat';
+        ? 'Swipe up to practise with the Braille keyboard Â· Swipe down to repeat'
+        : 'Swipe up to hear the explanation Â· Swipe down to repeat';
     return Padding(
       padding: const EdgeInsets.only(bottom: 48),
       child: Semantics(
@@ -1247,12 +1479,12 @@ class _ResonantHomeState extends State<ResonantHome> {
         customSemanticsActions: {
           CustomSemanticsAction(
             label: courseComplete
-                ? 'Begin English word chapter'
+                ? 'Begin word chapter'
                 : wordAssessment
                 ? 'Start word test'
                 : lessonTaught
                 ? 'Begin Braille practice'
-                : 'Hear letter explanation',
+                : 'Hear explanation',
           ): _advanceCourseFromSwipe,
           CustomSemanticsAction(label: 'Repeat current lesson'): () => speak(
             courseComplete
@@ -1310,7 +1542,7 @@ class _ResonantHomeState extends State<ResonantHome> {
         body: Center(
           child: Semantics(
             label: 'Loading Resonant',
-            child: CircularProgressIndicator(),
+            child: const CircularProgressIndicator(),
           ),
         ),
       );
@@ -1327,8 +1559,6 @@ class _ResonantHomeState extends State<ResonantHome> {
         },
       );
     }
-    // Braille entry uses the whole landscape canvas. Keep instructional copy
-    // in speech/semantics and leave the dot keyboard unobstructed.
     if (page == 1) {
       return Scaffold(
         body: SafeArea(
@@ -1346,7 +1576,7 @@ class _ResonantHomeState extends State<ResonantHome> {
         ),
       );
     }
-    if (page == 2 && chapter == 2) {
+    if (selectedLanguage == AppLanguage.english && page == 2 && chapter == 2) {
       return Scaffold(body: SafeArea(child: _buildWordChapterScreen()));
     }
     final brand = Row(
@@ -1407,7 +1637,7 @@ class _ResonantHomeState extends State<ResonantHome> {
                             }
                           },
                     child: SizedBox(
-                      height: 88,
+                      height: 72,
                       child: Row(
                         children: [
                           brand,
@@ -1424,6 +1654,36 @@ class _ResonantHomeState extends State<ResonantHome> {
                     ),
                   ),
                 ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: FilledButton.tonalIcon(
+                      key: const ValueKey('open-lesson-navigator'),
+                      onPressed: openLessonNavigator,
+                      icon: const Icon(Icons.list_alt),
+                      label: Text(
+                        'Lessons (${selectedLanguage.nativeLabel})',
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: OutlinedButton.icon(
+                      key: const ValueKey('open-keyboard-shortcut'),
+                      onPressed: () => navigateTo(1),
+                      icon: const Icon(Icons.dialpad),
+                      label: const Text(
+                        'Braille Pad',
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             Expanded(
@@ -1468,12 +1728,16 @@ class _ResonantHomeState extends State<ResonantHome> {
   Widget _buildLetterTeachingStep() {
     final letter = currentExercise.answer.toUpperCase();
     final explanation = _lessonExplanation();
-    final pattern = EnglishGrade1Engine.encode(
-      currentExercise.answer.toLowerCase(),
-    ).single;
+    final pattern = BrailleDispatcher.encodeToBitmasks(
+      selectedLanguage == AppLanguage.english
+          ? currentExercise.answer.toLowerCase()
+          : currentExercise.answer,
+      selectedLanguage,
+    ).first;
     final dots = _dotsFromCell(pattern);
-    final stageText =
-        '${LessonCatalog.stageForIndex(lessonItem).title}. Letter ${lessonItem + 1} of 26. ${lessonTaught ? 'Swipe up when you are ready to practise.' : 'Swipe up to hear the explanation.'}';
+    final stageText = selectedLanguage == AppLanguage.english
+        ? '${LessonCatalog.stageForIndex(lessonItem).title}. Letter ${lessonItem + 1} of ${currentChapter.exercises.length}. ${lessonTaught ? 'Swipe up when you are ready to practise.' : 'Swipe up to hear the explanation.'}'
+        : '${currentChapter.title}. Item ${lessonItem + 1} of ${currentChapter.exercises.length}. ${lessonTaught ? 'Swipe up when you are ready to practise.' : 'Swipe up to hear the explanation.'}';
     return Center(
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 720),
@@ -1484,7 +1748,7 @@ class _ResonantHomeState extends State<ResonantHome> {
             Semantics(
               header: true,
               child: Text(
-                'Learn letter $letter',
+                selectedLanguage == AppLanguage.english ? 'Learn letter $letter' : 'Learn $letter',
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
             ),
@@ -1555,13 +1819,13 @@ class _ResonantHomeState extends State<ResonantHome> {
           Semantics(
             header: true,
             child: Text(
-              'Your Braille learning',
+              'Your Braille learning (${selectedLanguage.nativeLabel})',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ),
           const SizedBox(height: 12),
           const Text(
-            'Your lesson is ready. Ask Resonant for help or continue where you left off.',
+            'Your lesson is ready. Open All Lessons to pick any lesson or language, or continue where you left off.',
           ),
           const SizedBox(height: 16),
           FilledButton.icon(
@@ -1574,7 +1838,7 @@ class _ResonantHomeState extends State<ResonantHome> {
     }
 
     if (page == 2) {
-      if (chapter == 2) {
+      if (selectedLanguage == AppLanguage.english && chapter == 2) {
         return WordChapterScreen(
           key: wordChapterScreenKey,
           initialLesson: wordChapterLessonIndex,
@@ -1589,7 +1853,7 @@ class _ResonantHomeState extends State<ResonantHome> {
           onMasteryPassed: completeWordChapterMastery,
         );
       }
-      if (courseComplete) {
+      if (selectedLanguage == AppLanguage.english && courseComplete) {
         return Center(
           child: Padding(
             padding: const EdgeInsets.all(24),
@@ -1603,7 +1867,7 @@ class _ResonantHomeState extends State<ResonantHome> {
                 ),
                 const SizedBox(height: 12),
                 const Text(
-                  'Say “continue learning” to review letters or “talk to Resonant” for help.',
+                  'Open All Lessons to review letters or switch to Hindi or Kannada.',
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -1630,9 +1894,12 @@ class _ResonantHomeState extends State<ResonantHome> {
                     size: 36,
                   ),
                   const SizedBox(height: 6),
-                  const Text(
-                    'ENGLISH BRAILLE PRACTICE',
-                    style: TextStyle(color: Colors.white70, letterSpacing: 1.5),
+                  Text(
+                    '${selectedLanguage.storageName.toUpperCase()} BRAILLE PRACTICE',
+                    style: const TextStyle(
+                      color: Colors.white70,
+                      letterSpacing: 1.5,
+                    ),
                   ),
                   const SizedBox(height: 8),
                   Text(
@@ -1737,10 +2004,12 @@ class _ResonantHomeState extends State<ResonantHome> {
                           color: Colors.white,
                         ),
                       ),
-                      const Text(
-                        'Use the labelled controls, voice commands, or optional two-finger navigation from Settings. TalkBack one-finger gestures remain system controls.',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white70, fontSize: 12),
+                      const Flexible(
+                        child: Text(
+                          'Use the Lessons button above to jump to any chapter or character.',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.white70, fontSize: 12),
+                        ),
                       ),
                       IconButton(
                         tooltip: 'Next chapter',
@@ -1819,15 +2088,10 @@ class _ResonantHomeState extends State<ResonantHome> {
                   setState(() => twoFingerNavigationEnabled = value);
                   speak(
                     value
-                        ? 'Two-finger navigation enabled on content screens. TalkBack keeps its standard one-finger focus gestures. The Braille keyboard is not gesture-navigated.'
+                        ? 'Two-finger navigation enabled on content screens.'
                         : 'Two-finger navigation disabled.',
                   );
                 },
-              ),
-              const Text(
-                'English voice tutoring is enabled. Hindi and Kannada voice tutoring are not yet verified. Use the Help section to replay the introduction.',
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white54),
               ),
               TextButton.icon(
                 onPressed: () => setState(() => replayingOnboarding = true),
@@ -1901,7 +2165,7 @@ class _ResonantHomeState extends State<ResonantHome> {
             ),
           ),
           const Text(
-            'Use TalkBack swipe right or left to move focus and double-tap to activate. Use Android Back to return. If enabled in Settings, two-finger horizontal swipes navigate app content; the Braille keyboard is excluded. You can also say Home, Help, Start learning, Teach me letter A, B, or C, Explain the six dots, Start practice, Check my answer, or Go back. Gestures vary with device settings.',
+            'Use the Lessons button at the top to jump directly to any chapter, letter, or language (English, Hindi, Kannada).',
           ),
           const SizedBox(height: 12),
           FilledButton.icon(
@@ -2009,7 +2273,6 @@ class _BrailleKeyboardState extends State<BrailleKeyboard> {
     'Selected $spokenDotLabel. This Braille cell represents $spokenCharacter.',
   );
 
-  // Match the supplied keyboard reference: 1–3 on screen-left, 4–6 right.
   int? dotAtPosition(Offset position, Size size) {
     if (position.dx < 0 ||
         position.dx >= size.width ||
@@ -2046,8 +2309,6 @@ class _BrailleKeyboardState extends State<BrailleKeyboard> {
     if (!activePointers.containsKey(event.pointer)) return;
 
     final dot = dotAtPosition(event.localPosition, size);
-    // A pointer represents one finger. Moving it must not add extra dots.
-    // Leaving its original zone invalidates the chord instead of guessing.
     if (dot == activePointers[event.pointer]) return;
     cancelChord('Touch moved. Chord cancelled. Try again.');
   }
@@ -2297,7 +2558,7 @@ class _BrailleKeyboardState extends State<BrailleKeyboard> {
                                       '$message Current selection: $spokenDotLabel. Pattern $pattern. Swipe left, right, up, or down here to check this cell. ${widget.statusMessage ?? ''}',
                                   child: ExcludeSemantics(
                                     child: Text(
-                                      '$message  •  Dots: $dotLabel  •  $pattern\nSwipe left, right, up, or down here to check',
+                                      '$message  â€¢  Dots: $dotLabel  â€¢  $pattern\nSwipe left, right, up, or down here to check',
                                       maxLines: 3,
                                       overflow: TextOverflow.ellipsis,
                                       style: const TextStyle(
@@ -2457,7 +2718,7 @@ typedef WordChapterAttemptHandler =
 
 class WordChapterScreen extends StatefulWidget {
   final int initialLesson;
-  final Map<int, Set<String>> completedWords;
+  final Map<int, StringSet> completedWords;
   final Future<void> Function(String) onSpeak;
   final VoidCallback onFeedback;
   final bool audioEnabled;
@@ -2489,7 +2750,7 @@ class _WordChapterScreenState extends State<WordChapterScreen> {
   final GlobalKey<_BrailleKeyboardState> _keyboardKey =
       GlobalKey<_BrailleKeyboardState>();
   late int lessonIndex;
-  late Map<int, Set<String>> completedWords;
+  late Map<int, StringSet> completedWords;
   int wordIndex = 0;
   int cellIndex = 0;
   int attemptNumber = 0;
@@ -2886,7 +3147,7 @@ class _WordChapterScreenState extends State<WordChapterScreen> {
                   label:
                       '${lesson.title}. Word ${wordIndex + 1} of ${lesson.words.length}. $completed completed.',
                   child: Text(
-                    '${lesson.title}  ·  Word ${wordIndex + 1} of ${lesson.words.length}',
+                    '${lesson.title}  Â·  Word ${wordIndex + 1} of ${lesson.words.length}',
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20,
@@ -3028,9 +3289,6 @@ class _BrailleWordDisplay extends StatelessWidget {
         .entries
         .map((entry) {
           final dots = EnglishGrade1Engine.dotsForCell(entry.value);
-          if (word == word.toUpperCase() && entry.key < 2) {
-            return 'cell ${entry.key + 1}, dots ${dots.join(', ')}';
-          }
           return 'cell ${entry.key + 1}, dots ${dots.join(', ')}';
         })
         .join('; ');
@@ -3103,3 +3361,4 @@ class _BrailleCellSymbol extends StatelessWidget {
     );
   }
 }
+
