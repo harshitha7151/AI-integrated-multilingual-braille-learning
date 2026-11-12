@@ -1,13 +1,25 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:http/http.dart' as http;
 
 import 'voice_tutor_controller.dart';
 
-const tutorApiBaseUrl = String.fromEnvironment(
+const _configuredTutorApiBase = String.fromEnvironment(
   'RESONANT_TUTOR_API_BASE',
-  defaultValue: 'http://localhost:8000',
 );
+
+/// Backend URL. Override with --dart-define=RESONANT_TUTOR_API_BASE=http://<PC-LAN-IP>:8000.
+/// On web the page's own host is used (so a phone opening http://<PC-IP>:PORT
+/// reaches the backend on that PC, not the phone's own "localhost").
+String get tutorApiBaseUrl {
+  if (_configuredTutorApiBase.isNotEmpty) return _configuredTutorApiBase;
+  if (kIsWeb && Uri.base.host.isNotEmpty) {
+    return Uri(scheme: Uri.base.scheme, host: Uri.base.host, port: 8000)
+        .toString();
+  }
+  return 'http://localhost:8000';
+}
 
 class HttpTutorGateway implements TutorGateway {
   HttpTutorGateway({http.Client? client, Uri? baseUri})
