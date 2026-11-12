@@ -13,6 +13,9 @@ import 'package:resonant_braille/tutor/voice_tutor_panel.dart';
 import 'package:resonant_braille/tutor/voice_tutor_controller.dart';
 import 'package:resonant_braille/tutor/voice_command_parser.dart';
 import 'package:resonant_braille/accessibility/two_finger_navigation_detector.dart';
+import 'package:resonant_braille/learning/role_selection_page.dart';
+import 'package:resonant_braille/learning/role_store.dart';
+import 'package:resonant_braille/teacher/teacher_dashboard_placeholder.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,7 +43,61 @@ class ResonantApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: const Color(0xFF202124),
       ),
-      home: const ResonantHome(),
+      home: const _RoleGateRoot(),
+    );
+  }
+}
+
+/// Wires [RoleGate] with a dedicated TTS instance so the role-selection screen
+/// can speak without coupling to [ResonantHome]'s TTS state.
+class _RoleGateRoot extends StatefulWidget {
+  const _RoleGateRoot();
+
+  @override
+  State<_RoleGateRoot> createState() => _RoleGateRootState();
+}
+
+class _RoleGateRootState extends State<_RoleGateRoot> {
+  final FlutterTts _tts = FlutterTts();
+
+  @override
+  void initState() {
+    super.initState();
+    _tts.setLanguage('en-US');
+    _tts.setSpeechRate(0.45);
+    _tts.setVolume(1.0);
+  }
+
+  @override
+  void dispose() {
+    _tts.stop();
+    super.dispose();
+  }
+
+  Future<void> _speak(String text) async {
+    try {
+      await _tts.stop();
+      await _tts.speak(text);
+    } catch (_) {
+      // TTS unavailable; Semantics labels remain available to screen readers.
+    }
+  }
+
+  Future<void> _stop() async {
+    try {
+      await _tts.stop();
+    } catch (_) {}
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return RoleGate(
+      onSpeak: _speak,
+      onStop: _stop,
+      learnerHome: const ResonantHome(),
+      teacherHome: (onSwitchRole) => TeacherDashboardPlaceholder(
+        onSwitchRole: onSwitchRole,
+      ),
     );
   }
 }
