@@ -1,0 +1,77 @@
+{
+  "experiment_id": "assistments2009-grouped-unseen-learners-v1",
+  "model_version": "assistments-rf-v1",
+  "prediction_target": "first-attempt answer correctness (correct=1)",
+  "split": {
+    "method": "GroupShuffleSplit by learner_id",
+    "test_size_requested": 0.2,
+    "random_seed": 20261122,
+    "train_learners": 3373,
+    "test_learners": 844,
+    "learner_overlap": 0,
+    "train_rows": 277228,
+    "test_rows": 69632,
+    "train_positive_rate": 0.6453496760788954,
+    "test_positive_rate": 0.6449477251838235
+  },
+  "model_configurations": {
+    "majority_baseline": {
+      "constant": null,
+      "random_state": 20261122,
+      "strategy": "prior"
+    },
+    "logistic_regression": {
+      "C": 1.0,
+      "class_weight": "balanced",
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": null,
+      "max_iter": 600,
+      "multi_class": "deprecated",
+      "n_jobs": null,
+      "penalty": "l2",
+      "random_state": 20261122,
+      "solver": "lbfgs",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "random_forest": {
+      "bootstrap": true,
+      "ccp_alpha": 0.0,
+      "class_weight": "balanced_subsample",
+      "criterion": "gini",
+      "max_depth": 16,
+      "max_features": "sqrt",
+      "max_leaf_nodes": null,
+      "max_samples": null,
+      "min_impurity_decrease": 0.0,
+      "min_samples_leaf": 12,
+      "min_samples_split": 2,
+      "min_weight_fraction_leaf": 0.0,
+      "monotonic_cst": null,
+      "n_estimators": 160,
+      "n_jobs": -1,
+      "oob_score": false,
+      "random_state": 20261122,
+      "verbose": 0,
+      "warm_start": false
+    }
+  },
+  "artifact": {
+    "path": "artifacts/assistments_2009_rf_v1.joblib",
+    "bytes": 17257841,
+    "sha256": "6ab5fea50d9991b16ddaca6e65d288a7dbbfa50568f191ccdbed6991f2481cfd",
+    "format": "joblib containing a fitted scikit-learn Pipeline"
+  },
+  "software": {
+    "python": "3.12.3",
+    "pandas": "2.2.3",
+    "scipy": "1.14.1",
+    "scikit_learn": "1.5.2",
+    "joblib": "1.4.2"
+  },
+  "started_at_utc": "2026-11-22T22:03:29.977869+00:00",
+  "completed_at_utc": "2026-11-22T22:04:38.453047+00:00"
+}

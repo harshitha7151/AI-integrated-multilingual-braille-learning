@@ -1,0 +1,297 @@
+{
+  "corpus": "existing in-code curated knowledge_base._DOCUMENTS",
+  "corpus_documents": 50,
+  "test_set": "13 manually reviewed query/gold-document pairs, stored in gold_queries.json; not independent annotator agreement",
+  "systems": [
+    {
+      "system": "existing_keyword_retrieval",
+      "queries": 13,
+      "precision_at_1": 0.9230769230769231,
+      "recall_at_5": 1.0,
+      "mean_reciprocal_rank": 0.9615384615384616,
+      "per_query": [
+        {
+          "language": "English",
+          "gold_id": "english-six-dot-cell",
+          "rank": 1,
+          "top_ids": [
+            "english-six-dot-cell"
+          ]
+        },
+        {
+          "language": "English",
+          "gold_id": "english-letter-b",
+          "rank": 1,
+          "top_ids": [
+            "english-letter-b"
+          ]
+        },
+        {
+          "language": "English",
+          "gold_id": "english-letter-c",
+          "rank": 1,
+          "top_ids": [
+            "english-letter-c"
+          ]
+        },
+        {
+          "language": "English",
+          "gold_id": "english-word-CAT",
+          "rank": 1,
+          "top_ids": [
+            "english-word-CAT"
+          ]
+        },
+        {
+          "language": "English",
+          "gold_id": "resonant-english-scope",
+          "rank": 1,
+          "top_ids": [
+            "resonant-english-scope"
+          ]
+        },
+        {
+          "language": "Hindi",
+          "gold_id": "hindi-braille-intro",
+          "rank": 1,
+          "top_ids": [
+            "hindi-braille-intro"
+          ]
+        },
+        {
+          "language": "Hindi",
+          "gold_id": "hindi-script-and-scope",
+          "rank": 1,
+          "top_ids": [
+            "hindi-script-and-scope",
+            "hindi-braille-intro",
+            "hindi-word-अब",
+            "hindi-word-कमल"
+          ]
+        },
+        {
+          "language": "Hindi",
+          "gold_id": "hindi-word-कमल",
+          "rank": 1,
+          "top_ids": [
+            "hindi-word-कमल"
+          ]
+        },
+        {
+          "language": "Hindi",
+          "gold_id": "hindi-script-and-scope",
+          "rank": 2,
+          "top_ids": [
+            "hindi-braille-intro",
+            "hindi-script-and-scope",
+            "hindi-word-अब",
+            "hindi-word-कमल"
+          ]
+        },
+        {
+          "language": "Kannada",
+          "gold_id": "kannada-braille-intro",
+          "rank": 1,
+          "top_ids": [
+            "kannada-braille-intro"
+          ]
+        },
+        {
+          "language": "Kannada",
+          "gold_id": "kannada-script-and-scope",
+          "rank": 1,
+          "top_ids": [
+            "kannada-script-and-scope",
+            "kannada-braille-intro"
+          ]
+        },
+        {
+          "language": "Kannada",
+          "gold_id": "kannada-word-ಮನೆ",
+          "rank": 1,
+          "top_ids": [
+            "kannada-word-ಮನೆ"
+          ]
+        },
+        {
+          "language": "Kannada",
+          "gold_id": "kannada-script-and-scope",
+          "rank": 1,
+          "top_ids": [
+            "kannada-script-and-scope"
+          ]
+        }
+      ]
+    },
+    {
+      "system": "char_tfidf_experiment",
+      "queries": 13,
+      "precision_at_1": 0.9230769230769231,
+      "recall_at_5": 1.0,
+      "mean_reciprocal_rank": 0.9615384615384616,
+      "per_query": [
+        {
+          "language": "English",
+          "gold_id": "english-six-dot-cell",
+          "rank": 1,
+          "top_ids": [
+            "english-six-dot-cell",
+            "english-letter-l",
+            "english-letter-c",
+            "english-letter-a",
+            "english-letter-e"
+          ]
+        },
+        {
+          "language": "English",
+          "gold_id": "english-letter-b",
+          "rank": 1,
+          "top_ids": [
+            "english-letter-b",
+            "english-letter-y",
+            "english-letter-c",
+            "english-letter-a",
+            "english-letter-e"
+          ]
+        },
+        {
+          "language": "English",
+          "gold_id": "english-letter-c",
+          "rank": 2,
+          "top_ids": [
+            "english-letter-f",
+            "english-letter-c",
+            "english-letter-a",
+            "english-letter-e",
+            "english-letter-n"
+          ]
+        },
+        {
+          "language": "English",
+          "gold_id": "english-word-CAT",
+          "rank": 1,
+          "top_ids": [
+            "english-word-CAT",
+            "english-word-DOG",
+            "english-word-BAT",
+            "english-word-HAT",
+            "english-word-MAT"
+          ]
+        },
+        {
+          "language": "English",
+          "gold_id": "resonant-english-scope",
+          "rank": 1,
+          "top_ids": [
+            "resonant-english-scope",
+            "resonant-language-scope",
+            "english-letter-b",
+            "english-letter-u",
+            "english-letter-f"
+          ]
+        },
+        {
+          "language": "Hindi",
+          "gold_id": "hindi-braille-intro",
+          "rank": 1,
+          "top_ids": [
+            "hindi-braille-intro",
+            "hindi-word-जल",
+            "hindi-word-कमल",
+            "hindi-word-अब",
+            "hindi-word-मन"
+          ]
+        },
+        {
+          "language": "Hindi",
+          "gold_id": "hindi-script-and-scope",
+          "rank": 1,
+          "top_ids": [
+            "hindi-script-and-scope",
+            "hindi-braille-intro",
+            "hindi-word-मन",
+            "hindi-word-घर",
+            "hindi-word-अब"
+          ]
+        },
+        {
+          "language": "Hindi",
+          "gold_id": "hindi-word-कमल",
+          "rank": 1,
+          "top_ids": [
+            "hindi-word-कमल",
+            "hindi-word-अब",
+            "hindi-word-जल",
+            "hindi-word-मन",
+            "hindi-word-घर"
+          ]
+        },
+        {
+          "language": "Hindi",
+          "gold_id": "hindi-script-and-scope",
+          "rank": 1,
+          "top_ids": [
+            "hindi-script-and-scope",
+            "hindi-braille-intro",
+            "hindi-word-जल",
+            "hindi-word-मन",
+            "hindi-word-कमल"
+          ]
+        },
+        {
+          "language": "Kannada",
+          "gold_id": "kannada-braille-intro",
+          "rank": 1,
+          "top_ids": [
+            "kannada-braille-intro",
+            "kannada-word-ಜಲ",
+            "kannada-word-ಕಮಲ",
+            "kannada-word-ನಮನ",
+            "kannada-word-ಮನೆ"
+          ]
+        },
+        {
+          "language": "Kannada",
+          "gold_id": "kannada-script-and-scope",
+          "rank": 1,
+          "top_ids": [
+            "kannada-script-and-scope",
+            "kannada-braille-intro",
+            "kannada-word-ಮನೆ",
+            "kannada-word-ಜಲ",
+            "kannada-word-ಕಮಲ"
+          ]
+        },
+        {
+          "language": "Kannada",
+          "gold_id": "kannada-word-ಮನೆ",
+          "rank": 1,
+          "top_ids": [
+            "kannada-word-ಮನೆ",
+            "kannada-script-and-scope",
+            "kannada-word-ನಮನ",
+            "kannada-word-ಜಲ",
+            "kannada-word-ಕಮಲ"
+          ]
+        },
+        {
+          "language": "Kannada",
+          "gold_id": "kannada-script-and-scope",
+          "rank": 1,
+          "top_ids": [
+            "kannada-script-and-scope",
+            "kannada-braille-intro",
+            "kannada-word-ಮನೆ",
+            "kannada-word-ಜಲ",
+            "kannada-word-ಅಮ್ಮ"
+          ]
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Small, authored query set; metrics are diagnostic only and not a robust retrieval-quality claim.",
+    "The current corpus is small and curated; there is no embedding/RAG model in this comparison.",
+    "Braille mappings remain deterministically supplied by verified engines and are not produced by retrieval ranking."
+  ]
+}

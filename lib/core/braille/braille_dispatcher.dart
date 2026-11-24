@@ -12,6 +12,13 @@ enum AppLanguage {
   final String storageName;
   final String nativeLabel;
 
+  /// Recognition locale is separate from the locale used for tutor speech.
+  String get speechRecognitionLocale => switch (this) {
+    AppLanguage.english => 'en-IN',
+    AppLanguage.hindi => 'hi-IN',
+    AppLanguage.kannada => 'kn-IN',
+  };
+
   const AppLanguage(
     this.code,
     this.ttsLocale,
@@ -23,6 +30,13 @@ enum AppLanguage {
     (lang) => lang.code == code || lang.storageName == code,
     orElse: () => AppLanguage.english,
   );
+}
+
+class BrailleTextUnit {
+  final String text;
+  final List<int> cells;
+
+  const BrailleTextUnit({required this.text, required this.cells});
 }
 
 class BrailleDispatcher {
@@ -52,6 +66,40 @@ class BrailleDispatcher {
         return BharatiKannadaEngine.encode(
           text,
         ).map(bitmaskFromDotNumber).toList();
+    }
+  }
+
+  /// Returns the engine's actual text segmentation and complete cells per
+  /// unit. Bharati conjuncts remain one learning unit when the engine maps
+  /// them as a multi-character key.
+  static List<BrailleTextUnit> encodeUnits(String text, AppLanguage language) {
+    switch (language) {
+      case AppLanguage.english:
+        return [
+          for (final rune in text.runes)
+            BrailleTextUnit(
+              text: String.fromCharCode(rune),
+              cells: EnglishGrade1Engine.encode(
+                String.fromCharCode(rune).toLowerCase(),
+              ),
+            ),
+        ];
+      case AppLanguage.hindi:
+        return [
+          for (final unit in BharatiHindiEngine.encodeUnits(text))
+            BrailleTextUnit(
+              text: unit.key,
+              cells: unit.value.map(bitmaskFromDotNumber).toList(),
+            ),
+        ];
+      case AppLanguage.kannada:
+        return [
+          for (final unit in BharatiKannadaEngine.encodeUnits(text))
+            BrailleTextUnit(
+              text: unit.key,
+              cells: unit.value.map(bitmaskFromDotNumber).toList(),
+            ),
+        ];
     }
   }
 

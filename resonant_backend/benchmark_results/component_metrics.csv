@@ -1,0 +1,9 @@
+component,status,sample_count,positive_class,threshold,accuracy,precision,recall,f1,method_or_limitation
+BKT next-response prediction,unavailable,0,incorrect,0.5,N/A,N/A,N/A,N/A,No eligible outcome records were available.
+Qualified Resonant ML next-response model,unavailable,0,incorrect,0.5,N/A,N/A,N/A,N/A,No eligible outcome records were available.
+Error classification,unavailable,0,incorrect,N/A,N/A,N/A,N/A,N/A,Deterministic response-difference taxonomy; no independent human-labeled category set is stored for classifier evaluation.
+Forgetting-risk estimation,unavailable,0,incorrect,N/A,N/A,N/A,N/A,N/A,Heuristic exponential-decay estimate; no independently labeled forgetting or later-recall outcome is paired with risk estimates.
+Information-gain selection,unavailable,0,incorrect,N/A,N/A,N/A,N/A,N/A,"Ranking signal; classification metrics do not evaluate ranking quality, and counterfactual relevance labels are not stored."
+LinUCB contextual bandit,unavailable,0,incorrect,N/A,N/A,N/A,N/A,N/A,Contextual ranking with persisted binary outcomes; policy value needs a logged exploration/propensity or counterfactual comparison design.
+Adaptive difficulty,unavailable,0,incorrect,N/A,N/A,N/A,N/A,N/A,Rule-based difficulty choice; no independent target difficulty labels or validated outcome benchmark is stored.
+Constraint-based assessment selection,unavailable,0,incorrect,N/A,N/A,N/A,N/A,N/A,Selects and validates curriculum-bounded content; validation status is not an independent ground-truth label for selection quality.

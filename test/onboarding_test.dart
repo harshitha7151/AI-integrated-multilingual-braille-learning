@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:resonant_braille/learning/adaptive_decision_controller.dart';
 import 'package:resonant_braille/learning/onboarding_store.dart';
 import 'package:resonant_braille/learning/lesson_progress_store.dart';
 import 'package:resonant_braille/core/braille/english_grade1_engine.dart';
@@ -26,10 +27,11 @@ class _MemoryLessonProgressStore extends LessonProgressStore {
   _MemoryLessonProgressStore([this.events = const []])
     : super(File('unused-progress.json'));
   final List<Map<String, dynamic>> events;
+  final List<Map<String, dynamic>> recordedEvents = [];
   @override
   Future<List<Map<String, dynamic>>> readEvents() async => events;
   @override
-  Future<void> record({
+  Future<String> record({
     required String exerciseId,
     required String skillId,
     required String exerciseType,
@@ -38,7 +40,58 @@ class _MemoryLessonProgressStore extends LessonProgressStore {
     required bool hintUsed,
     required int responseTimeMs,
     String? groupId,
-  }) async {}
+    String? learnerId,
+    String language = 'English',
+    String? assessmentKey,
+    String? lessonId,
+    String? questionText,
+    List<String>? options,
+    String? learningObjective,
+    int difficulty = 1,
+    Map<String, dynamic>? expectedResponse,
+    Map<String, dynamic>? submittedResponse,
+    String inputStatus = 'valid',
+    String? technicalFailureCode,
+    String? questionId,
+    String? questionInstanceId,
+    String questionSource = 'validated_catalog',
+    String questionVersion = 'flutter-catalog-v1',
+    String? generationModel,
+    String mappingVersion = 'unspecified',
+    String curriculumVersion = 'flutter-catalog-v1',
+    String? interventionType,
+    String? feedbackType,
+  }) async {
+    final submissionId = 'memory-${recordedEvents.length + 1}';
+    recordedEvents.add({
+      'submission_id': submissionId,
+      'exercise_id': exerciseId,
+      'skill_id': skillId,
+      'exercise_type': exerciseType,
+      'correct': correct,
+      'attempt_number': attemptNumber,
+      'hint_used': hintUsed,
+      'response_time_ms': responseTimeMs,
+      'language': language,
+      if (assessmentKey != null) ...{
+        'assessment_key': assessmentKey,
+        'lesson_id': lessonId,
+        if (questionId != null) 'question_id': questionId,
+        if (questionInstanceId != null)
+          'question_instance_id': questionInstanceId,
+        'question_source': questionSource,
+        'question_version': questionVersion,
+        'mapping_version': mappingVersion,
+        'curriculum_version': curriculumVersion,
+        if (generationModel != null) 'generation_model': generationModel,
+        if (interventionType != null) 'intervention_type': interventionType,
+        if (feedbackType != null) 'feedback_type': feedbackType,
+        'expected_response': expectedResponse,
+        'submitted_response': submittedResponse,
+      },
+    });
+    return submissionId;
+  }
 }
 
 Future<void> swipeLessonUp(WidgetTester tester) async {
@@ -307,8 +360,14 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
     final progress = _MemoryOnboarding();
+    final lessonStore = _MemoryLessonProgressStore();
     await tester.pumpWidget(
-      MaterialApp(home: ResonantHome(onboardingProgress: progress)),
+      MaterialApp(
+        home: ResonantHome(
+          onboardingProgress: progress,
+          lessonProgressStore: lessonStore,
+        ),
+      ),
     );
     await tester.pumpAndSettle();
     for (var i = 0; i < 4; i++) {
@@ -342,8 +401,15 @@ void main() {
           const Offset(-80, 0),
         );
       } else {
-        await tester.tap(find.text('Check pattern'));
+        await tester.tap(find.byKey(const ValueKey('keyboard-check-pattern')));
       }
+      await tester.pumpAndSettle();
+      expect(find.textContaining('LESSON ASSESSMENT'), findsOneWidget);
+      await tester.tap(
+        find.byKey(ValueKey('lesson-answer-${letter.toLowerCase()}')),
+      );
+      await tester.pump();
+      await tester.tap(find.text('Check answer'));
       await tester.pumpAndSettle();
     }
 
@@ -352,8 +418,34 @@ void main() {
     await practiseLetter('C', [1, 4]);
     await practiseLetter('D', [1, 4, 5]);
     await practiseLetter('E', [1, 5]);
+    expect(
+      lessonStore.recordedEvents,
+      contains(containsPair('exercise_id', 'guided-practice-letter-a')),
+    );
+    expect(
+      lessonStore.recordedEvents,
+      contains(
+        allOf(
+          containsPair('exercise_id', 'lesson-assessment-letter-a'),
+          containsPair('exercise_type', 'quiz'),
+        ),
+      ),
+    );
+    final letterAssessment = lessonStore.recordedEvents.firstWhere(
+      (event) => event['exercise_id'] == 'lesson-assessment-letter-a',
+    );
+    expect(letterAssessment['assessment_key'], 'en-letter-a-v1');
+    expect(letterAssessment['lesson_id'], 'letter-a');
+    expect(letterAssessment['expected_response']['cells'], [1]);
+    expect(letterAssessment['submitted_response']['choice'], 'a');
     expect(find.text('Write a word: BAD'), findsOneWidget);
     await swipeCourseUp(tester);
+    expect(find.text('Check answer'), findsNothing);
+    expect(find.byKey(const ValueKey('check-lesson-answer')), findsNothing);
+    expect(
+      find.byKey(const ValueKey('keyboard-check-pattern')),
+      findsOneWidget,
+    );
     await tester.tap(find.byTooltip('Switch to accessible dot controls'));
     await tester.pump();
 
@@ -368,7 +460,7 @@ void main() {
           await tester.tap(find.bySemanticsLabel('Braille dot $dot'));
           await tester.pump();
         }
-        await tester.tap(find.text('Check pattern'));
+        await tester.tap(find.byKey(const ValueKey('keyboard-check-pattern')));
         await tester.pumpAndSettle();
         if (index < word.length - 1) {
           await tester.tap(find.byTooltip('Clear pattern'));
@@ -391,6 +483,61 @@ void main() {
     }
     expect(find.text('Learn letter F'), findsOneWidget);
   });
+
+  testWidgets(
+    'failed lesson assessment starts focused remediation before reassessment',
+    (tester) async {
+      tester.view.physicalSize = const Size(1200, 1400);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final progress = _MemoryOnboarding()..completed = true;
+      final lessonStore = _MemoryLessonProgressStore();
+      await tester.pumpWidget(
+        MaterialApp(
+          home: ResonantHome(
+            onboardingProgress: progress,
+            lessonProgressStore: lessonStore,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('Learn letter A'), findsOneWidget);
+
+      await swipeCourseUp(tester);
+      if (find.byType(BrailleKeyboard).evaluate().isEmpty) {
+        await swipeCourseUp(tester);
+      }
+      await tester.tap(find.byTooltip('Switch to accessible dot controls'));
+      await tester.pump();
+      await tester.tap(find.bySemanticsLabel('Braille dot 1'));
+      await tester.tap(find.byKey(const ValueKey('keyboard-check-pattern')));
+      await tester.pumpAndSettle();
+      expect(find.textContaining('LESSON ASSESSMENT'), findsOneWidget);
+
+      await tester.tap(find.byKey(const ValueKey('lesson-answer-b')));
+      await tester.pump();
+      await tester.tap(find.text('Check answer'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(BrailleKeyboard), findsOneWidget);
+      expect(find.textContaining('LESSON ASSESSMENT'), findsNothing);
+      expect(
+        lessonStore.recordedEvents,
+        contains(
+          allOf(
+            containsPair('exercise_id', 'lesson-assessment-letter-a'),
+            containsPair('correct', false),
+          ),
+        ),
+      );
+      final pending = await lessonStore.pendingAdaptiveDecision(
+        languageCode: 'en',
+      );
+      expect(pending?.action, AdaptiveDecisionAction.remediate);
+      expect(pending?.status, AdaptiveDecisionStatus.applied);
+    },
+  );
 
   testWidgets(
     'introduction starts without the Braille keyboard and teaches six dots',

@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:resonant_braille/core/braille/braille_dispatcher.dart';
 import 'package:resonant_braille/learning/lesson_catalog.dart';
 import 'package:resonant_braille/core/braille/english_grade1_engine.dart';
 
@@ -81,8 +82,8 @@ void main() {
   test(
     'English word chapter has five ordered lessons and stable unique exercises',
     () {
-      expect(LessonCatalog.english, hasLength(3));
-      expect(LessonCatalog.english.last.title, 'Chapter 3: English Words');
+      expect(LessonCatalog.english, hasLength(5));
+      expect(LessonCatalog.english[2].title, 'Chapter 3: English Words');
       expect(LessonCatalog.wordLessons.map((lesson) => lesson.title), [
         'Lesson 1: Build your first words',
         'Lesson 2: Read familiar words',
@@ -92,7 +93,7 @@ void main() {
       ]);
       expect(LessonCatalog.wordLessons.first.words, ['CAT', 'BAT', 'MAT']);
       expect(LessonCatalog.wordLessons[1].words, ['SUN', 'DOG', 'HAT', 'PEN']);
-      final chapterExercises = LessonCatalog.english.last.exercises;
+      final chapterExercises = LessonCatalog.english[2].exercises;
       expect(
         chapterExercises.map((exercise) => exercise.id).toSet().length,
         chapterExercises.length,
@@ -107,4 +108,72 @@ void main() {
       }
     },
   );
+
+  test('phrase and sentence content is engine-valid in every language', () {
+    for (final language in AppLanguage.values) {
+      final chapters = LessonCatalog.chaptersFor(language);
+      expect(chapters, hasLength(5));
+      for (final exercise
+          in chapters.skip(3).expand((chapter) => chapter.exercises)) {
+        expect(exercise.isComposedResponse, isTrue);
+        expect(exercise.validationStatus, 'mapping_verified_authored_content');
+        expect(
+          () => BrailleDispatcher.encodeToBitmasks(exercise.answer, language),
+          returnsNormally,
+          reason: '${language.storageName}: ${exercise.answer}',
+        );
+        expect(
+          BrailleDispatcher.encodeToBitmasks(exercise.answer, language),
+          isNotEmpty,
+        );
+      }
+    }
+  });
+
+  test('Hindi and Kannada character lessons describe every ordered Braille cell', () {
+    final cases = [
+      (AppLanguage.hindi, 'अ', 1),
+      (AppLanguage.hindi, 'ऋ', 2),
+      (AppLanguage.hindi, 'त्र', 3),
+      (AppLanguage.kannada, 'ಅ', 1),
+      (AppLanguage.kannada, 'ಋ', 2),
+    ];
+
+    for (final (language, character, expectedCellCount) in cases) {
+      final exercise = LessonCatalog.chaptersFor(language)[1].exercises
+          .singleWhere((item) => item.answer == character);
+      final cells = BrailleDispatcher.encodeToBitmasks(character, language);
+      expect(cells, hasLength(expectedCellCount), reason: '$character mapping');
+
+      final cellDescriptions = [
+        for (var index = 0; index < cells.length; index++)
+          language == AppLanguage.hindi
+              ? 'सेल ${index + 1}: बिंदु ${BrailleDispatcher.dotsForBitmask(cells[index]).join(', ')}'
+              : 'ಕೋಶ ${index + 1}: ಚುಕ್ಕೆ ${BrailleDispatcher.dotsForBitmask(cells[index]).join(', ')}',
+      ];
+      for (final text in [exercise.prompt, exercise.hint, exercise.explanation]) {
+        for (final cell in cellDescriptions) {
+          expect(text, contains(cell), reason: '$character: $text');
+        }
+      }
+
+      if (expectedCellCount == 1) {
+        expect(exercise.prompt, isNot(contains('सेल 2:')));
+        expect(exercise.prompt, isNot(contains('ಕೋಶ 2:')));
+      }
+    }
+  });
+
+  test('personalized name sentences fail closed to an encodable fallback', () {
+    final english = LessonCatalog.english[4].exercises.first;
+    expect(
+      english.resolvedAnswer(AppLanguage.english, learnerName: 'Namit'),
+      'My name is Namit.',
+    );
+    final hindi = LessonCatalog.hindi[4].exercises.first;
+    expect(
+      hindi.resolvedAnswer(AppLanguage.hindi, learnerName: 'Unsupported Latin'),
+      hindi.answer,
+    );
+  });
 }

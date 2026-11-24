@@ -4,3 +4,8 @@ requests
 psycopg[binary]
 scikit-learn
 joblib
+numpy
+pandas
+matplotlib>=3.8,<4
+passlib[bcrypt]
+python-jose[cryptography]

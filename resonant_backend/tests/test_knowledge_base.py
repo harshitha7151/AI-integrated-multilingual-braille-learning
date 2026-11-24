@@ -7,6 +7,32 @@ from knowledge_base import retrieve_evidence
 
 
 class RetrievalEvaluationTests(unittest.TestCase):
+    def test_localized_intro_retrieval_is_language_scoped(self):
+        cases = [
+            ("ब्रेल क्या है?", "Hindi", "hindi-braille-intro"),
+            ("ಆರು ಚುಕ್ಕೆಗಳ ವ್ಯವಸ್ಥೆ ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ?", "Kannada", "kannada-braille-intro"),
+            ("Explain the six-dot Braille cell layout", "English", "english-six-dot-cell"),
+        ]
+        for question, language, expected in cases:
+            with self.subTest(language=language):
+                found = retrieve_evidence(question, language=language)
+                self.assertTrue(found)
+                self.assertEqual(found[0]["id"], expected)
+                self.assertEqual(found[0].get("language", "English"), language)
+
+    def test_existing_course_words_have_engine_generated_reading_practice(self):
+        cases = [
+            ("How do I read CAT?", "English", "english-word-CAT", "CAT"),
+            ("कमल शब्द पढ़ने का अभ्यास", "Hindi", "hindi-word-कमल", "कमल"),
+            ("ಮನೆ ಪದ ಓದುವ ಅಭ್ಯಾಸ", "Kannada", "kannada-word-ಮನೆ", "ಮನೆ"),
+        ]
+        for question, language, expected_id, target in cases:
+            with self.subTest(language=language):
+                found = retrieve_evidence(question, language=language)
+                self.assertTrue(found)
+                self.assertEqual(found[0]["id"], expected_id)
+                self.assertEqual(found[0]["examples"][0]["text"], target)
+
     """Small deterministic retrieval set; this does not evaluate an LLM."""
 
     def test_reference_queries_retrieve_expected_scope_only(self):

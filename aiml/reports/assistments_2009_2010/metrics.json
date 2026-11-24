@@ -1,0 +1,554 @@
+{
+  "experiment_id": "assistments2009-grouped-unseen-learners-v1",
+  "model_version": "assistments-rf-v1",
+  "research_question": "Can a model estimate first-attempt correctness from strictly prior learner interactions and current question/skill metadata?",
+  "prediction_target": "first-attempt answer correctness (correct=1)",
+  "dataset": {
+    "dataset_id": "assistments-2009-2010-skill-builder-corrected-collapsed",
+    "source_page": "https://sites.google.com/site/assistmentsdata/home/2009-2010-assistment-data/skill-builder-data-2009-2010",
+    "file_name": "skill_builder_data_corrected_collapsed.csv",
+    "file_bytes": 64412812,
+    "sha256": "162ef8d2d28bcbfea6591a282994062bd8d5eaa00636544292a0d268dca6e5da",
+    "encoding": "latin1",
+    "rows_loaded": 346860,
+    "columns_loaded": 31,
+    "column_names": [
+      "Unnamed: 0",
+      "order_id",
+      "assignment_id",
+      "user_id",
+      "assistment_id",
+      "problem_id",
+      "original",
+      "correct",
+      "attempt_count",
+      "ms_first_response",
+      "tutor_mode",
+      "answer_type",
+      "sequence_id",
+      "student_class_id",
+      "position",
+      "type",
+      "base_sequence_id",
+      "skill_id",
+      "skill_name",
+      "teacher_id",
+      "school_id",
+      "hint_count",
+      "hint_total",
+      "overlap_time",
+      "template_id",
+      "answer_id",
+      "answer_text",
+      "first_action",
+      "bottom_hint",
+      "opportunity",
+      "opportunity_original"
+    ],
+    "unique_learners": 4217,
+    "unique_questions": 26688,
+    "unique_skills_non_null": 149,
+    "target": {
+      "column": "correct",
+      "meaning": "correct on first attempt (1) versus incorrect/help used (0)",
+      "counts": {
+        "0": 123042,
+        "1": 223818
+      },
+      "rates": {
+        "0": 0.35473101539526036,
+        "1": 0.6452689846047397
+      }
+    },
+    "missing_counts": {
+      "Unnamed: 0": 0,
+      "order_id": 0,
+      "assignment_id": 0,
+      "user_id": 0,
+      "assistment_id": 0,
+      "problem_id": 0,
+      "original": 0,
+      "correct": 0,
+      "attempt_count": 0,
+      "ms_first_response": 0,
+      "tutor_mode": 0,
+      "answer_type": 0,
+      "sequence_id": 0,
+      "student_class_id": 0,
+      "position": 0,
+      "type": 0,
+      "base_sequence_id": 0,
+      "skill_id": 63755,
+      "skill_name": 72270,
+      "teacher_id": 0,
+      "school_id": 0,
+      "hint_count": 0,
+      "hint_total": 0,
+      "overlap_time": 0,
+      "template_id": 0,
+      "answer_id": 306818,
+      "answer_text": 77630,
+      "first_action": 0,
+      "bottom_hint": 287003,
+      "opportunity": 0,
+      "opportunity_original": 71402
+    },
+    "missing_rates": {
+      "Unnamed: 0": 0.0,
+      "order_id": 0.0,
+      "assignment_id": 0.0,
+      "user_id": 0.0,
+      "assistment_id": 0.0,
+      "problem_id": 0.0,
+      "original": 0.0,
+      "correct": 0.0,
+      "attempt_count": 0.0,
+      "ms_first_response": 0.0,
+      "tutor_mode": 0.0,
+      "answer_type": 0.0,
+      "sequence_id": 0.0,
+      "student_class_id": 0.0,
+      "position": 0.0,
+      "type": 0.0,
+      "base_sequence_id": 0.0,
+      "skill_id": 0.183806146572104,
+      "skill_name": 0.20835495588998443,
+      "teacher_id": 0.0,
+      "school_id": 0.0,
+      "hint_count": 0.0,
+      "hint_total": 0.0,
+      "overlap_time": 0.0,
+      "template_id": 0.0,
+      "answer_id": 0.8845586115435622,
+      "answer_text": 0.2238078763766361,
+      "first_action": 0.0,
+      "bottom_hint": 0.8274318168713602,
+      "opportunity": 0.0,
+      "opportunity_original": 0.20585250533356397
+    },
+    "full_row_duplicates": 0,
+    "duplicate_order_ids": 0,
+    "model_identifiers_excluded": [
+      "answer_id",
+      "assignment_id",
+      "assistment_id",
+      "base_sequence_id",
+      "order_id",
+      "problem_id",
+      "school_id",
+      "sequence_id",
+      "student_class_id",
+      "teacher_id",
+      "template_id",
+      "user_id"
+    ],
+    "columns_never_used_as_current_prediction_features": [
+      "Unnamed: 0",
+      "answer_id",
+      "answer_text",
+      "assignment_id",
+      "assistment_id",
+      "attempt_count",
+      "base_sequence_id",
+      "bottom_hint",
+      "correct",
+      "first_action",
+      "hint_count",
+      "ms_first_response",
+      "opportunity",
+      "opportunity_original",
+      "order_id",
+      "overlap_time",
+      "problem_id",
+      "school_id",
+      "sequence_id",
+      "student_class_id",
+      "teacher_id",
+      "template_id",
+      "user_id"
+    ]
+  },
+  "feature_engineering": {
+    "features": [
+      "learner_prior_interactions",
+      "learner_prior_success_rate",
+      "learner_prior_hint_interaction_rate",
+      "learner_prior_mean_attempts",
+      "learner_prior_mean_response_ms",
+      "skill_prior_interactions",
+      "skill_prior_success_rate",
+      "skill_prior_hint_interaction_rate",
+      "skill_prior_mean_attempts",
+      "skill_prior_mean_response_ms",
+      "original",
+      "position",
+      "hint_total",
+      "skill_id",
+      "tutor_mode",
+      "answer_type"
+    ],
+    "numeric_features": [
+      "learner_prior_interactions",
+      "learner_prior_success_rate",
+      "learner_prior_hint_interaction_rate",
+      "learner_prior_mean_attempts",
+      "learner_prior_mean_response_ms",
+      "skill_prior_interactions",
+      "skill_prior_success_rate",
+      "skill_prior_hint_interaction_rate",
+      "skill_prior_mean_attempts",
+      "skill_prior_mean_response_ms",
+      "original",
+      "position",
+      "hint_total"
+    ],
+    "categorical_features": [
+      "skill_id",
+      "tutor_mode",
+      "answer_type"
+    ],
+    "learner_and_question_ids_in_model_matrix": false,
+    "current_outcome_derived_fields_in_model_matrix": false,
+    "sanitization": {
+      "rows_excluded": 0,
+      "attempt_count_below_one_treated_missing": 7213,
+      "attempt_count_above_50_capped": 312,
+      "negative_response_time_treated_missing": 7,
+      "response_time_above_one_hour_capped": 151,
+      "missing_skill_mapped_to_explicit_category": 63755,
+      "notes": [
+        "No row is removed solely because skill metadata is missing.",
+        "Sanitized current interaction fields are used only in later rows' history aggregates.",
+        "Current attempts, hints and response time are excluded from the current prediction."
+      ]
+    }
+  },
+  "split": {
+    "method": "GroupShuffleSplit by learner_id",
+    "test_size_requested": 0.2,
+    "random_seed": 20261122,
+    "train_learners": 3373,
+    "test_learners": 844,
+    "learner_overlap": 0,
+    "train_rows": 277228,
+    "test_rows": 69632,
+    "train_positive_rate": 0.6453496760788954,
+    "test_positive_rate": 0.6449477251838235
+  },
+  "model_configurations": {
+    "majority_baseline": {
+      "constant": null,
+      "random_state": 20261122,
+      "strategy": "prior"
+    },
+    "logistic_regression": {
+      "C": 1.0,
+      "class_weight": "balanced",
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": null,
+      "max_iter": 600,
+      "multi_class": "deprecated",
+      "n_jobs": null,
+      "penalty": "l2",
+      "random_state": 20261122,
+      "solver": "lbfgs",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "random_forest": {
+      "bootstrap": true,
+      "ccp_alpha": 0.0,
+      "class_weight": "balanced_subsample",
+      "criterion": "gini",
+      "max_depth": 16,
+      "max_features": "sqrt",
+      "max_leaf_nodes": null,
+      "max_samples": null,
+      "min_impurity_decrease": 0.0,
+      "min_samples_leaf": 12,
+      "min_samples_split": 2,
+      "min_weight_fraction_leaf": 0.0,
+      "monotonic_cst": null,
+      "n_estimators": 160,
+      "n_jobs": -1,
+      "oob_score": false,
+      "random_state": 20261122,
+      "verbose": 0,
+      "warm_start": false
+    }
+  },
+  "models": {
+    "majority_baseline": {
+      "rows": 69632,
+      "positive_rate": 0.6449477251838235,
+      "accuracy": 0.6449477251838235,
+      "precision_correct": 0.6449477251838235,
+      "recall_correct": 1.0,
+      "f1_correct": 0.7841558917767437,
+      "macro_precision": 0.32247386259191174,
+      "macro_recall": 0.5,
+      "macro_f1": 0.39207794588837186,
+      "weighted_precision": 0.4159575682197887,
+      "weighted_recall": 0.6449477251838235,
+      "weighted_f1": 0.5057395585909034,
+      "roc_auc": 0.5,
+      "pr_auc": 0.6449477251838235,
+      "brier_score": 0.22899031852855678,
+      "confusion_matrix": [
+        [
+          0,
+          24723
+        ],
+        [
+          0,
+          44909
+        ]
+      ],
+      "classification_report": {
+        "incorrect": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 24723.0
+        },
+        "correct": {
+          "precision": 0.6449477251838235,
+          "recall": 1.0,
+          "f1-score": 0.7841558917767437,
+          "support": 44909.0
+        },
+        "accuracy": 0.6449477251838235,
+        "macro avg": {
+          "precision": 0.32247386259191174,
+          "recall": 0.5,
+          "f1-score": 0.39207794588837186,
+          "support": 69632.0
+        },
+        "weighted avg": {
+          "precision": 0.4159575682197887,
+          "recall": 0.6449477251838235,
+          "f1-score": 0.5057395585909034,
+          "support": 69632.0
+        }
+      },
+      "fit_seconds": 1.1438504999969155
+    },
+    "logistic_regression": {
+      "rows": 69632,
+      "positive_rate": 0.6449477251838235,
+      "accuracy": 0.6786965762867647,
+      "precision_correct": 0.7850060704168353,
+      "recall_correct": 0.6910864192032777,
+      "f1_correct": 0.7350583219847238,
+      "macro_precision": 0.6620239017687579,
+      "macro_recall": 0.6736385054799707,
+      "macro_f1": 0.6634667008964097,
+      "weighted_precision": 0.6976758729361823,
+      "weighted_recall": 0.6786965762867647,
+      "weighted_f1": 0.6842207861343566,
+      "roc_auc": 0.7399704299581829,
+      "pr_auc": 0.8252722911061479,
+      "brier_score": 0.2056118704655532,
+      "confusion_matrix": [
+        [
+          16223,
+          8500
+        ],
+        [
+          13873,
+          31036
+        ]
+      ],
+      "classification_report": {
+        "incorrect": {
+          "precision": 0.5390417331206805,
+          "recall": 0.6561905917566638,
+          "f1-score": 0.5918750798080957,
+          "support": 24723.0
+        },
+        "correct": {
+          "precision": 0.7850060704168353,
+          "recall": 0.6910864192032777,
+          "f1-score": 0.7350583219847238,
+          "support": 44909.0
+        },
+        "accuracy": 0.6786965762867647,
+        "macro avg": {
+          "precision": 0.6620239017687579,
+          "recall": 0.6736385054799707,
+          "f1-score": 0.6634667008964097,
+          "support": 69632.0
+        },
+        "weighted avg": {
+          "precision": 0.6976758729361823,
+          "recall": 0.6786965762867647,
+          "f1-score": 0.6842207861343566,
+          "support": 69632.0
+        }
+      },
+      "fit_seconds": 7.0649759999942034
+    },
+    "random_forest": {
+      "rows": 69632,
+      "positive_rate": 0.6449477251838235,
+      "accuracy": 0.6935317095588235,
+      "precision_correct": 0.7857749108810049,
+      "recall_correct": 0.7215257520764212,
+      "f1_correct": 0.7522810113063868,
+      "macro_precision": 0.6726726288865317,
+      "macro_recall": 0.6821033282487028,
+      "macro_f1": 0.6752669787884771,
+      "weighted_precision": 0.7054604658629282,
+      "weighted_recall": 0.6935317095588235,
+      "weighted_f1": 0.6975929964298853,
+      "roc_auc": 0.7529211973910412,
+      "pr_auc": 0.8365239870855619,
+      "brier_score": 0.2012131315476574,
+      "confusion_matrix": [
+        [
+          15889,
+          8834
+        ],
+        [
+          12506,
+          32403
+        ]
+      ],
+      "classification_report": {
+        "incorrect": {
+          "precision": 0.5595703468920584,
+          "recall": 0.6426809044209845,
+          "f1-score": 0.5982529462705675,
+          "support": 24723.0
+        },
+        "correct": {
+          "precision": 0.7857749108810049,
+          "recall": 0.7215257520764212,
+          "f1-score": 0.7522810113063868,
+          "support": 44909.0
+        },
+        "accuracy": 0.6935317095588235,
+        "macro avg": {
+          "precision": 0.6726726288865317,
+          "recall": 0.6821033282487028,
+          "f1-score": 0.6752669787884771,
+          "support": 69632.0
+        },
+        "weighted avg": {
+          "precision": 0.7054604658629282,
+          "recall": 0.6935317095588235,
+          "f1-score": 0.6975929964298853,
+          "support": 69632.0
+        }
+      },
+      "fit_seconds": 52.06884970003739
+    }
+  },
+  "random_forest_top_feature_importance": [
+    {
+      "feature": "numeric__skill_prior_success_rate",
+      "importance": 0.19315165206178997
+    },
+    {
+      "feature": "numeric__learner_prior_success_rate",
+      "importance": 0.14634568537214843
+    },
+    {
+      "feature": "numeric__learner_prior_hint_interaction_rate",
+      "importance": 0.11935718620350891
+    },
+    {
+      "feature": "numeric__skill_prior_hint_interaction_rate",
+      "importance": 0.1007640716611524
+    },
+    {
+      "feature": "numeric__learner_prior_mean_attempts",
+      "importance": 0.04727625369787416
+    },
+    {
+      "feature": "numeric__skill_prior_mean_attempts",
+      "importance": 0.04307699252529124
+    },
+    {
+      "feature": "numeric__hint_total",
+      "importance": 0.041194459066543634
+    },
+    {
+      "feature": "numeric__skill_prior_mean_response_ms",
+      "importance": 0.03285329635119629
+    },
+    {
+      "feature": "numeric__position",
+      "importance": 0.03165730766100994
+    },
+    {
+      "feature": "numeric__learner_prior_mean_response_ms",
+      "importance": 0.031167703755591015
+    },
+    {
+      "feature": "categorical__answer_type_choose_1",
+      "importance": 0.02783903235915397
+    },
+    {
+      "feature": "numeric__skill_prior_interactions",
+      "importance": 0.0268036577409863
+    },
+    {
+      "feature": "numeric__learner_prior_interactions",
+      "importance": 0.02469398177741968
+    },
+    {
+      "feature": "numeric__original",
+      "importance": 0.022310865672110197
+    },
+    {
+      "feature": "categorical__skill_id___missing_skill__",
+      "importance": 0.012214086382300435
+    },
+    {
+      "feature": "categorical__answer_type_algebra",
+      "importance": 0.010005722081228498
+    },
+    {
+      "feature": "categorical__skill_id_16_17",
+      "importance": 0.007624923209770712
+    },
+    {
+      "feature": "categorical__answer_type_fill_in_1",
+      "importance": 0.005889408071846873
+    },
+    {
+      "feature": "categorical__skill_id_312",
+      "importance": 0.005503209690648362
+    },
+    {
+      "feature": "categorical__skill_id_279",
+      "importance": 0.003553788773075401
+    }
+  ],
+  "artifact": {
+    "path": "artifacts/assistments_2009_rf_v1.joblib",
+    "bytes": 17257841,
+    "sha256": "6ab5fea50d9991b16ddaca6e65d288a7dbbfa50568f191ccdbed6991f2481cfd",
+    "format": "joblib containing a fitted scikit-learn Pipeline"
+  },
+  "software": {
+    "python": "3.12.3",
+    "pandas": "2.2.3",
+    "scipy": "1.14.1",
+    "scikit_learn": "1.5.2",
+    "joblib": "1.4.2"
+  },
+  "started_at_utc": "2026-11-22T22:03:29.977869+00:00",
+  "completed_at_utc": "2026-11-22T22:04:38.453047+00:00",
+  "source_page": "https://sites.google.com/site/assistmentsdata/home/2009-2010-assistment-data/skill-builder-data-2009-2010",
+  "sample": {
+    "kind": "held-out test row features; no learner identifier retained",
+    "observed_target": 0,
+    "request_file": "sample_prediction_request.json",
+    "response_file": "sample_prediction_response.json"
+  }
+}

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:resonant_braille/main.dart';
 
@@ -149,22 +150,25 @@ void main() {
     expect(find.textContaining('Dots: None'), findsOneWidget);
   });
 
-  testWidgets('provides semantic dot buttons as an input alternative', (
-    tester,
-  ) async {
-    await showKeyboard(tester);
-    expect(find.byType(Scrollable), findsNothing);
-    await tester.tap(find.byTooltip('Switch to accessible dot controls'));
-    await tester.pump();
-    expect(find.byType(Scrollable), findsNothing);
+  testWidgets(
+    'provides buttonless semantic dot controls as an input alternative',
+    (tester) async {
+      await showKeyboard(tester);
+      expect(find.byType(Scrollable), findsNothing);
+      await tester.tap(find.byTooltip('Switch to accessible dot controls'));
+      await tester.pump();
+      expect(find.byType(Scrollable), findsNothing);
 
-    final dotOne = find.bySemanticsLabel('Braille dot 1');
-    expect(dotOne, findsOneWidget);
-    await tester.tap(dotOne);
-    await tester.pump();
+      final dotOne = find.bySemanticsLabel('Braille dot 1');
+      expect(dotOne, findsOneWidget);
+      await tester.tap(dotOne);
+      await tester.pump();
 
-    expect(tester.getSemantics(dotOne).getSemanticsData().value, 'selected');
-  });
+      final semantics = tester.getSemantics(dotOne).getSemanticsData();
+      expect(semantics.value, 'selected');
+      expect(semantics.hasFlag(SemanticsFlag.isButton), isFalse);
+    },
+  );
 
   testWidgets(
     'dot selections announce the full pattern and can speak its decoded character',

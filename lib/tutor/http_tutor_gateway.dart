@@ -2,24 +2,24 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
+import '../core/api_config.dart';
 import 'voice_tutor_controller.dart';
 
-const tutorApiBaseUrl = String.fromEnvironment(
-  'RESONANT_TUTOR_API_BASE',
-  defaultValue: 'http://localhost:8000',
-);
+const tutorApiBaseUrl = apiBaseUrl;
 
 class HttpTutorGateway implements TutorGateway {
   HttpTutorGateway({http.Client? client, Uri? baseUri})
     : _client = client,
-      _baseUri = baseUri ?? Uri.parse(tutorApiBaseUrl);
+      _baseUriOverride = baseUri;
 
   final http.Client? _client;
-  final Uri _baseUri;
+  final Uri? _baseUriOverride;
+  Uri get _baseUri => _baseUriOverride ?? ApiConfiguration.baseUri;
 
   @override
   Future<TutorResponse> ask({
     required String question,
+    required String language,
     required List<TutorMessage> history,
     required String lessonContext,
     required List<VerifiedBrailleExample> verifiedExamples,
@@ -28,7 +28,7 @@ class HttpTutorGateway implements TutorGateway {
     final headers = const {'content-type': 'application/json'};
     final requestBody = jsonEncode({
       'question': question,
-      'language': 'English',
+      'language': language,
       'lesson_context': lessonContext,
       'history': history
           .map((message) => {'role': message.role, 'content': message.text})

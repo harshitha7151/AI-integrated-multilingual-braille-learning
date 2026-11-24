@@ -1,0 +1,6 @@
+raw/*
+!raw/README.md
+processed/*
+!processed/README.md
+synthetic/*
+!synthetic/README.md

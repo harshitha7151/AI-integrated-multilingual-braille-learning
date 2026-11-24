@@ -1,0 +1,18 @@
+{
+  "learner_prior_interactions": 0.0,
+  "learner_prior_success_rate": 0.5,
+  "learner_prior_hint_interaction_rate": 0.0,
+  "learner_prior_mean_attempts": 0.0,
+  "learner_prior_mean_response_ms": 0.0,
+  "skill_prior_interactions": 0.0,
+  "skill_prior_success_rate": 0.5,
+  "skill_prior_hint_interaction_rate": 0.0,
+  "skill_prior_mean_attempts": 0.0,
+  "skill_prior_mean_response_ms": 0.0,
+  "original": 1,
+  "position": 4,
+  "hint_total": 0,
+  "skill_id": "__missing_skill__",
+  "tutor_mode": "tutor",
+  "answer_type": "algebra"
+}

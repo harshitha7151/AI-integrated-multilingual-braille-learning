@@ -53,4 +53,52 @@ void main() {
     await oneFinger.up();
     expect(directions, isEmpty);
   });
+
+  testWidgets('three-finger horizontal swipe invokes dedicated language action', (tester) async {
+    var languageChanges = 0;
+    final directions = <int>[];
+    await tester.pumpWidget(MaterialApp(home: Scaffold(body: TwoFingerNavigationDetector(
+      enabled: true,
+      onSwipe: directions.add,
+      onLanguageSwipe: () => languageChanges++,
+      child: const SizedBox.expand(key: ValueKey('gesture-surface')),
+    ))));
+    final rect = tester.getRect(find.byKey(const ValueKey('gesture-surface')));
+    final a = await tester.startGesture(Offset(rect.left + 300, rect.top + 100), pointer: 11);
+    final b = await tester.startGesture(Offset(rect.left + 300, rect.top + 160), pointer: 12);
+    final c = await tester.startGesture(Offset(rect.left + 300, rect.top + 220), pointer: 13);
+    await a.moveTo(Offset(rect.left + 140, rect.top + 100));
+    await b.moveTo(Offset(rect.left + 140, rect.top + 160));
+    await c.moveTo(Offset(rect.left + 140, rect.top + 220));
+    await tester.pump();
+    await a.up(); await b.up(); await c.up();
+    expect(languageChanges, 1);
+    expect(directions, isEmpty);
+  });
+
+  testWidgets('two-finger up and down swipes invoke section navigation', (tester) async {
+    final sections = <int>[];
+    final lessons = <int>[];
+    await tester.pumpWidget(MaterialApp(home: Scaffold(body: TwoFingerNavigationDetector(
+      enabled: true,
+      onSwipe: lessons.add,
+      onVerticalSwipe: sections.add,
+      child: const SizedBox.expand(key: ValueKey('gesture-surface')),
+    ))));
+    final rect = tester.getRect(find.byKey(const ValueKey('gesture-surface')));
+    final upA = await tester.startGesture(Offset(rect.left + 120, rect.top + 300), pointer: 21);
+    final upB = await tester.startGesture(Offset(rect.left + 180, rect.top + 300), pointer: 22);
+    await upA.moveTo(Offset(rect.left + 120, rect.top + 150));
+    await upB.moveTo(Offset(rect.left + 180, rect.top + 150));
+    await tester.pump();
+    await upA.up(); await upB.up();
+    final downA = await tester.startGesture(Offset(rect.left + 120, rect.top + 150), pointer: 23);
+    final downB = await tester.startGesture(Offset(rect.left + 180, rect.top + 150), pointer: 24);
+    await downA.moveTo(Offset(rect.left + 120, rect.top + 300));
+    await downB.moveTo(Offset(rect.left + 180, rect.top + 300));
+    await tester.pump();
+    await downA.up(); await downB.up();
+    expect(sections, [1, -1]);
+    expect(lessons, isEmpty);
+  });
 }

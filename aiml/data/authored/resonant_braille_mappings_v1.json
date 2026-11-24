@@ -1,0 +1,4965 @@
+{
+  "dataset_id": "resonant-braille-mappings-v1",
+  "data_origin": "deterministic_repository_engines",
+  "is_learner_data": false,
+  "languages": [
+    "English",
+    "Hindi",
+    "Kannada"
+  ],
+  "coverage_claim": "verified project subset only",
+  "records": [
+    {
+      "mapping_id": "en:0061",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "a",
+      "unicode_character": "U+0061",
+      "braille_cells": [
+        1
+      ],
+      "dot_positions": [
+        [
+          1
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-a",
+      "lesson_id": "letter-a",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-a"
+    },
+    {
+      "mapping_id": "en:0062",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "b",
+      "unicode_character": "U+0062",
+      "braille_cells": [
+        3
+      ],
+      "dot_positions": [
+        [
+          1,
+          2
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-b",
+      "lesson_id": "letter-b",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-b"
+    },
+    {
+      "mapping_id": "en:0063",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "c",
+      "unicode_character": "U+0063",
+      "braille_cells": [
+        9
+      ],
+      "dot_positions": [
+        [
+          1,
+          4
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-c",
+      "lesson_id": "letter-c",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-c"
+    },
+    {
+      "mapping_id": "en:0064",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "d",
+      "unicode_character": "U+0064",
+      "braille_cells": [
+        25
+      ],
+      "dot_positions": [
+        [
+          1,
+          4,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-d",
+      "lesson_id": "letter-d",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-d"
+    },
+    {
+      "mapping_id": "en:0065",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "e",
+      "unicode_character": "U+0065",
+      "braille_cells": [
+        17
+      ],
+      "dot_positions": [
+        [
+          1,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-e",
+      "lesson_id": "letter-e",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-e"
+    },
+    {
+      "mapping_id": "en:0066",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "f",
+      "unicode_character": "U+0066",
+      "braille_cells": [
+        11
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          4
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-f",
+      "lesson_id": "letter-f",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-f"
+    },
+    {
+      "mapping_id": "en:0067",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "g",
+      "unicode_character": "U+0067",
+      "braille_cells": [
+        27
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          4,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-g",
+      "lesson_id": "letter-g",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-g"
+    },
+    {
+      "mapping_id": "en:0068",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "h",
+      "unicode_character": "U+0068",
+      "braille_cells": [
+        19
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-h",
+      "lesson_id": "letter-h",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-h"
+    },
+    {
+      "mapping_id": "en:0069",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "i",
+      "unicode_character": "U+0069",
+      "braille_cells": [
+        10
+      ],
+      "dot_positions": [
+        [
+          2,
+          4
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-i",
+      "lesson_id": "letter-i",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-i"
+    },
+    {
+      "mapping_id": "en:006a",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "j",
+      "unicode_character": "U+006A",
+      "braille_cells": [
+        26
+      ],
+      "dot_positions": [
+        [
+          2,
+          4,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-j",
+      "lesson_id": "letter-j",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-j"
+    },
+    {
+      "mapping_id": "en:006b",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "k",
+      "unicode_character": "U+006B",
+      "braille_cells": [
+        5
+      ],
+      "dot_positions": [
+        [
+          1,
+          3
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-k",
+      "lesson_id": "letter-k",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-k"
+    },
+    {
+      "mapping_id": "en:006c",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "l",
+      "unicode_character": "U+006C",
+      "braille_cells": [
+        7
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-l",
+      "lesson_id": "letter-l",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-l"
+    },
+    {
+      "mapping_id": "en:006d",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "m",
+      "unicode_character": "U+006D",
+      "braille_cells": [
+        13
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          4
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-m",
+      "lesson_id": "letter-m",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-m"
+    },
+    {
+      "mapping_id": "en:006e",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "n",
+      "unicode_character": "U+006E",
+      "braille_cells": [
+        29
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          4,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-n",
+      "lesson_id": "letter-n",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-n"
+    },
+    {
+      "mapping_id": "en:006f",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "o",
+      "unicode_character": "U+006F",
+      "braille_cells": [
+        21
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-o",
+      "lesson_id": "letter-o",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-o"
+    },
+    {
+      "mapping_id": "en:0070",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "p",
+      "unicode_character": "U+0070",
+      "braille_cells": [
+        15
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-p",
+      "lesson_id": "letter-p",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-p"
+    },
+    {
+      "mapping_id": "en:0071",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "q",
+      "unicode_character": "U+0071",
+      "braille_cells": [
+        31
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-q",
+      "lesson_id": "letter-q",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-q"
+    },
+    {
+      "mapping_id": "en:0072",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "r",
+      "unicode_character": "U+0072",
+      "braille_cells": [
+        23
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          3,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-r",
+      "lesson_id": "letter-r",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-r"
+    },
+    {
+      "mapping_id": "en:0073",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "s",
+      "unicode_character": "U+0073",
+      "braille_cells": [
+        14
+      ],
+      "dot_positions": [
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-s",
+      "lesson_id": "letter-s",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-s"
+    },
+    {
+      "mapping_id": "en:0074",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "t",
+      "unicode_character": "U+0074",
+      "braille_cells": [
+        30
+      ],
+      "dot_positions": [
+        [
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-t",
+      "lesson_id": "letter-t",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-t"
+    },
+    {
+      "mapping_id": "en:0075",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "u",
+      "unicode_character": "U+0075",
+      "braille_cells": [
+        37
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-u",
+      "lesson_id": "letter-u",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-u"
+    },
+    {
+      "mapping_id": "en:0076",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "v",
+      "unicode_character": "U+0076",
+      "braille_cells": [
+        39
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          3,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-v",
+      "lesson_id": "letter-v",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-v"
+    },
+    {
+      "mapping_id": "en:0077",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "w",
+      "unicode_character": "U+0077",
+      "braille_cells": [
+        58
+      ],
+      "dot_positions": [
+        [
+          2,
+          4,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-w",
+      "lesson_id": "letter-w",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-w"
+    },
+    {
+      "mapping_id": "en:0078",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "x",
+      "unicode_character": "U+0078",
+      "braille_cells": [
+        45
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          4,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-x",
+      "lesson_id": "letter-x",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-x"
+    },
+    {
+      "mapping_id": "en:0079",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "y",
+      "unicode_character": "U+0079",
+      "braille_cells": [
+        61
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-y",
+      "lesson_id": "letter-y",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-y"
+    },
+    {
+      "mapping_id": "en:007a",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "English",
+      "character": "z",
+      "unicode_character": "U+007A",
+      "braille_cells": [
+        53
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "english-letter-z",
+      "lesson_id": "letter-z",
+      "encoding_rule": "uncontracted_english_grade_1_letter",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "ICEB Rules of Unified English Braille, third edition, 2024",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "ueb-grade1-iceb-2024-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "letter-z"
+    },
+    {
+      "mapping_id": "hi:0901",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ँ",
+      "unicode_character": "U+0901",
+      "braille_cells": [
+        4
+      ],
+      "dot_positions": [
+        [
+          3
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0902",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ं",
+      "unicode_character": "U+0902",
+      "braille_cells": [
+        48
+      ],
+      "dot_positions": [
+        [
+          5,
+          6
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0903",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ः",
+      "unicode_character": "U+0903",
+      "braille_cells": [
+        32
+      ],
+      "dot_positions": [
+        [
+          6
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0905",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "अ",
+      "unicode_character": "U+0905",
+      "braille_cells": [
+        1
+      ],
+      "dot_positions": [
+        [
+          1
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-अ",
+      "lesson_id": "hi-char-अ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-अ"
+    },
+    {
+      "mapping_id": "hi:0906",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "आ",
+      "unicode_character": "U+0906",
+      "braille_cells": [
+        28
+      ],
+      "dot_positions": [
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-आ",
+      "lesson_id": "hi-char-आ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-आ"
+    },
+    {
+      "mapping_id": "hi:0907",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "इ",
+      "unicode_character": "U+0907",
+      "braille_cells": [
+        10
+      ],
+      "dot_positions": [
+        [
+          2,
+          4
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-इ",
+      "lesson_id": "hi-char-इ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-इ"
+    },
+    {
+      "mapping_id": "hi:0908",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ई",
+      "unicode_character": "U+0908",
+      "braille_cells": [
+        20
+      ],
+      "dot_positions": [
+        [
+          3,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-ई",
+      "lesson_id": "hi-char-ई",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-ई"
+    },
+    {
+      "mapping_id": "hi:0909",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "उ",
+      "unicode_character": "U+0909",
+      "braille_cells": [
+        37
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-उ",
+      "lesson_id": "hi-char-उ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-उ"
+    },
+    {
+      "mapping_id": "hi:090a",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ऊ",
+      "unicode_character": "U+090A",
+      "braille_cells": [
+        51
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-ऊ",
+      "lesson_id": "hi-char-ऊ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-ऊ"
+    },
+    {
+      "mapping_id": "hi:090b",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ऋ",
+      "unicode_character": "U+090B",
+      "braille_cells": [
+        16,
+        23
+      ],
+      "dot_positions": [
+        [
+          5
+        ],
+        [
+          1,
+          2,
+          3,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:090c",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ऌ",
+      "unicode_character": "U+090C",
+      "braille_cells": [
+        16,
+        7
+      ],
+      "dot_positions": [
+        [
+          5
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:090f",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ए",
+      "unicode_character": "U+090F",
+      "braille_cells": [
+        17
+      ],
+      "dot_positions": [
+        [
+          1,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-ए",
+      "lesson_id": "hi-char-ए",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-ए"
+    },
+    {
+      "mapping_id": "hi:0910",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ऐ",
+      "unicode_character": "U+0910",
+      "braille_cells": [
+        12
+      ],
+      "dot_positions": [
+        [
+          3,
+          4
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-ऐ",
+      "lesson_id": "hi-char-ऐ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-ऐ"
+    },
+    {
+      "mapping_id": "hi:0911",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ऑ",
+      "unicode_character": "U+0911",
+      "braille_cells": [
+        45
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          4,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0913",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ओ",
+      "unicode_character": "U+0913",
+      "braille_cells": [
+        21
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-ओ",
+      "lesson_id": "hi-char-ओ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-ओ"
+    },
+    {
+      "mapping_id": "hi:0914",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "औ",
+      "unicode_character": "U+0914",
+      "braille_cells": [
+        42
+      ],
+      "dot_positions": [
+        [
+          2,
+          4,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-औ",
+      "lesson_id": "hi-char-औ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-औ"
+    },
+    {
+      "mapping_id": "hi:0915",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "क",
+      "unicode_character": "U+0915",
+      "braille_cells": [
+        5
+      ],
+      "dot_positions": [
+        [
+          1,
+          3
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-क",
+      "lesson_id": "hi-char-क",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-क"
+    },
+    {
+      "mapping_id": "hi:0915-094d-0937",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "क्ष",
+      "unicode_character": "U+0915 U+094D U+0937",
+      "braille_cells": [
+        31
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "character_category": "sequence",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0916",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ख",
+      "unicode_character": "U+0916",
+      "braille_cells": [
+        40
+      ],
+      "dot_positions": [
+        [
+          4,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-ख",
+      "lesson_id": "hi-char-ख",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-ख"
+    },
+    {
+      "mapping_id": "hi:0917",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ग",
+      "unicode_character": "U+0917",
+      "braille_cells": [
+        27
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          4,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-ग",
+      "lesson_id": "hi-char-ग",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-ग"
+    },
+    {
+      "mapping_id": "hi:0918",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "घ",
+      "unicode_character": "U+0918",
+      "braille_cells": [
+        35
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-घ",
+      "lesson_id": "hi-char-घ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-घ"
+    },
+    {
+      "mapping_id": "hi:0919",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ङ",
+      "unicode_character": "U+0919",
+      "braille_cells": [
+        44
+      ],
+      "dot_positions": [
+        [
+          3,
+          4,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:091a",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "च",
+      "unicode_character": "U+091A",
+      "braille_cells": [
+        9
+      ],
+      "dot_positions": [
+        [
+          1,
+          4
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-च",
+      "lesson_id": "hi-char-च",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-च"
+    },
+    {
+      "mapping_id": "hi:091b",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "छ",
+      "unicode_character": "U+091B",
+      "braille_cells": [
+        33
+      ],
+      "dot_positions": [
+        [
+          1,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-छ",
+      "lesson_id": "hi-char-छ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-छ"
+    },
+    {
+      "mapping_id": "hi:091c",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ज",
+      "unicode_character": "U+091C",
+      "braille_cells": [
+        26
+      ],
+      "dot_positions": [
+        [
+          2,
+          4,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-ज",
+      "lesson_id": "hi-char-ज",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-ज"
+    },
+    {
+      "mapping_id": "hi:091c-094d-091e",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ज्ञ",
+      "unicode_character": "U+091C U+094D U+091E",
+      "braille_cells": [
+        49
+      ],
+      "dot_positions": [
+        [
+          1,
+          5,
+          6
+        ]
+      ],
+      "character_category": "sequence",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:091d",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "झ",
+      "unicode_character": "U+091D",
+      "braille_cells": [
+        52
+      ],
+      "dot_positions": [
+        [
+          3,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-झ",
+      "lesson_id": "hi-char-झ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-झ"
+    },
+    {
+      "mapping_id": "hi:091e",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ञ",
+      "unicode_character": "U+091E",
+      "braille_cells": [
+        18
+      ],
+      "dot_positions": [
+        [
+          2,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:091f",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ट",
+      "unicode_character": "U+091F",
+      "braille_cells": [
+        62
+      ],
+      "dot_positions": [
+        [
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-ट",
+      "lesson_id": "hi-char-ट",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-ट"
+    },
+    {
+      "mapping_id": "hi:0920",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ठ",
+      "unicode_character": "U+0920",
+      "braille_cells": [
+        58
+      ],
+      "dot_positions": [
+        [
+          2,
+          4,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-ठ",
+      "lesson_id": "hi-char-ठ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-ठ"
+    },
+    {
+      "mapping_id": "hi:0921",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ड",
+      "unicode_character": "U+0921",
+      "braille_cells": [
+        43
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          4,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-ड",
+      "lesson_id": "hi-char-ड",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-ड"
+    },
+    {
+      "mapping_id": "hi:0922",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ढ",
+      "unicode_character": "U+0922",
+      "braille_cells": [
+        63
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-ढ",
+      "lesson_id": "hi-char-ढ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-ढ"
+    },
+    {
+      "mapping_id": "hi:0923",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ण",
+      "unicode_character": "U+0923",
+      "braille_cells": [
+        60
+      ],
+      "dot_positions": [
+        [
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-ण",
+      "lesson_id": "hi-char-ण",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-ण"
+    },
+    {
+      "mapping_id": "hi:0924",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "त",
+      "unicode_character": "U+0924",
+      "braille_cells": [
+        30
+      ],
+      "dot_positions": [
+        [
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-त",
+      "lesson_id": "hi-char-त",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-त"
+    },
+    {
+      "mapping_id": "hi:0924-094d-0930",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "त्र",
+      "unicode_character": "U+0924 U+094D U+0930",
+      "braille_cells": [
+        8,
+        30,
+        23
+      ],
+      "dot_positions": [
+        [
+          4
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          1,
+          2,
+          3,
+          5
+        ]
+      ],
+      "character_category": "sequence",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0925",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "थ",
+      "unicode_character": "U+0925",
+      "braille_cells": [
+        57
+      ],
+      "dot_positions": [
+        [
+          1,
+          4,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-थ",
+      "lesson_id": "hi-char-थ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-थ"
+    },
+    {
+      "mapping_id": "hi:0926",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "द",
+      "unicode_character": "U+0926",
+      "braille_cells": [
+        25
+      ],
+      "dot_positions": [
+        [
+          1,
+          4,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-द",
+      "lesson_id": "hi-char-द",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-द"
+    },
+    {
+      "mapping_id": "hi:0927",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ध",
+      "unicode_character": "U+0927",
+      "braille_cells": [
+        46
+      ],
+      "dot_positions": [
+        [
+          2,
+          3,
+          4,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-ध",
+      "lesson_id": "hi-char-ध",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-ध"
+    },
+    {
+      "mapping_id": "hi:0928",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "न",
+      "unicode_character": "U+0928",
+      "braille_cells": [
+        29
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          4,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-न",
+      "lesson_id": "hi-char-न",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-न"
+    },
+    {
+      "mapping_id": "hi:0929",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ऩ",
+      "unicode_character": "U+0929",
+      "braille_cells": [
+        16,
+        29
+      ],
+      "dot_positions": [
+        [
+          5
+        ],
+        [
+          1,
+          3,
+          4,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:092a",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "प",
+      "unicode_character": "U+092A",
+      "braille_cells": [
+        15
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-प",
+      "lesson_id": "hi-char-प",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-प"
+    },
+    {
+      "mapping_id": "hi:092b",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "फ",
+      "unicode_character": "U+092B",
+      "braille_cells": [
+        11
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          4
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-फ",
+      "lesson_id": "hi-char-फ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-फ"
+    },
+    {
+      "mapping_id": "hi:092c",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ब",
+      "unicode_character": "U+092C",
+      "braille_cells": [
+        3
+      ],
+      "dot_positions": [
+        [
+          1,
+          2
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-ब",
+      "lesson_id": "hi-char-ब",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-ब"
+    },
+    {
+      "mapping_id": "hi:092d",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "भ",
+      "unicode_character": "U+092D",
+      "braille_cells": [
+        24
+      ],
+      "dot_positions": [
+        [
+          4,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-भ",
+      "lesson_id": "hi-char-भ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-भ"
+    },
+    {
+      "mapping_id": "hi:092e",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "म",
+      "unicode_character": "U+092E",
+      "braille_cells": [
+        13
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          4
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-म",
+      "lesson_id": "hi-char-म",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-म"
+    },
+    {
+      "mapping_id": "hi:092f",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "य",
+      "unicode_character": "U+092F",
+      "braille_cells": [
+        61
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-य",
+      "lesson_id": "hi-char-य",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-य"
+    },
+    {
+      "mapping_id": "hi:0930",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "र",
+      "unicode_character": "U+0930",
+      "braille_cells": [
+        23
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          3,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-र",
+      "lesson_id": "hi-char-र",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-र"
+    },
+    {
+      "mapping_id": "hi:0931",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ऱ",
+      "unicode_character": "U+0931",
+      "braille_cells": [
+        16,
+        23
+      ],
+      "dot_positions": [
+        [
+          5
+        ],
+        [
+          1,
+          2,
+          3,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0932",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ल",
+      "unicode_character": "U+0932",
+      "braille_cells": [
+        7
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-ल",
+      "lesson_id": "hi-char-ल",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-ल"
+    },
+    {
+      "mapping_id": "hi:0933",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ळ",
+      "unicode_character": "U+0933",
+      "braille_cells": [
+        56
+      ],
+      "dot_positions": [
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0935",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "व",
+      "unicode_character": "U+0935",
+      "braille_cells": [
+        39
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          3,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-व",
+      "lesson_id": "hi-char-व",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-व"
+    },
+    {
+      "mapping_id": "hi:0936",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "श",
+      "unicode_character": "U+0936",
+      "braille_cells": [
+        41
+      ],
+      "dot_positions": [
+        [
+          1,
+          4,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-श",
+      "lesson_id": "hi-char-श",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-श"
+    },
+    {
+      "mapping_id": "hi:0936-094d-0930",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "श्र",
+      "unicode_character": "U+0936 U+094D U+0930",
+      "braille_cells": [
+        8,
+        41,
+        23
+      ],
+      "dot_positions": [
+        [
+          4
+        ],
+        [
+          1,
+          4,
+          6
+        ],
+        [
+          1,
+          2,
+          3,
+          5
+        ]
+      ],
+      "character_category": "sequence",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0937",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ष",
+      "unicode_character": "U+0937",
+      "braille_cells": [
+        47
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          3,
+          4,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-ष",
+      "lesson_id": "hi-char-ष",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-ष"
+    },
+    {
+      "mapping_id": "hi:0938",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "स",
+      "unicode_character": "U+0938",
+      "braille_cells": [
+        14
+      ],
+      "dot_positions": [
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-स",
+      "lesson_id": "hi-char-स",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-स"
+    },
+    {
+      "mapping_id": "hi:0939",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ह",
+      "unicode_character": "U+0939",
+      "braille_cells": [
+        19
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "hi-bharati-ह",
+      "lesson_id": "hi-char-ह",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "hi-char-ह"
+    },
+    {
+      "mapping_id": "hi:093c",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "़",
+      "unicode_character": "U+093C",
+      "braille_cells": [
+        16
+      ],
+      "dot_positions": [
+        [
+          5
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:093d",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ऽ",
+      "unicode_character": "U+093D",
+      "braille_cells": [
+        2
+      ],
+      "dot_positions": [
+        [
+          2
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:093e",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ा",
+      "unicode_character": "U+093E",
+      "braille_cells": [
+        28
+      ],
+      "dot_positions": [
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:093f",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ि",
+      "unicode_character": "U+093F",
+      "braille_cells": [
+        10
+      ],
+      "dot_positions": [
+        [
+          2,
+          4
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0940",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ी",
+      "unicode_character": "U+0940",
+      "braille_cells": [
+        20
+      ],
+      "dot_positions": [
+        [
+          3,
+          5
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0941",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ु",
+      "unicode_character": "U+0941",
+      "braille_cells": [
+        37
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          6
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0942",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ू",
+      "unicode_character": "U+0942",
+      "braille_cells": [
+        51
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          5,
+          6
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0943",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ृ",
+      "unicode_character": "U+0943",
+      "braille_cells": [
+        16,
+        23
+      ],
+      "dot_positions": [
+        [
+          5
+        ],
+        [
+          1,
+          2,
+          3,
+          5
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0944",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ॄ",
+      "unicode_character": "U+0944",
+      "braille_cells": [
+        32,
+        23
+      ],
+      "dot_positions": [
+        [
+          6
+        ],
+        [
+          1,
+          2,
+          3,
+          5
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0945",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ॅ",
+      "unicode_character": "U+0945",
+      "braille_cells": [
+        45
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          4,
+          6
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0947",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "े",
+      "unicode_character": "U+0947",
+      "braille_cells": [
+        17
+      ],
+      "dot_positions": [
+        [
+          1,
+          5
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0948",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ै",
+      "unicode_character": "U+0948",
+      "braille_cells": [
+        12
+      ],
+      "dot_positions": [
+        [
+          3,
+          4
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0949",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ॉ",
+      "unicode_character": "U+0949",
+      "braille_cells": [
+        45
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          4,
+          6
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:094b",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ो",
+      "unicode_character": "U+094B",
+      "braille_cells": [
+        21
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          5
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:094c",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ौ",
+      "unicode_character": "U+094C",
+      "braille_cells": [
+        42
+      ],
+      "dot_positions": [
+        [
+          2,
+          4,
+          6
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:094d",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "्",
+      "unicode_character": "U+094D",
+      "braille_cells": [
+        8
+      ],
+      "dot_positions": [
+        [
+          4
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0950",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ॐ",
+      "unicode_character": "U+0950",
+      "braille_cells": [
+        16,
+        51
+      ],
+      "dot_positions": [
+        [
+          5
+        ],
+        [
+          1,
+          2,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:095c",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ड़",
+      "unicode_character": "U+095C",
+      "braille_cells": [
+        59
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          4,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:095d",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ढ़",
+      "unicode_character": "U+095D",
+      "braille_cells": [
+        16,
+        59
+      ],
+      "dot_positions": [
+        [
+          5
+        ],
+        [
+          1,
+          2,
+          4,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0960",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ॠ",
+      "unicode_character": "U+0960",
+      "braille_cells": [
+        32,
+        23
+      ],
+      "dot_positions": [
+        [
+          6
+        ],
+        [
+          1,
+          2,
+          3,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0961",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ॡ",
+      "unicode_character": "U+0961",
+      "braille_cells": [
+        32,
+        7
+      ],
+      "dot_positions": [
+        [
+          6
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0962",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ॢ",
+      "unicode_character": "U+0962",
+      "braille_cells": [
+        16,
+        7
+      ],
+      "dot_positions": [
+        [
+          5
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "hi:0963",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Hindi",
+      "character": "ॣ",
+      "unicode_character": "U+0963",
+      "braille_cells": [
+        32,
+        7
+      ],
+      "dot_positions": [
+        [
+          6
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0c82",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಂ",
+      "unicode_character": "U+0C82",
+      "braille_cells": [
+        48
+      ],
+      "dot_positions": [
+        [
+          5,
+          6
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0c83",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಃ",
+      "unicode_character": "U+0C83",
+      "braille_cells": [
+        32
+      ],
+      "dot_positions": [
+        [
+          6
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0c85",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಅ",
+      "unicode_character": "U+0C85",
+      "braille_cells": [
+        1
+      ],
+      "dot_positions": [
+        [
+          1
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಅ",
+      "lesson_id": "kn-char-ಅ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಅ"
+    },
+    {
+      "mapping_id": "kn:0c86",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಆ",
+      "unicode_character": "U+0C86",
+      "braille_cells": [
+        28
+      ],
+      "dot_positions": [
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಆ",
+      "lesson_id": "kn-char-ಆ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಆ"
+    },
+    {
+      "mapping_id": "kn:0c87",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಇ",
+      "unicode_character": "U+0C87",
+      "braille_cells": [
+        10
+      ],
+      "dot_positions": [
+        [
+          2,
+          4
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಇ",
+      "lesson_id": "kn-char-ಇ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಇ"
+    },
+    {
+      "mapping_id": "kn:0c88",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಈ",
+      "unicode_character": "U+0C88",
+      "braille_cells": [
+        20
+      ],
+      "dot_positions": [
+        [
+          3,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಈ",
+      "lesson_id": "kn-char-ಈ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಈ"
+    },
+    {
+      "mapping_id": "kn:0c89",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಉ",
+      "unicode_character": "U+0C89",
+      "braille_cells": [
+        37
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಉ",
+      "lesson_id": "kn-char-ಉ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಉ"
+    },
+    {
+      "mapping_id": "kn:0c8a",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಊ",
+      "unicode_character": "U+0C8A",
+      "braille_cells": [
+        51
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಊ",
+      "lesson_id": "kn-char-ಊ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಊ"
+    },
+    {
+      "mapping_id": "kn:0c8b",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಋ",
+      "unicode_character": "U+0C8B",
+      "braille_cells": [
+        16,
+        23
+      ],
+      "dot_positions": [
+        [
+          5
+        ],
+        [
+          1,
+          2,
+          3,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0c8e",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಎ",
+      "unicode_character": "U+0C8E",
+      "braille_cells": [
+        34
+      ],
+      "dot_positions": [
+        [
+          2,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಎ",
+      "lesson_id": "kn-char-ಎ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಎ"
+    },
+    {
+      "mapping_id": "kn:0c8f",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಏ",
+      "unicode_character": "U+0C8F",
+      "braille_cells": [
+        17
+      ],
+      "dot_positions": [
+        [
+          1,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಏ",
+      "lesson_id": "kn-char-ಏ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಏ"
+    },
+    {
+      "mapping_id": "kn:0c90",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಐ",
+      "unicode_character": "U+0C90",
+      "braille_cells": [
+        12
+      ],
+      "dot_positions": [
+        [
+          3,
+          4
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಐ",
+      "lesson_id": "kn-char-ಐ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಐ"
+    },
+    {
+      "mapping_id": "kn:0c92",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಒ",
+      "unicode_character": "U+0C92",
+      "braille_cells": [
+        45
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          4,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಒ",
+      "lesson_id": "kn-char-ಒ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಒ"
+    },
+    {
+      "mapping_id": "kn:0c93",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಓ",
+      "unicode_character": "U+0C93",
+      "braille_cells": [
+        21
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಓ",
+      "lesson_id": "kn-char-ಓ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಓ"
+    },
+    {
+      "mapping_id": "kn:0c94",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಔ",
+      "unicode_character": "U+0C94",
+      "braille_cells": [
+        42
+      ],
+      "dot_positions": [
+        [
+          2,
+          4,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಔ",
+      "lesson_id": "kn-char-ಔ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಔ"
+    },
+    {
+      "mapping_id": "kn:0c95",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಕ",
+      "unicode_character": "U+0C95",
+      "braille_cells": [
+        5
+      ],
+      "dot_positions": [
+        [
+          1,
+          3
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಕ",
+      "lesson_id": "kn-char-ಕ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಕ"
+    },
+    {
+      "mapping_id": "kn:0c95-0ccd-0cb7",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಕ್ಷ",
+      "unicode_character": "U+0C95 U+0CCD U+0CB7",
+      "braille_cells": [
+        31
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "character_category": "sequence",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0c96",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಖ",
+      "unicode_character": "U+0C96",
+      "braille_cells": [
+        40
+      ],
+      "dot_positions": [
+        [
+          4,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಖ",
+      "lesson_id": "kn-char-ಖ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಖ"
+    },
+    {
+      "mapping_id": "kn:0c97",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಗ",
+      "unicode_character": "U+0C97",
+      "braille_cells": [
+        27
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          4,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಗ",
+      "lesson_id": "kn-char-ಗ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಗ"
+    },
+    {
+      "mapping_id": "kn:0c98",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಘ",
+      "unicode_character": "U+0C98",
+      "braille_cells": [
+        35
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಘ",
+      "lesson_id": "kn-char-ಘ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಘ"
+    },
+    {
+      "mapping_id": "kn:0c99",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಙ",
+      "unicode_character": "U+0C99",
+      "braille_cells": [
+        44
+      ],
+      "dot_positions": [
+        [
+          3,
+          4,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0c9a",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಚ",
+      "unicode_character": "U+0C9A",
+      "braille_cells": [
+        9
+      ],
+      "dot_positions": [
+        [
+          1,
+          4
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಚ",
+      "lesson_id": "kn-char-ಚ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಚ"
+    },
+    {
+      "mapping_id": "kn:0c9b",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಛ",
+      "unicode_character": "U+0C9B",
+      "braille_cells": [
+        33
+      ],
+      "dot_positions": [
+        [
+          1,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಛ",
+      "lesson_id": "kn-char-ಛ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಛ"
+    },
+    {
+      "mapping_id": "kn:0c9c",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಜ",
+      "unicode_character": "U+0C9C",
+      "braille_cells": [
+        26
+      ],
+      "dot_positions": [
+        [
+          2,
+          4,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಜ",
+      "lesson_id": "kn-char-ಜ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಜ"
+    },
+    {
+      "mapping_id": "kn:0c9c-0ccd-0c9e",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಜ್ಞ",
+      "unicode_character": "U+0C9C U+0CCD U+0C9E",
+      "braille_cells": [
+        49
+      ],
+      "dot_positions": [
+        [
+          1,
+          5,
+          6
+        ]
+      ],
+      "character_category": "sequence",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0c9d",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಝ",
+      "unicode_character": "U+0C9D",
+      "braille_cells": [
+        52
+      ],
+      "dot_positions": [
+        [
+          3,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಝ",
+      "lesson_id": "kn-char-ಝ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಝ"
+    },
+    {
+      "mapping_id": "kn:0c9e",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಞ",
+      "unicode_character": "U+0C9E",
+      "braille_cells": [
+        18
+      ],
+      "dot_positions": [
+        [
+          2,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0c9f",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಟ",
+      "unicode_character": "U+0C9F",
+      "braille_cells": [
+        62
+      ],
+      "dot_positions": [
+        [
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಟ",
+      "lesson_id": "kn-char-ಟ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಟ"
+    },
+    {
+      "mapping_id": "kn:0ca0",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಠ",
+      "unicode_character": "U+0CA0",
+      "braille_cells": [
+        58
+      ],
+      "dot_positions": [
+        [
+          2,
+          4,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಠ",
+      "lesson_id": "kn-char-ಠ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಠ"
+    },
+    {
+      "mapping_id": "kn:0ca1",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಡ",
+      "unicode_character": "U+0CA1",
+      "braille_cells": [
+        43
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          4,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಡ",
+      "lesson_id": "kn-char-ಡ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಡ"
+    },
+    {
+      "mapping_id": "kn:0ca2",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಢ",
+      "unicode_character": "U+0CA2",
+      "braille_cells": [
+        63
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಢ",
+      "lesson_id": "kn-char-ಢ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಢ"
+    },
+    {
+      "mapping_id": "kn:0ca3",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಣ",
+      "unicode_character": "U+0CA3",
+      "braille_cells": [
+        60
+      ],
+      "dot_positions": [
+        [
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಣ",
+      "lesson_id": "kn-char-ಣ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಣ"
+    },
+    {
+      "mapping_id": "kn:0ca4",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ತ",
+      "unicode_character": "U+0CA4",
+      "braille_cells": [
+        30
+      ],
+      "dot_positions": [
+        [
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ತ",
+      "lesson_id": "kn-char-ತ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ತ"
+    },
+    {
+      "mapping_id": "kn:0ca5",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಥ",
+      "unicode_character": "U+0CA5",
+      "braille_cells": [
+        57
+      ],
+      "dot_positions": [
+        [
+          1,
+          4,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಥ",
+      "lesson_id": "kn-char-ಥ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಥ"
+    },
+    {
+      "mapping_id": "kn:0ca6",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ದ",
+      "unicode_character": "U+0CA6",
+      "braille_cells": [
+        25
+      ],
+      "dot_positions": [
+        [
+          1,
+          4,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ದ",
+      "lesson_id": "kn-char-ದ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ದ"
+    },
+    {
+      "mapping_id": "kn:0ca7",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಧ",
+      "unicode_character": "U+0CA7",
+      "braille_cells": [
+        46
+      ],
+      "dot_positions": [
+        [
+          2,
+          3,
+          4,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಧ",
+      "lesson_id": "kn-char-ಧ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಧ"
+    },
+    {
+      "mapping_id": "kn:0ca8",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ನ",
+      "unicode_character": "U+0CA8",
+      "braille_cells": [
+        29
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          4,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ನ",
+      "lesson_id": "kn-char-ನ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ನ"
+    },
+    {
+      "mapping_id": "kn:0caa",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಪ",
+      "unicode_character": "U+0CAA",
+      "braille_cells": [
+        15
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಪ",
+      "lesson_id": "kn-char-ಪ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಪ"
+    },
+    {
+      "mapping_id": "kn:0cab",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಫ",
+      "unicode_character": "U+0CAB",
+      "braille_cells": [
+        11
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          4
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಫ",
+      "lesson_id": "kn-char-ಫ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಫ"
+    },
+    {
+      "mapping_id": "kn:0cac",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಬ",
+      "unicode_character": "U+0CAC",
+      "braille_cells": [
+        3
+      ],
+      "dot_positions": [
+        [
+          1,
+          2
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಬ",
+      "lesson_id": "kn-char-ಬ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಬ"
+    },
+    {
+      "mapping_id": "kn:0cad",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಭ",
+      "unicode_character": "U+0CAD",
+      "braille_cells": [
+        24
+      ],
+      "dot_positions": [
+        [
+          4,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಭ",
+      "lesson_id": "kn-char-ಭ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಭ"
+    },
+    {
+      "mapping_id": "kn:0cae",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಮ",
+      "unicode_character": "U+0CAE",
+      "braille_cells": [
+        13
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          4
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಮ",
+      "lesson_id": "kn-char-ಮ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಮ"
+    },
+    {
+      "mapping_id": "kn:0caf",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಯ",
+      "unicode_character": "U+0CAF",
+      "braille_cells": [
+        61
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಯ",
+      "lesson_id": "kn-char-ಯ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಯ"
+    },
+    {
+      "mapping_id": "kn:0cb0",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ರ",
+      "unicode_character": "U+0CB0",
+      "braille_cells": [
+        23
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          3,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ರ",
+      "lesson_id": "kn-char-ರ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ರ"
+    },
+    {
+      "mapping_id": "kn:0cb1",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಱ",
+      "unicode_character": "U+0CB1",
+      "braille_cells": [
+        59
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          4,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0cb2",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಲ",
+      "unicode_character": "U+0CB2",
+      "braille_cells": [
+        7
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಲ",
+      "lesson_id": "kn-char-ಲ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಲ"
+    },
+    {
+      "mapping_id": "kn:0cb3",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಳ",
+      "unicode_character": "U+0CB3",
+      "braille_cells": [
+        56
+      ],
+      "dot_positions": [
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಳ",
+      "lesson_id": "kn-char-ಳ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಳ"
+    },
+    {
+      "mapping_id": "kn:0cb5",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ವ",
+      "unicode_character": "U+0CB5",
+      "braille_cells": [
+        39
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          3,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ವ",
+      "lesson_id": "kn-char-ವ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ವ"
+    },
+    {
+      "mapping_id": "kn:0cb6",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಶ",
+      "unicode_character": "U+0CB6",
+      "braille_cells": [
+        41
+      ],
+      "dot_positions": [
+        [
+          1,
+          4,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಶ",
+      "lesson_id": "kn-char-ಶ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಶ"
+    },
+    {
+      "mapping_id": "kn:0cb7",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಷ",
+      "unicode_character": "U+0CB7",
+      "braille_cells": [
+        47
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          3,
+          4,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಷ",
+      "lesson_id": "kn-char-ಷ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಷ"
+    },
+    {
+      "mapping_id": "kn:0cb8",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಸ",
+      "unicode_character": "U+0CB8",
+      "braille_cells": [
+        14
+      ],
+      "dot_positions": [
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಸ",
+      "lesson_id": "kn-char-ಸ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಸ"
+    },
+    {
+      "mapping_id": "kn:0cb9",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಹ",
+      "unicode_character": "U+0CB9",
+      "braille_cells": [
+        19
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          5
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": "kn-bharati-ಹ",
+      "lesson_id": "kn-char-ಹ",
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": "kn-char-ಹ"
+    },
+    {
+      "mapping_id": "kn:0cbc",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "಼",
+      "unicode_character": "U+0CBC",
+      "braille_cells": [
+        16
+      ],
+      "dot_positions": [
+        [
+          5
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0cbe",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಾ",
+      "unicode_character": "U+0CBE",
+      "braille_cells": [
+        28
+      ],
+      "dot_positions": [
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0cbf",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ಿ",
+      "unicode_character": "U+0CBF",
+      "braille_cells": [
+        10
+      ],
+      "dot_positions": [
+        [
+          2,
+          4
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0cc0",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ೀ",
+      "unicode_character": "U+0CC0",
+      "braille_cells": [
+        20
+      ],
+      "dot_positions": [
+        [
+          3,
+          5
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0cc1",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ು",
+      "unicode_character": "U+0CC1",
+      "braille_cells": [
+        37
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          6
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0cc2",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ೂ",
+      "unicode_character": "U+0CC2",
+      "braille_cells": [
+        51
+      ],
+      "dot_positions": [
+        [
+          1,
+          2,
+          5,
+          6
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0cc3",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ೃ",
+      "unicode_character": "U+0CC3",
+      "braille_cells": [
+        16,
+        23
+      ],
+      "dot_positions": [
+        [
+          5
+        ],
+        [
+          1,
+          2,
+          3,
+          5
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0cc4",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ೄ",
+      "unicode_character": "U+0CC4",
+      "braille_cells": [
+        32,
+        23
+      ],
+      "dot_positions": [
+        [
+          6
+        ],
+        [
+          1,
+          2,
+          3,
+          5
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0cc6",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ೆ",
+      "unicode_character": "U+0CC6",
+      "braille_cells": [
+        34
+      ],
+      "dot_positions": [
+        [
+          2,
+          6
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0cc7",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ೇ",
+      "unicode_character": "U+0CC7",
+      "braille_cells": [
+        17
+      ],
+      "dot_positions": [
+        [
+          1,
+          5
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0cc8",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ೈ",
+      "unicode_character": "U+0CC8",
+      "braille_cells": [
+        12
+      ],
+      "dot_positions": [
+        [
+          3,
+          4
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0cca",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ೊ",
+      "unicode_character": "U+0CCA",
+      "braille_cells": [
+        45
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          4,
+          6
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0ccb",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ೋ",
+      "unicode_character": "U+0CCB",
+      "braille_cells": [
+        21
+      ],
+      "dot_positions": [
+        [
+          1,
+          3,
+          5
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0ccc",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ೌ",
+      "unicode_character": "U+0CCC",
+      "braille_cells": [
+        42
+      ],
+      "dot_positions": [
+        [
+          2,
+          4,
+          6
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0ccd",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "್",
+      "unicode_character": "U+0CCD",
+      "braille_cells": [
+        8
+      ],
+      "dot_positions": [
+        [
+          4
+        ]
+      ],
+      "character_category": "mark",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    },
+    {
+      "mapping_id": "kn:0cde",
+      "registry_version": "resonant-braille-mappings-v1",
+      "language": "Kannada",
+      "character": "ೞ",
+      "unicode_character": "U+0CDE",
+      "braille_cells": [
+        16,
+        56
+      ],
+      "dot_positions": [
+        [
+          5
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "character_category": "letter",
+      "skill_id": null,
+      "lesson_id": null,
+      "encoding_rule": "bharati_forward_grade_1_verified_subset",
+      "rule_description": "Forward deterministic Grade 1 mapping. The source encoder remains authoritative; this record is not a learned mapping.",
+      "mapping_source": "NIEPVD Bharati Braille Unicode chart, 2025 verified subset",
+      "source_provenance": "Repository-verified deterministic engine table",
+      "validation_status": "verified_subset",
+      "mapping_version": "niepvd-bharati-2025-subset-v1",
+      "applicable_context": "Validated forward encoding and exercise checking only; coverage is not a claim of complete contracted or reverse Braille support.",
+      "curriculum_reference": null
+    }
+  ]
+}

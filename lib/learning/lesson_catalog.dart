@@ -10,6 +10,15 @@ class LessonExercise {
   final String hint;
   final String explanation;
   final String exerciseType;
+  final int level;
+  final int difficulty;
+  final List<String> prerequisites;
+  final List<String> targetCharacters;
+  final String contentVersion;
+  final String mappingVersion;
+  final String contentSource;
+  final String validationStatus;
+  final String? personalizationTemplate;
 
   const LessonExercise({
     required this.id,
@@ -20,9 +29,41 @@ class LessonExercise {
     required this.hint,
     required this.explanation,
     this.exerciseType = 'letter_recognition',
+    this.level = 1,
+    this.difficulty = 1,
+    this.prerequisites = const [],
+    this.targetCharacters = const [],
+    this.contentVersion = 'flutter-catalog-v1',
+    this.mappingVersion = 'unspecified',
+    this.contentSource = 'resonant-authored',
+    this.validationStatus = 'mapping_verified',
+    this.personalizationTemplate,
   });
 
   bool isCorrect(String choice) => choice == answer;
+
+  bool get isComposedResponse => const {
+    'word_transcription',
+    'phrase_transcription',
+    'sentence_transcription',
+  }.contains(exerciseType);
+
+  String resolvedAnswer(AppLanguage language, {String? learnerName}) {
+    final template = personalizationTemplate;
+    final name = learnerName?.trim();
+    if (template == null || name == null || name.isEmpty || name.length > 40) {
+      return answer;
+    }
+    final personalized = template.replaceFirst('{name}', name);
+    try {
+      if (BrailleDispatcher.encodeToBitmasks(personalized, language).isEmpty) {
+        return answer;
+      }
+      return personalized;
+    } on Object {
+      return answer;
+    }
+  }
 }
 
 class LessonChapter {
@@ -164,17 +205,97 @@ class LessonCatalog {
   ];
 
   static const List<String> hindiCharacters = [
-    'अ', 'आ', 'इ', 'ई', 'उ', 'ऊ', 'ए', 'ऐ', 'ओ', 'औ',
-    'क', 'ख', 'ग', 'घ', 'च', 'छ', 'ज', 'झ', 'ट', 'ठ',
-    'ड', 'ढ', 'ण', 'त', 'थ', 'द', 'ध', 'न', 'प', 'फ',
-    'ब', 'भ', 'म', 'य', 'र', 'ल', 'व', 'श', 'ष', 'स', 'ह',
+    'अ',
+    'आ',
+    'इ',
+    'ई',
+    'उ',
+    'ऊ',
+    'ऋ',
+    'ए',
+    'ऐ',
+    'ओ',
+    'औ',
+    'क',
+    'ख',
+    'ग',
+    'घ',
+    'च',
+    'छ',
+    'ज',
+    'झ',
+    'ट',
+    'ठ',
+    'ड',
+    'ढ',
+    'ण',
+    'त',
+    'थ',
+    'द',
+    'ध',
+    'न',
+    'प',
+    'फ',
+    'ब',
+    'भ',
+    'म',
+    'य',
+    'र',
+    'ल',
+    'व',
+    'श',
+    'ष',
+    'त्र',
+    'स',
+    'ह',
   ];
 
   static const List<String> kannadaCharacters = [
-    'ಅ', 'ಆ', 'ಇ', 'ಈ', 'ಉ', 'ಊ', 'ಎ', 'ಏ', 'ಐ', 'ಒ', 'ಓ', 'ಔ',
-    'ಕ', 'ಖ', 'ಗ', 'ಘ', 'ಚ', 'ಛ', 'ಜ', 'ಝ', 'ಟ', 'ಠ',
-    'ಡ', 'ಢ', 'ಣ', 'ತ', 'ಥ', 'ದ', 'ಧ', 'ನ', 'ಪ', 'ಫ',
-    'ಬ', 'ಭ', 'ಮ', 'ಯ', 'ರ', 'ಲ', 'ವ', 'ಶ', 'ಷ', 'ಸ', 'ಹ', 'ಳ',
+    'ಅ',
+    'ಆ',
+    'ಇ',
+    'ಈ',
+    'ಉ',
+    'ಊ',
+    'ಋ',
+    'ಎ',
+    'ಏ',
+    'ಐ',
+    'ಒ',
+    'ಓ',
+    'ಔ',
+    'ಕ',
+    'ಖ',
+    'ಗ',
+    'ಘ',
+    'ಚ',
+    'ಛ',
+    'ಜ',
+    'ಝ',
+    'ಟ',
+    'ಠ',
+    'ಡ',
+    'ಢ',
+    'ಣ',
+    'ತ',
+    'ಥ',
+    'ದ',
+    'ಧ',
+    'ನ',
+    'ಪ',
+    'ಫ',
+    'ಬ',
+    'ಭ',
+    'ಮ',
+    'ಯ',
+    'ರ',
+    'ಲ',
+    'ವ',
+    'ಶ',
+    'ಷ',
+    'ಸ',
+    'ಹ',
+    'ಳ',
   ];
 
   static List<LessonChapter> chaptersFor(AppLanguage lang) {
@@ -266,6 +387,97 @@ class LessonCatalog {
             ),
       ],
     ),
+    LessonChapter(
+      title: 'Chapter 4: English Phrases',
+      exercises: const [
+        LessonExercise(
+          id: 'en-phrase-i-am',
+          skillId: 'english-phrase-i-am',
+          exerciseType: 'phrase_transcription',
+          level: 4,
+          difficulty: 2,
+          prompt: 'Write the phrase "I AM" using six-dot Braille.',
+          options: ['I AM'],
+          answer: 'I AM',
+          hint:
+              'Write every capitalization sign, letter cell, and blank space cell in order.',
+          explanation:
+              'I AM is an authored practice phrase encoded only by the verified uncontracted English engine.',
+          prerequisites: ['english-word-course-complete'],
+          targetCharacters: ['I', 'A', 'M'],
+          contentVersion: 'flutter-catalog-v2',
+          mappingVersion: 'ueb-subset-v1',
+          contentSource: 'resonant-authored-engine-validated',
+          validationStatus: 'mapping_verified_authored_content',
+        ),
+        LessonExercise(
+          id: 'en-phrase-read-braille',
+          skillId: 'english-phrase-read-braille',
+          exerciseType: 'phrase_transcription',
+          level: 4,
+          difficulty: 3,
+          prompt: 'Write the phrase "READ BRAILLE" using six-dot Braille.',
+          options: ['READ BRAILLE'],
+          answer: 'READ BRAILLE',
+          hint: 'Keep the two words separated by one blank Braille cell.',
+          explanation:
+              'READ BRAILLE uses verified uncontracted English letters, capitalization signs, and a blank space cell.',
+          prerequisites: ['en-phrase-i-am'],
+          targetCharacters: ['R', 'E', 'A', 'D', 'B', 'I', 'L'],
+          contentVersion: 'flutter-catalog-v2',
+          mappingVersion: 'ueb-subset-v1',
+          contentSource: 'resonant-authored-engine-validated',
+          validationStatus: 'mapping_verified_authored_content',
+        ),
+      ],
+    ),
+    LessonChapter(
+      title: 'Chapter 5: English Sentences',
+      exercises: const [
+        LessonExercise(
+          id: 'en-sentence-personal-name',
+          skillId: 'english-sentence-personal-name',
+          exerciseType: 'sentence_transcription',
+          level: 5,
+          difficulty: 3,
+          prompt:
+              'Write the complete sentence "My name is ..." using your saved learner name.',
+          options: ['My name is Sam.'],
+          answer: 'My name is Sam.',
+          personalizationTemplate: 'My name is {name}.',
+          hint:
+              'Include capital signs, the spaces between words, and the final period.',
+          explanation:
+              'The learner name is used only when the verified English engine can encode every character; otherwise the supported fallback sentence is used.',
+          prerequisites: ['en-phrase-i-am', 'en-phrase-read-braille'],
+          targetCharacters: ['M', 'y', 'n', 'a', 'm', 'e', 'i', 's'],
+          contentVersion: 'flutter-catalog-v2',
+          mappingVersion: 'ueb-subset-v1',
+          contentSource: 'resonant-authored-engine-validated',
+          validationStatus: 'mapping_verified_authored_content',
+        ),
+        LessonExercise(
+          id: 'en-sentence-read-braille',
+          skillId: 'english-sentence-read-braille',
+          exerciseType: 'sentence_transcription',
+          level: 5,
+          difficulty: 3,
+          prompt: 'Write the complete sentence "I read Braille."',
+          options: ['I read Braille.'],
+          answer: 'I read Braille.',
+          hint:
+              'Write the words in order, with blank cells for spaces and a period at the end.',
+          explanation:
+              'This sentence uses only the verified uncontracted English subset.',
+          prerequisites: ['en-sentence-personal-name'],
+          targetCharacters: ['I', 'r', 'e', 'a', 'd', 'B', 'i', 'l'],
+          contentVersion: 'flutter-catalog-v2',
+          mappingVersion: 'ueb-subset-v1',
+          contentSource: 'resonant-authored-engine-validated',
+          validationStatus: 'mapping_verified_authored_content',
+        ),
+      ],
+    ),
   ];
 
   static final List<LessonChapter> hindi = [
@@ -279,7 +491,8 @@ class LessonCatalog {
           prompt: 'बाएं कॉलम में सबसे ऊपर कौन सा बिंदु होता है?',
           options: ['बिंदु 1', 'बिंदु 2', 'बिंदु 4', 'बिंदु 5'],
           answer: 'बिंदु 1',
-          hint: 'मानक ब्रेल सेल में बाएं कॉलम में ऊपर से नीचे बिंदु 1, 2, 3 होते हैं।',
+          hint:
+              'मानक ब्रेल सेल में बाएं कॉलम में ऊपर से नीचे बिंदु 1, 2, 3 होते हैं।',
           explanation: 'बिंदु 1 बाएं कॉलम में सबसे ऊपर होता है।',
         ),
         LessonExercise(
@@ -313,8 +526,92 @@ class LessonCatalog {
             options: [word, 'अब', 'कमल', 'जल'],
             answer: word,
             hint: 'प्रत्येक अक्षर के भारती ब्रेल बिंदु क्रम से दर्ज करें।',
-            explanation: 'शब्द $word भारती ब्रेल में अक्षर दर अक्षर लिखा जाता है।',
+            explanation:
+                'शब्द $word भारती ब्रेल में अक्षर दर अक्षर लिखा जाता है।',
           ),
+      ],
+    ),
+    LessonChapter(
+      title: 'अध्याय 4: हिंदी वाक्यांश',
+      exercises: const [
+        LessonExercise(
+          id: 'hi-phrase-mera-naam',
+          skillId: 'hi-phrase-mera-naam',
+          exerciseType: 'phrase_transcription',
+          level: 4,
+          difficulty: 2,
+          prompt: 'वाक्यांश "मेरा नाम" को भारती ब्रेल में लिखें।',
+          options: ['मेरा नाम'],
+          answer: 'मेरा नाम',
+          hint: 'दोनों शब्दों के बीच एक खाली ब्रेल सेल लिखें।',
+          explanation:
+              'यह लेखक-निर्मित वाक्यांश केवल सत्यापित 2025 अग्रेषित भारती ब्रेल तालिका से एन्कोड किया गया है।',
+          prerequisites: ['hi-word-course-complete'],
+          contentVersion: 'flutter-catalog-v2',
+          mappingVersion: 'niepvd-2025-forward-v1',
+          contentSource: 'resonant-authored-engine-validated',
+          validationStatus: 'mapping_verified_authored_content',
+        ),
+        LessonExercise(
+          id: 'hi-phrase-kamal-ghar',
+          skillId: 'hi-phrase-kamal-ghar',
+          exerciseType: 'phrase_transcription',
+          level: 4,
+          difficulty: 2,
+          prompt: 'वाक्यांश "कमल घर" को भारती ब्रेल में लिखें।',
+          options: ['कमल घर'],
+          answer: 'कमल घर',
+          hint: 'कमल और घर के बीच एक खाली सेल रखें।',
+          explanation:
+              'यह अभ्यास सत्यापित अग्रेषित भारती ब्रेल मैपिंग का उपयोग करता है; उल्टा अनुवाद नहीं किया जाता।',
+          prerequisites: ['hi-phrase-mera-naam'],
+          contentVersion: 'flutter-catalog-v2',
+          mappingVersion: 'niepvd-2025-forward-v1',
+          contentSource: 'resonant-authored-engine-validated',
+          validationStatus: 'mapping_verified_authored_content',
+        ),
+      ],
+    ),
+    LessonChapter(
+      title: 'अध्याय 5: हिंदी वाक्य',
+      exercises: const [
+        LessonExercise(
+          id: 'hi-sentence-personal-name',
+          skillId: 'hi-sentence-personal-name',
+          exerciseType: 'sentence_transcription',
+          level: 5,
+          difficulty: 3,
+          prompt: 'पूरा वाक्य "मेरा नाम ... है." भारती ब्रेल में लिखें।',
+          options: ['मेरा नाम कमल है.'],
+          answer: 'मेरा नाम कमल है.',
+          personalizationTemplate: 'मेरा नाम {name} है.',
+          hint: 'हर शब्द के बीच खाली सेल और अंत में पूर्ण विराम लिखें।',
+          explanation:
+              'सहेजा नाम तभी उपयोग होता है जब उसका हर अक्षर सत्यापित हिंदी अग्रेषित इंजन में उपलब्ध हो; अन्यथा समर्थित नाम कमल उपयोग होता है।',
+          prerequisites: ['hi-phrase-mera-naam', 'hi-phrase-kamal-ghar'],
+          contentVersion: 'flutter-catalog-v2',
+          mappingVersion: 'niepvd-2025-forward-v1',
+          contentSource: 'resonant-authored-engine-validated',
+          validationStatus: 'mapping_verified_authored_content',
+        ),
+        LessonExercise(
+          id: 'hi-sentence-house',
+          skillId: 'hi-sentence-house',
+          exerciseType: 'sentence_transcription',
+          level: 5,
+          difficulty: 3,
+          prompt: 'पूरा वाक्य "यह घर है." भारती ब्रेल में लिखें।',
+          options: ['यह घर है.'],
+          answer: 'यह घर है.',
+          hint: 'यह, घर और है के बीच खाली सेल रखें।',
+          explanation:
+              'यह वाक्य सत्यापित हिंदी अग्रेषित मैपिंग से सेल-दर-सेल जाँचा जाता है।',
+          prerequisites: ['hi-sentence-personal-name'],
+          contentVersion: 'flutter-catalog-v2',
+          mappingVersion: 'niepvd-2025-forward-v1',
+          contentSource: 'resonant-authored-engine-validated',
+          validationStatus: 'mapping_verified_authored_content',
+        ),
       ],
     ),
   ];
@@ -364,8 +661,93 @@ class LessonCatalog {
             options: [word, 'ಅಮ್ಮ', 'ಕಮಲ', 'ಮನೆ'],
             answer: word,
             hint: 'ಪ್ರತಿ ಅಕ್ಷರದ ಭಾರತಿ ಬ್ರೈಲ್ ಚುಕ್ಕೆಗಳನ್ನು ಕ್ರಮವಾಗಿ ನಮೂದಿಸಿ.',
-            explanation: '$word ಪದವನ್ನು ಭಾರತಿ ಬ್ರೈಲ್‌ನಲ್ಲಿ ಅಕ್ಷರಗಳಾಗಿ ಬರೆಯಲಾಗುತ್ತದೆ.',
+            explanation:
+                '$word ಪದವನ್ನು ಭಾರತಿ ಬ್ರೈಲ್‌ನಲ್ಲಿ ಅಕ್ಷರಗಳಾಗಿ ಬರೆಯಲಾಗುತ್ತದೆ.',
           ),
+      ],
+    ),
+    LessonChapter(
+      title: 'ಅಧ್ಯಾಯ 4: ಕನ್ನಡ ಪದಗುಚ್ಛಗಳು',
+      exercises: const [
+        LessonExercise(
+          id: 'kn-phrase-nanna-hesaru',
+          skillId: 'kn-phrase-nanna-hesaru',
+          exerciseType: 'phrase_transcription',
+          level: 4,
+          difficulty: 2,
+          prompt: '"ನನ್ನ ಹೆಸರು" ಪದಗುಚ್ಛವನ್ನು ಭಾರತಿ ಬ್ರೈಲ್‌ನಲ್ಲಿ ಬರೆಯಿರಿ.',
+          options: ['ನನ್ನ ಹೆಸರು'],
+          answer: 'ನನ್ನ ಹೆಸರು',
+          hint: 'ಎರಡು ಪದಗಳ ನಡುವೆ ಒಂದು ಖಾಲಿ ಬ್ರೈಲ್ ಕೋಶವನ್ನು ಸೇರಿಸಿ.',
+          explanation:
+              'ಈ ಲೇಖಕ-ರಚಿಸಿದ ಪದಗುಚ್ಛವನ್ನು ಪರಿಶೀಲಿತ 2025 ಮುನ್ನೋಟ ಭಾರತಿ ಬ್ರೈಲ್ ನಕ್ಷೆಯಿಂದ ಮಾತ್ರ ಎನ್‌ಕೋಡ್ ಮಾಡಲಾಗಿದೆ.',
+          prerequisites: ['kn-word-course-complete'],
+          contentVersion: 'flutter-catalog-v2',
+          mappingVersion: 'niepvd-2025-forward-v1',
+          contentSource: 'resonant-authored-engine-validated',
+          validationStatus: 'mapping_verified_authored_content',
+        ),
+        LessonExercise(
+          id: 'kn-phrase-kamala-mane',
+          skillId: 'kn-phrase-kamala-mane',
+          exerciseType: 'phrase_transcription',
+          level: 4,
+          difficulty: 2,
+          prompt: '"ಕಮಲ ಮನೆ" ಪದಗುಚ್ಛವನ್ನು ಭಾರತಿ ಬ್ರೈಲ್‌ನಲ್ಲಿ ಬರೆಯಿರಿ.',
+          options: ['ಕಮಲ ಮನೆ'],
+          answer: 'ಕಮಲ ಮನೆ',
+          hint: 'ಕಮಲ ಮತ್ತು ಮನೆ ನಡುವಿನಲ್ಲಿ ಖಾಲಿ ಕೋಶವನ್ನು ಬರೆಯಿರಿ.',
+          explanation:
+              'ಈ ಅಭ್ಯಾಸವು ಪರಿಶೀಲಿತ ಮುನ್ನೋಟ ಭಾರತಿ ಬ್ರೈಲ್ ನಕ್ಷೆಯನ್ನು ಬಳಸುತ್ತದೆ; ಹಿಮ್ಮುಖ ಅನುವಾದ ಮಾಡುವುದಿಲ್ಲ.',
+          prerequisites: ['kn-phrase-nanna-hesaru'],
+          contentVersion: 'flutter-catalog-v2',
+          mappingVersion: 'niepvd-2025-forward-v1',
+          contentSource: 'resonant-authored-engine-validated',
+          validationStatus: 'mapping_verified_authored_content',
+        ),
+      ],
+    ),
+    LessonChapter(
+      title: 'ಅಧ್ಯಾಯ 5: ಕನ್ನಡ ವಾಕ್ಯಗಳು',
+      exercises: const [
+        LessonExercise(
+          id: 'kn-sentence-personal-name',
+          skillId: 'kn-sentence-personal-name',
+          exerciseType: 'sentence_transcription',
+          level: 5,
+          difficulty: 3,
+          prompt:
+              '"ನನ್ನ ಹೆಸರು ... ." ಎಂಬ ಪೂರ್ಣ ವಾಕ್ಯವನ್ನು ಭಾರತಿ ಬ್ರೈಲ್‌ನಲ್ಲಿ ಬರೆಯಿರಿ.',
+          options: ['ನನ್ನ ಹೆಸರು ಕಮಲ.'],
+          answer: 'ನನ್ನ ಹೆಸರು ಕಮಲ.',
+          personalizationTemplate: 'ನನ್ನ ಹೆಸರು {name}.',
+          hint: 'ಪದಗಳ ನಡುವೆ ಖಾಲಿ ಕೋಶ ಮತ್ತು ಕೊನೆಯಲ್ಲಿ ಪೂರ್ಣವಿರಾಮವನ್ನು ಬರೆಯಿರಿ.',
+          explanation:
+              'ಉಳಿಸಿದ ಹೆಸರಿನ ಪ್ರತಿಯೊಂದು ಅಕ್ಷರವೂ ಪರಿಶೀಲಿತ ಕನ್ನಡ ಮುನ್ನೋಟ ಎಂಜಿನ್‌ನಲ್ಲಿ ಇದ್ದಾಗ ಮಾತ್ರ ಅದನ್ನು ಬಳಸಲಾಗುತ್ತದೆ; ಇಲ್ಲದಿದ್ದರೆ ಕಮಲ ಎಂಬ ಬೆಂಬಲಿತ ಹೆಸರು ಬಳಸಲಾಗುತ್ತದೆ.',
+          prerequisites: ['kn-phrase-nanna-hesaru', 'kn-phrase-kamala-mane'],
+          contentVersion: 'flutter-catalog-v2',
+          mappingVersion: 'niepvd-2025-forward-v1',
+          contentSource: 'resonant-authored-engine-validated',
+          validationStatus: 'mapping_verified_authored_content',
+        ),
+        LessonExercise(
+          id: 'kn-sentence-house',
+          skillId: 'kn-sentence-house',
+          exerciseType: 'sentence_transcription',
+          level: 5,
+          difficulty: 3,
+          prompt: '"ಇದು ಮನೆ." ಎಂಬ ಪೂರ್ಣ ವಾಕ್ಯವನ್ನು ಭಾರತಿ ಬ್ರೈಲ್‌ನಲ್ಲಿ ಬರೆಯಿರಿ.',
+          options: ['ಇದು ಮನೆ.'],
+          answer: 'ಇದು ಮನೆ.',
+          hint: 'ಇದು ಮತ್ತು ಮನೆ ನಡುವೆ ಖಾಲಿ ಕೋಶವನ್ನು ಸೇರಿಸಿ.',
+          explanation:
+              'ಈ ವಾಕ್ಯವನ್ನು ಪರಿಶೀಲಿತ ಕನ್ನಡ ಮುನ್ನೋಟ ನಕ್ಷೆಯಿಂದ ಕೋಶ-ಕೋಶವಾಗಿ ಪರಿಶೀಲಿಸಲಾಗುತ್ತದೆ.',
+          prerequisites: ['kn-sentence-personal-name'],
+          contentVersion: 'flutter-catalog-v2',
+          mappingVersion: 'niepvd-2025-forward-v1',
+          contentSource: 'resonant-authored-engine-validated',
+          validationStatus: 'mapping_verified_authored_content',
+        ),
       ],
     ),
   ];
@@ -398,7 +780,12 @@ class LessonCatalog {
 
   static LessonExercise _vernacularExercise(String char, AppLanguage lang) {
     final masks = BrailleDispatcher.encodeToBitmasks(char, lang);
-    final dots = BrailleDispatcher.dotsForBitmask(masks.first);
+    final cellDescriptions = [
+      for (var index = 0; index < masks.length; index++)
+        lang == AppLanguage.hindi
+            ? 'सेल ${index + 1}: बिंदु ${BrailleDispatcher.dotsForBitmask(masks[index]).join(', ')}'
+            : 'ಕೋಶ ${index + 1}: ಚುಕ್ಕೆ ${BrailleDispatcher.dotsForBitmask(masks[index]).join(', ')}',
+    ].join('; ');
     final isHindi = lang == AppLanguage.hindi;
     final pool = isHindi ? hindiCharacters : kannadaCharacters;
     return LessonExercise(
@@ -406,19 +793,16 @@ class LessonCatalog {
       skillId: '${lang.code}-bharati-$char',
       exerciseType: 'letter_recognition',
       prompt: isHindi
-          ? 'भारती ब्रेल में बिंदु ${dots.join(', ')} किस अक्षर के लिए हैं?'
-          : 'ಭಾರತಿ ಬ್ರೈಲ್‌ನಲ್ಲಿ ಚುಕ್ಕೆಗಳು ${dots.join(', ')} ಯಾವ ಅಕ್ಷರವನ್ನು ಸೂಚಿಸುತ್ತವೆ?',
-      options: [
-        char,
-        ...pool.where((item) => item != char).take(3),
-      ],
+          ? 'भारती ब्रेल में $cellDescriptions किस अक्षर को दर्शाता है?'
+          : 'ಭಾರತಿ ಬ್ರೈಲ್‌ನಲ್ಲಿ $cellDescriptions ಯಾವ ಅಕ್ಷರವನ್ನು ಸೂಚಿಸುತ್ತದೆ?',
+      options: [char, ...pool.where((item) => item != char).take(3)],
       answer: char,
       hint: isHindi
-          ? 'अक्षर $char के लिए बिंदु ${dots.join(', ')} दबाएं।'
-          : '$char ಅಕ್ಷರಕ್ಕಾಗಿ ಚುಕ್ಕೆಗಳು ${dots.join(', ')} ಒತ್ತಿರಿ.',
+          ? 'अक्षर $char के लिए सभी ${masks.length} ब्रेल सेल इसी क्रम में देखें: $cellDescriptions।'
+          : '$char ಅಕ್ಷರದ ಎಲ್ಲಾ ${masks.length} ಭಾರತಿ ಬ್ರೈಲ್ ಕೋಶಗಳನ್ನು ಇದೇ ಕ್ರಮದಲ್ಲಿ ಗಮನಿಸಿ: $cellDescriptions.',
       explanation: isHindi
-          ? 'अक्षर $char के लिए भारती ब्रेल बिंदु ${dots.join(', ')} हैं।'
-          : '$char ಅಕ್ಷರಕ್ಕೆ ಭಾರತಿ ಬ್ರೈಲ್ ಚುಕ್ಕೆಗಳು ${dots.join(', ')} ಆಗಿವೆ.',
+          ? 'अक्षर $char के लिए भारती ब्रेल का क्रम है: $cellDescriptions।'
+          : '$char ಅಕ್ಷರದ ಭಾರತಿ ಬ್ರೈಲ್ ಕೋಶಗಳ ಕ್ರಮ: $cellDescriptions.',
     );
   }
 }

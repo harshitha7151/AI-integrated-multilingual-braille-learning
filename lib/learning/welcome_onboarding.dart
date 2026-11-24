@@ -52,8 +52,8 @@ class _WelcomeOnboardingState extends State<WelcomeOnboarding> {
     'During letter lessons, the shared six-dot keyboard fills the landscape screen. Touch one dot or several dots together to enter a cell.',
     'The selected dots are announced aloud. A short vibration can confirm a touch when vibration is enabled. Clear a pattern before entering another one.',
     'Ask Resonant to repeat instructions or say stop speaking to interrupt audio. With TalkBack, use the custom actions announced for the current control. Swipe right or left as usual to move TalkBack focus.',
-    'On the learning screen, activate the clearly labelled Talk to Resonant control or its TalkBack custom action. It begins listening automatically. If the microphone is unavailable, type your question and submit it with the keyboard send key.',
-    'TalkBack keeps its normal swipe-right and swipe-left navigation. When focus is on the tutor area, use its Talk to Resonant custom action. Android Back closes the tutor and returns to your lesson.',
+    'On the learning screen, double press the phone volume down button to open Resonant Tutor. Wait for the spoken ready message, then press volume up once to start speaking. The microphone stays off until you press volume up. Double press volume down again to cancel tutor mode. You can also open the tutor with its on-screen Talk to Resonant control. If speech recognition is unavailable, type your question and submit it with the send key.',
+    'Volume button activation works only while Resonant is open in the foreground. A single volume press keeps its normal function. Android Back closes the tutor and returns to your lesson.',
     'Practice asks you to enter one letter at a time. Word tests ask for a whole word made only from letters you have learned. You can correct a cell before checking. An answer is accepted only when every cell matches the verified Braille engine.',
   ];
 

@@ -7,6 +7,16 @@ import 'speech_to_text_recognizer.dart';
 import 'http_tutor_gateway.dart';
 import 'local_braille_tutor.dart';
 import 'voice_tutor_controller.dart';
+import 'tutor_screen_context.dart';
+
+String _speechLanguageLabel(String locale) => switch (locale) {
+  'en-IN' => 'English (India)',
+  'en-US' => 'English',
+  'hi-IN' => 'Hindi (India)',
+  'kn-IN' => 'Kannada (India)',
+  'system' => 'device default',
+  _ => locale,
+};
 
 class FlutterTtsSpeechOutput implements TutorSpeechOutput {
   FlutterTtsSpeechOutput(this.tts, {this.enabled = true});
@@ -59,6 +69,8 @@ class _VoiceTutorPanelState extends State<VoiceTutorPanel> {
     final state = widget.controller.state;
     if (widget.hapticsEnabled && state != _lastState) {
       switch (state) {
+        case VoiceTutorState.preparingListening:
+          HapticFeedback.selectionClick();
         case VoiceTutorState.listening:
           HapticFeedback.selectionClick();
         case VoiceTutorState.thinking:
@@ -162,8 +174,8 @@ class _VoiceTutorPanelState extends State<VoiceTutorPanel> {
               SizedBox(height: compact ? 2 : 8),
               Text(
                 compact
-                    ? 'English tutor. Hindi and Kannada voice are not yet verified.'
-                    : 'English voice tutor is enabled. Hindi and Kannada voice support is not yet verified.',
+                    ? 'Speech input: ${_speechLanguageLabel(controller.locale)}.'
+                    : 'Speech input is set to ${_speechLanguageLabel(controller.locale)}. Locale availability depends on the speech service installed on this device.',
                 style: compact ? const TextStyle(fontSize: 12) : null,
               ),
               if (!compact) ...[
@@ -290,18 +302,29 @@ VoiceTutorController createVoiceTutorController({
   required FlutterTts tts,
   required SpeechToTextRecognizer speech,
   required String lessonContext,
+  String language = 'English',
+  String locale = 'en-US',
+  Duration listenTimeout = const Duration(seconds: 45),
   List<VerifiedBrailleExample> lessonExamples = const [],
   bool audioEnabled = true,
   Future<String?> Function(String question)? localCommandHandler,
+  Future<String?> Function(String question, List<TutorMessage> recentTurns)?
+  contextualCommandHandler,
   Future<void> Function()? onLocalCommandComplete,
   Future<void> Function(String message)? onStatusAnnouncement,
+  TutorScreenContextProvider? screenContextProvider,
+  void Function(String type, Map<String, Object?> payload)? onDemoEvent,
 }) => VoiceTutorController(
   speech: speech,
   gateway: HttpTutorGateway(),
   output: FlutterTtsSpeechOutput(tts, enabled: audioEnabled),
   lessonContext: lessonContext,
+  language: language,
+  locale: locale,
+  listenTimeout: listenTimeout,
   lessonExamples: lessonExamples,
   localCommandHandler: localCommandHandler,
+  contextualCommandHandler: contextualCommandHandler,
   offlineTutorHandler: (question, history, context, examples) =>
       LocalBrailleTutor.answer(
         question: question,
@@ -311,4 +334,6 @@ VoiceTutorController createVoiceTutorController({
       ),
   onLocalCommandComplete: onLocalCommandComplete,
   onStatusAnnouncement: onStatusAnnouncement,
+  screenContextProvider: screenContextProvider,
+  onDemoEvent: onDemoEvent,
 );

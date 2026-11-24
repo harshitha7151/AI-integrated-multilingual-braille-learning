@@ -12,6 +12,25 @@ _LETTERS = {
     "n": 29, "o": 21, "p": 15, "q": 31, "r": 23, "s": 14,
     "t": 30, "u": 37, "v": 39, "w": 58, "x": 45, "y": 61, "z": 53,
 }
+_PUNCTUATION = {
+    ",": 2,
+    ";": 6,
+    ":": 18,
+    ".": 50,
+    "?": 22,
+    "'": 4,
+    "-": 36,
+}
+
+
+def supported_letter_mappings() -> dict[str, int]:
+    """Return a defensive copy of the verified English Grade 1 subset.
+
+    The mapping remains private and authoritative inside this module.  This
+    read-only view is used to build versioned validation datasets and must not
+    be mutated by callers.
+    """
+    return dict(_LETTERS)
 _LANGUAGE_NAMES = {"english", "hindi", "kannada"}
 
 
@@ -79,6 +98,45 @@ def verified_uncontracted_word_details(text):
     return {"text": text, "cells": cells, "letter_examples": letters}
 
 
+def verified_uncontracted_text(text):
+    """Encode bounded English Grade 1 text using the Flutter engine subset.
+
+    This supports letters, spaces, capitalization, and the explicitly mapped
+    punctuation above. It does not add contractions, numbers, or unsupported
+    UEB context rules.
+    """
+    if not isinstance(text, str) or not 1 < len(text) <= 160:
+        return None
+    cells = []
+    index = 0
+    while index < len(text):
+        character = text[index]
+        if character == " ":
+            cells.append(0)
+            index += 1
+            continue
+        if character.isascii() and character.isupper():
+            end = index + 1
+            while (
+                end < len(text)
+                and text[end].isascii()
+                and text[end].isupper()
+            ):
+                end += 1
+            cells.extend((32, 32) if end - index > 1 else (32,))
+            cells.extend(_LETTERS[item.lower()] for item in text[index:end])
+            index = end
+            continue
+        if character in _LETTERS:
+            cells.append(_LETTERS[character])
+        elif character in _PUNCTUATION:
+            cells.append(_PUNCTUATION[character])
+        else:
+            return None
+        index += 1
+    return {"text": text, "cells": cells}
+
+
 def requested_english_word(question):
     """Return an explicit alphabetic word requested for Braille encoding."""
     if not isinstance(question, str):
@@ -105,6 +163,8 @@ def requested_english_word(question):
 def is_pattern_question(question):
     text = question.lower()
     return bool(
+        re.search(r"\b(?:write|spell|encode)\s+(?:the\s+)?(?:letter\s+)?[a-z]\b|\bhow\s+do\s+i\s+write\s+(?:the\s+)?(?:letter\s+)?[a-z]\s+in\s+(?:english\s+)?braille\b|\b(?:what are|show me)\s+the\s+dots\s+for\s+(?:the\s+)?(?:letter\s+)?[a-z]\b", text)
+        or
         requested_english_word(question)
         or
         re.search(r"\bbraille\s+for\b|\bencode\b|\bpattern\s+for\b", text)

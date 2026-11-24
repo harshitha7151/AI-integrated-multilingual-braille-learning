@@ -1,0 +1,251 @@
+text,intent,prediction
+what's the word for trees in norway,translate,definition
+what's the french word you use for potato,translate,spelling
+what would the word for grass be in finland,translate,definition
+repeat what the weather will be like,transfer,weather
+who set up the numbers for it,timer,who_made_you
+what is the definiton of auspicious,definition,calculator
+what is the reason humans even exist,meaning_of_life,account_blocked
+is there any consensun regarding lifes true meaning,meaning_of_life,yes
+is there a reason beyond biology about why humans are alive,meaning_of_life,account_blocked
+what's the answer to it all,meaning_of_life,calculator
+how to i change the policy on my insurace,insurance_change,oil_change_how
+i need to sign up for a new allstate plan,insurance_change,new_card
+what is the procedure for signing up for a new allstate plan,insurance_change,reminder_update
+how do i sign up for a new allstatedplan,insurance_change,new_card
+does the state department say anything about traveling to haiti,travel_alert,travel_notification
+safety concerns for malaysia,travel_alert,ingredient_substitution
+how is a vacation request done,pto_request,pto_request_status
+how is a vacation request made,pto_request,pto_request_status
+what is the process of making a vacation request,pto_request,pto_request_status
+can i purchase a vacation using this,pto_request,order
+vacation request information,pto_request,pto_request_status
+vacation request please,pto_request,pto_request_status
+how can i increase my credit score,improve_credit_score,credit_limit_change
+how can i up my credit score,improve_credit_score,credit_score
+can you explain to me how i might boost my credit score,improve_credit_score,credit_score
+give me some ideas for boosting my credit score,improve_credit_score,credit_score
+can you tell me some strategies for raising my credit score,improve_credit_score,credit_score
+i have a revolving store card and defaulted so will my fico score be affected,improve_credit_score,damaged_card
+will my fico score decrease if i increase my student loan debt,improve_credit_score,pay_bill
+i'd like to use you using russian,change_language,what_can_i_ask_you
+do you speak english,change_language,change_speed
+can you tell me the date of my last check,payday,last_maintenance
+what's the date on my last pay stub,payday,date
+when did i last collect my salary,payday,last_maintenance
+when's pay day for me,payday,next_holiday
+when's my next pay day,payday,next_holiday
+what day will i earn my payment from work,payday,income
+what day can i expect to receive payment on,payday,date
+when will my payment be deposited,payday,bill_due
+can credit card companies expedite delivery of reissued credit cards,replacement_card_duration,new_card
+can you call the help desk line for my credit card company,replacement_card_duration,make_call
+how can i request a new credit card,replacement_card_duration,new_card
+what's the phone number for my credit card company,replacement_card_duration,damaged_card
+i need to know the time it takes to get a new credit card sent to someone who lost theirs,replacement_card_duration,new_card
+what is amount of time it takes to get a new credit card i lost mine recently,replacement_card_duration,new_card
+how long does it take to get a new credit card,replacement_card_duration,new_card
+how much longer before the card is mailed to me,replacement_card_duration,damaged_card
+what is the shipping wait for my card,replacement_card_duration,how_busy
+is it after noon,time,weather
+tell time for another city: dallas,time,cook_time
+what time is boarding scheduled,flight_status,time
+refer to me as bailey,change_user_name,user_name
+can you call me a different name,change_user_name,user_name
+could you call me a different name,change_user_name,user_name
+"ai, my name is deb please use my name when you talk to me",change_user_name,user_name
+ai answer my questions with my name first which is deb,change_user_name,user_name
+"ai, refer to me as deb when answering me",change_user_name,user_name
+please switch my name,change_user_name,user_name
+change name for me,change_user_name,change_ai_name
+my name is going to be sherlock,change_user_name,user_name
+a hidden government facility,where_are_you_from,spelling
+tack on a gallon of milk to the grocery list,shopping_list_update,mpg
+add laundry detergent to the list,shopping_list_update,todo_list_update
+"i don't need eggs anymore, but i do need milk",shopping_list_update,ingredient_substitution
+tell me what you can do for me,what_can_i_ask_you,user_name
+what can you do to make yourself useful,what_can_i_ask_you,recipe
+undecided,maybe,__out_of_scope__
+i can't say,maybe,translate
+i am unable to say,maybe,translate
+i am not able to say,maybe,translate
+i'm not completely certain,maybe,no
+how do i do an oil change,oil_change_how,oil_change_when
+diy oil change,oil_change_how,oil_change_when
+are there any open reservations at outback tonight,restaurant_reservation,accept_reservations
+get reservations at olive garden for two at 7:00pm under michael,restaurant_reservation,accept_reservations
+reservations for two need to be made using michael's name for 7:00pm at olive garden,restaurant_reservation,accept_reservations
+i want to eat at seven in the restaurant for two people,restaurant_reservation,restaurant_suggestion
+what are my coffers at,balance,insurance
+how much does my bank account have,balance,account_blocked
+i need to confirm the reservation for frank at chili's,confirm_reservation,cancel_reservation
+can 401ks be moved,rollover_401k,transfer
+who is your maker,who_made_you,who_do_you_work_for
+i wanna know your maker,who_made_you,what_is_your_name
+what's the mileage to get the the taj mahal in atlantic city,distance,mpg
+what's the time to destination going via bus to omaha,distance,directions
+how many minutes am i from texaco,distance,cook_time
+is it going to be much longer until i reach the bank,distance,travel_notification
+am i close to arriving at the post office,distance,directions
+when will the bus get me to vermont,distance,directions
+when will i get to orlando,distance,gas
+how much farther is orlando from my location,distance,current_location
+do i have a ways to go or am i close to getting to penn station,distance,directions
+can you tell me about what time i should be arriving at the airport,distance,time
+what do i go by,user_name,change_user_name
+what's your designation,user_name,where_are_you_from
+what did i tell you to call me,user_name,change_user_name
+does denver reside in the eastern timezones,timezone,food_last
+what time is it in phoenix,timezone,time
+change this song please,next_song,what_song
+when did i last make a purchase,transactions,last_maintenance
+is my visa bill over my limit this month,transactions,bill_balance
+what have i spent things on,transactions,spending_history
+what were my last 10 charges on my credit card,transactions,report_fraud
+show what i have spent things on,transactions,spending_history
+how much have i spent on my debit card this month,transactions,spending_history
+how much have i spent on my bank card sine i last paid my bill,transactions,spending_history
+how much was my last target trip,transactions,last_maintenance
+i need some suggestions for dinner places tonight,restaurant_suggestion,meal_suggestion
+i need reviews for places serving tacos in chicago,restaurant_suggestion,restaurant_reviews
+i have a car payment that needs to be paid,pay_bill,bill_due
+i need to put in a payment towards my phone bill,pay_bill,min_payment
+"use my navy federal account and pay this month's verizon bill, please",pay_bill,bill_balance
+charge my internet bill to the corporate account,pay_bill,bill_balance
+"today my electric bill will be paid, or should be",pay_bill,payday
+my electric bill should be paid today,pay_bill,payday
+have i gone over my entertainment budget,spending_history,pto_used
+do i overspend when it comes to fast food,spending_history,change_speed
+did i stick to my dinner budget,spending_history,meal_suggestion
+what are my finances like lately,spending_history,insurance
+is vacation a go,pto_request_status,pto_request
+can you notify me when my vacation days have approved,pto_request_status,pto_balance
+when will i hear back about my days off,pto_request_status,pto_used
+am i okay to take those vacation days,pto_request_status,pto_balance
+i'm trying to raise my credit score can you tell me what it is now,credit_score,improve_credit_score
+i need to get a new credit card application,new_card,application_status
+what's the best way to get a mastercard,new_card,recipe
+how do i apply do get myself a visa,new_card,international_visa
+i need to get a mastercard somehow,new_card,w2
+how can i get a visa card,new_card,international_visa
+does bank of america give credit cards to people like me,new_card,restaurant_reviews
+what do i do to get a visa card,new_card,international_visa
+what's it take to get a mastercard,new_card,distance
+i lost all my stuff that i had packed,lost_luggage,ingredients_list
+would you mind repeating that,repeat,cancel
+what'd you say,repeat,translate
+what were you just saying,repeat,where_are_you_from
+when do you think i ought to change the oil in my car next,oil_change_when,oil_change_how
+do i need to change my oil soon,oil_change_when,oil_change_how
+that checks out,yes,order_checks
+sure,yes,maybe
+okay,yes,greeting
+definitely,yes,no
+roger that,yes,meeting_schedule
+you're right,yes,where_are_you_from
+please let's do it,yes,share_location
+can we please,yes,change_language
+10-4,yes,calculator
+ya,yes,goodbye
+yup,yes,__out_of_scope__
+great,yes,goodbye
+help me pick a new location to travel to,travel_suggestion,share_location
+can you do some research about the best places to travel,travel_suggestion,restaurant_suggestion
+what sorts of activities should i get up to while i am in dublin,travel_suggestion,what_are_your_hobbies
+i want to explore a new place but don't know where i should go do you have any ideas,travel_suggestion,restaurant_suggestion
+which insurance plan to i have,insurance,insurance_change
+i don't need grocery shopping on my todo list anymore,todo_list_update,todo_list
+i don't need mowing the lawn on my to do list anymore,todo_list_update,todo_list
+empty the contents of my to do list,todo_list_update,todo_list
+please note vacuuming on my to do list,todo_list_update,todo_list
+insert mowing on the chore list,todo_list_update,todo_list
+you can vacuuming of my todo list,todo_list_update,todo_list
+what were you supposed to remind me of,reminder,reminder_update
+what did i ask you to remind me of,reminder,what_can_i_ask_you
+did i tell you to remind me about laundry,reminder,reminder_update
+what kinds of things are you supposed to remind me of,reminder,what_can_i_ask_you
+can you please remind me of the items that i made note of to not forget,reminder,reminder_update
+that can't be true,no,yes
+did i set march 10th as my doctor's appointment,calendar,calendar_update
+did i mark the mechanic's appointment on my calendar,calendar,calendar_update
+is my meeting with frank on my calendar,calendar,meeting_schedule
+have i gotten around to adding the bike ride to my calendar yet,calendar,calendar_update
+i can't remember if i added the fun run to my calendar yet; did i,calendar,calendar_update
+have i added my doctor's appointment to my calendar,calendar,calendar_update
+is the marathon on friday added to my calendar,calendar,calendar_update
+is event on my calendar,calendar,calendar_update
+on tuesday you are supposed to have a meeting,calendar,schedule_meeting
+you have yo go to school on calendar,calendar,greeting
+i bought 6 shirts at $499 each what was my total expenditure for them,calculator,income
+i spent 34 dollars for 12 gallons of paint what is the average price for each gallon,calculator,exchange_rate
+what will tomorrow be on the calendar,date,calendar_update
+can i bring perfume on the plane or what is the size limit,carry_on,__out_of_scope__
+what are the rules for traveling with toothpaste,carry_on,what_can_i_ask_you
+can i fly with my razors or are there restrictions,carry_on,are_you_a_bot
+are there restrictions for carrying lighters in my backpack on a plane,carry_on,travel_suggestion
+i need to know how many days i toof off,pto_used,pto_balance
+what is the next date for which i can get an oil change appointment,schedule_maintenance,oil_change_when
+find a place near me to have my tires inspected,schedule_maintenance,directions
+send a notification to my bank of my travel dates from february 19th to 26th to peru,travel_notification,transfer
+must call my bank about my travel plans,travel_notification,make_call
+i appeciate it,thank_you,weather
+how many days milk can be preserved,food_last,ingredient_substitution
+when does the jerky expire,food_last,expiration_date
+what is the expiration date for honey,food_last,expiration_date
+when is the egg expired,food_last,bill_due
+when does the honey expire,food_last,expiration_date
+what is the expiration date for those eg,food_last,expiration_date
+what is the amount of time to keep milk refrigerated,food_last,improve_credit_score
+how many minutes are involved in the preparation of curry,cook_time,__out_of_scope__
+look up recipe time for this,cook_time,recipe
+how many minutes should i set an alarm for this bake,cook_time,alarm
+when can i expect meal of salmon to be finished,cook_time,meal_suggestion
+i want to be reminded to pay the electric bill,reminder_update,pay_bill
+i don't want to forget to call mom,reminder_update,make_call
+help me to remember to pick up stan later,reminder_update,reminder
+tell me later to call bill,reminder_update,make_call
+someone used my chase card without my authorization,report_lost_card,report_fraud
+my bank of america visa platinum was swiped from my belongings,report_lost_card,transfer
+my capital one visa was taken without permission,report_lost_card,pto_used
+i need to report that someone ran off with my td bank card earlier,report_lost_card,damaged_card
+how do i report that i lost the card,report_lost_card,damaged_card
+can i swap chili for sloppy joe mix in the recipe,ingredient_substitution,recipe
+is it alright to switch applesauce for oil,ingredient_substitution,oil_change_how
+get mom on the phone,make_call,sync_device
+i need you to phone sal,make_call,sync_device
+x needs to be called by me,make_call,change_user_name
+i need to up by noon,alarm,directions
+"did i add ""cleaning the foyer"" to my todo list yet",todo_list,todo_list_update
+have i told you to add washing dishes to my todo list,todo_list,todo_list_update
+is laundry on my todo list,todo_list,todo_list_update
+change settings to sound like a female,change_accent,reset_settings
+what's the latest i can pay my cellular bill,bill_due,pay_bill
+what's the ultimate day for me to pay the internet bill,bill_due,pay_bill
+tell me the last day i can pay my gas bill,bill_due,pay_bill
+when does the current billing cycle end,bill_due,__out_of_scope__
+i need to know the next billing date of my american express card,bill_due,expiration_date
+how much is alorie intake,calories,bill_balance
+what do i do about a card that's too messed up to be properly scanned,damaged_card,report_lost_card
+i need to replace a card that my daughter spilled juice on,damaged_card,replacement_card_duration
+do they serve good tacos at the buffet,restaurant_reviews,restaurant_suggestion
+"my favorite, beef tacos at the buffet",restaurant_reviews,update_playlist
+they sold out of tacos at the buffet,restaurant_reviews,restaurant_reservation
+"yum, pulled pork tacos at the buffet",restaurant_reviews,restaurant_reservation
+give me some feedback about the pasta at piada please,restaurant_reviews,fun_fact
+how is gramercy tavern rated,restaurant_reviews,greeting
+what rating do the critics give the french laundry,restaurant_reviews,__out_of_scope__
+what's the average review for olive garden,restaurant_reviews,__out_of_scope__
+i would like you to reserve a conference room for noon tomorrow,schedule_meeting,book_hotel
+which gas would be best,gas_type,gas
+what raiting of gas is called for,gas_type,gas
+is electricity the same in france,plug_type,ingredient_substitution
+does z used the same plus as we do in the united states,plug_type,travel_suggestion
+when is my car due for an tire change,tire_change,bill_due
+how long does the average set of tire last before needing replacement,tire_change,replacement_card_duration
+how many miles are my tires rated for,tire_change,tire_pressure
+for the holidays when is the next one we do here,next_holiday,next_song
+how long do i have to wait to get a day off,next_holiday,how_busy
+decrease your decibel level,change_volume,improve_credit_score
+be more quiet,change_volume,cancel
+please lower the sound,change_volume,whisper_mode
+speak up,change_volume,change_speed

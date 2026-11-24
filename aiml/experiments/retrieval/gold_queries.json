@@ -1,0 +1,15 @@
+[
+  {"question": "Explain the six-dot Braille cell layout", "language": "English", "gold_id": "english-six-dot-cell"},
+  {"question": "Why does letter B use that pattern?", "language": "English", "gold_id": "english-letter-b"},
+  {"question": "Explain the Braille pattern for C", "language": "English", "gold_id": "english-letter-c"},
+  {"question": "How do I read CAT?", "language": "English", "gold_id": "english-word-CAT"},
+  {"question": "What is supported for UEB contractions?", "language": "English", "gold_id": "resonant-english-scope"},
+  {"question": "ब्रेल क्या है?", "language": "Hindi", "gold_id": "hindi-braille-intro"},
+  {"question": "हिंदी स्वर और व्यंजन के बारे में बताइए", "language": "Hindi", "gold_id": "hindi-script-and-scope"},
+  {"question": "कमल शब्द पढ़ने का अभ्यास", "language": "Hindi", "gold_id": "hindi-word-कमल"},
+  {"question": "ब्रेल में हिंदी भाषा की सीमा क्या है", "language": "Hindi", "gold_id": "hindi-script-and-scope"},
+  {"question": "ಬ್ರೈಲ್ ಎಂದರೇನು?", "language": "Kannada", "gold_id": "kannada-braille-intro"},
+  {"question": "ಕನ್ನಡ ಸ್ವರ ಮತ್ತು ವ್ಯಂಜನಗಳ ಬಗ್ಗೆ ಹೇಳಿ", "language": "Kannada", "gold_id": "kannada-script-and-scope"},
+  {"question": "ಮನೆ ಪದ ಓದುವ ಅಭ್ಯಾಸ", "language": "Kannada", "gold_id": "kannada-word-ಮನೆ"},
+  {"question": "ಕನ್ನಡ ಅಕ್ಷರಗಳ ಬೆಂಬಲಿತ ಮಿತಿ ಏನು", "language": "Kannada", "gold_id": "kannada-script-and-scope"}
+]

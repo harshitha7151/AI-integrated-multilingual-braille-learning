@@ -1,0 +1,12 @@
+{
+  "name": "CLINC150 full UCI archive",
+  "source_url": "https://archive.ics.uci.edu/static/public/570/clinc150.zip",
+  "revision": "UCI archive retrieved 2026-11-20; data_full.json",
+  "license": "CC BY 3.0 in included LICENSE; UCI catalog page currently states CC BY 4.0; retain the archive license and resolve discrepancy before redistribution",
+  "acquired_at": "2026-11-20T00:00:00+05:30",
+  "downloaded": true,
+  "sha256": "0d8ecc3e1edd7b25cabde0177544ce536ddf773844bc80ef1a75f36e7f030ea2",
+  "size_bytes": 1053960,
+  "local_path": "data/raw/clinc150.zip",
+  "notes": "Source-provided split boundaries retained. Five exact text duplicates in training overlapped validation or test and were removed from training only. Archive is Git-ignored."
+}

@@ -20,12 +20,31 @@
 - Replies use the existing Flutter TTS service and can be replayed or stopped.
   State changes are exposed as a live semantic status; partial transcripts do
   not trigger repeated announcements.
+- Voice capture and tutor speech are serialized. The “Listening. Speak now.”
+  prompt completes while recognition is off (`awaitSpeakCompletion(true)`);
+  the UI changes to `listening` only after the recognizer starts. Each capture
+  has a generation token, and only
+  one final result from that token can be submitted. Finalization invalidates
+  late callbacks and cancels recognition before response TTS starts. Typed
+  requests, replay, interruption, clearing and disposal also invalidate any
+  outstanding recognition callbacks.
 - Follow-up turns and current lesson title/prompt are sent to the configured
   tutor API. Conversation turns remain in memory only and can be cleared.
   Raw audio and learner IDs/progress records are not sent or saved.
-- English is the only enabled tutor language. Hindi and Kannada remain visibly
-  unavailable until recognition, local Braille content, response quality,
-  and pronunciation can be tested end to end.
+- Each Tutor turn reads a fresh, structured `TutorScreenContext` built from the
+  active Flutter state. It can read the current screen, question, visible
+  choices, instructions, feedback, and exercise position aloud. Screen-reading
+  and action commands are dispatched locally; only the compact current-screen
+  context is added to a conversational `/ask` request. No screenshot analysis
+  is performed, and credentials or account identity are excluded.
+- The Tutor dialog remains open after local reading and learning actions so a
+  learner can continue with follow-up commands. A language change closes the
+  old-language Tutor session so the next session uses the newly selected
+  language and voice.
+- The text tutor/backend accepts English, Hindi, and Kannada selected-content
+  languages. This is not proof of conversational quality or speech support: the
+  installed recognition service, mixed-language transcription, response quality,
+  and TTS pronunciation still need real-device validation.
 - Exact single-letter and supported alphabetic-word answers are returned
   directly from the backend's deterministic English table. Word answers
   include the authoritative dot positions, capital indicators, and ICEB
@@ -38,6 +57,32 @@
   language availability. The Flutter response shows the returned references.
   This corpus is not a complete UEB rulebook. The LLM prompt forbids dot
   patterns, and explicit dot-number claims are filtered to a safe explanation.
+
+## Translation boundary
+
+English-word-to-Hindi/Kannada translation uses a replaceable
+`TranslationProvider` interface with the configured local Ollama model as its
+current adapter. The provider receives only the requested word and language
+pair, and returns the original text, proposed translation, and provider
+metadata. Translation is a model suggestion, not an authoritative language
+mapping. Before any Braille cells are returned, the backend checks the target
+script and runs the deterministic Bharati forward table; unsupported output is
+refused. Provider failure is returned as an explicit unavailable response.
+This does not implement a general canonical-English translation pipeline for
+all Hindi/Kannada tutor conversations, and the quality of word translation has
+not been validated by a language expert or on-device.
+
+## Contextual command interpretation
+
+Known navigation and assessment commands are parsed and validated locally first. If the deterministic parser cannot resolve a non-question request, Flutter may call the backend `POST /interpret` endpoint. The endpoint asks the configured Ollama model for a bounded JSON intent candidate; it does not execute app operations or determine Braille mappings. Flutter validates that candidate against the current screen and actual lesson/action controllers before applying it. Conceptual questions continue through `/ask`. Interpreter failures remain failures and fall back to the existing local tutor/parser path; they are not reported as successful actions.
+
+The tested command set is finite and rule-based for local parsing (English plus selected Hindi/Kannada native-script and Romanized forms). The optional Ollama interpreter may broaden phrasing when configured, but live multilingual semantic quality has not been measured and is not guaranteed.
+
+## Contextual tool selection and speech language
+
+Every non-empty tutor turn is offered to `POST /interpret` first when the backend is reachable. Flutter sends a bounded structured snapshot of the active screen, current options/feedback, available action identifiers, non-sensitive progress/prerequisite flags, and up to six recent turns. The backend supplies only the capabilities the screen reports as available. Its model returns a candidate from the server action schema; the client also checks that candidate against the supplied capability list and then validates it through `TutorActionController` and the active lesson/assessment state. A tutor question routes on to `/ask`; an unavailable/failed interpreter falls back to the local parser and existing tutor behavior. The local parser is an offline fallback, not the normal online route.
+
+Speech recognition has its own locale setting. **Follow learning language** explicitly passes English India (`en-IN`), Hindi India (`hi-IN`), or Kannada India (`kn-IN`); a separate explicit override can be selected. The Android adapter checks the speech service's reported locale list and chooses an exact or same-language regional locale. If the service reports no locale for that language, listening stops with a localized message and the app does not substitute English. Android's reported list may omit online-only locales; if no inventory is available, the requested locale is still passed explicitly and the platform error is surfaced. Speech recognition returns its recognized transcript unchanged; the Flutter tutor does not translate it into English. The locale list does not guarantee recognition quality, installed language packs, mixed-language/code-switching support, or online-service availability. This has not been verified on the Samsung phone.
 
 ## Configure a phone demonstration
 
@@ -54,6 +99,11 @@ provider and safe deterministic fallback.
 Start Ollama and the backend on the development computer. The backend
 defaults to `qwen2.5:0.5b` at `http://localhost:11434`; use
 `RESONANT_OLLAMA_MODEL` and `RESONANT_OLLAMA_URL` to change those settings.
+The machine reported Ollama CLI 0.40.17 during this audit, but the local server
+was not reachable, so its installed model inventory, latency, and multilingual
+intent quality could not be checked. The configured Qwen 2.5 0.5B model has not
+been shown suitable for reliable conversational tool selection; no model was
+downloaded. Keep the model replaceable through these environment variables.
 Then run:
 
 ```powershell

@@ -26,7 +26,7 @@ class _SavedEvents extends LessonProgressStore {
   Future<List<Map<String, dynamic>>> readEvents() async => events;
 
   @override
-  Future<void> record({
+  Future<String> record({
     required String exerciseId,
     required String skillId,
     required String exerciseType,
@@ -35,12 +35,33 @@ class _SavedEvents extends LessonProgressStore {
     required bool hintUsed,
     required int responseTimeMs,
     String? groupId,
-  }) async {}
+    String? learnerId,
+    String language = 'English',
+    String? assessmentKey,
+    String? lessonId,
+    String? questionText,
+    List<String>? options,
+    String? learningObjective,
+    int difficulty = 1,
+    Map<String, dynamic>? expectedResponse,
+    Map<String, dynamic>? submittedResponse,
+    String inputStatus = 'valid',
+    String? technicalFailureCode,
+    String? questionId,
+    String? questionInstanceId,
+    String questionSource = 'validated_catalog',
+    String questionVersion = 'flutter-catalog-v1',
+    String? generationModel,
+    String mappingVersion = 'unspecified',
+    String curriculumVersion = 'flutter-catalog-v1',
+    String? interventionType,
+    String? feedbackType,
+  }) async => 'unused-submission';
 }
 
 void main() {
   testWidgets(
-    'saved letter and mastery events resume in the unlocked word chapter',
+    'passed saved word mastery resumes at the first verified phrase',
     (tester) async {
       final events = <Map<String, dynamic>>[];
       void add(String id, {bool correct = true, String? groupId}) {
@@ -91,14 +112,19 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.byType(WordChapterScreen), findsOneWidget);
+      expect(find.byType(WordChapterScreen), findsNothing);
       expect(
-        find.textContaining('Lesson 5: Word mastery test'),
-        findsWidgets,
+        find.byKey(const ValueKey('composed-response-target')),
+        findsOneWidget,
         reason: tester
             .widgetList<Text>(find.byType(Text))
             .map((text) => text.data)
             .join(' | '),
+      );
+      expect(find.text('I AM'), findsOneWidget);
+      expect(
+        find.byKey(const ValueKey('start-composed-braille-writing')),
+        findsOneWidget,
       );
     },
   );

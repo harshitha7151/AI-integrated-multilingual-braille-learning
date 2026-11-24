@@ -1,0 +1,9 @@
+# Reproducible Phase 2 environment (Python 3.12).
+joblib==1.4.2
+matplotlib==3.8.4
+numpy==2.0.2
+pandas==2.2.2
+psycopg[binary]==3.3.6
+pytest==9.2.0
+scikit-learn==1.5.2
+scipy==1.14.1

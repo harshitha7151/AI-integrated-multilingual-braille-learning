@@ -1,7 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
+
+import '../core/storage/browser_storage.dart';
 
 /// The two selectable roles in Resonant.
 enum AppRole { learner, teacher }
@@ -20,11 +23,14 @@ abstract interface class RoleStorage {
 /// Persists the chosen role locally using an atomic write, following the same
 /// pattern as [OnboardingStore].
 class RoleStore implements RoleStorage {
-  final File file;
+  final File? _file;
+  File get file => _file!;
 
-  RoleStore(this.file);
+  RoleStore(File file) : _file = file;
+  RoleStore.web() : _file = null;
 
   static Future<RoleStore> forApplication() async {
+    if (kIsWeb) return RoleStore.web();
     final directory = await getApplicationDocumentsDirectory();
     return RoleStore(
       File('${directory.path}${Platform.pathSeparator}role.json'),
@@ -33,9 +39,12 @@ class RoleStore implements RoleStorage {
 
   @override
   Future<AppRole?> savedRole() async {
-    if (!await file.exists()) return null;
+    final contents = _file == null
+        ? await readBrowserLocal('resonant.role')
+        : await _readFile();
+    if (contents == null) return null;
     try {
-      final data = jsonDecode(await file.readAsString());
+      final data = jsonDecode(contents);
       if (data is! Map) return null;
       return switch (data['role']) {
         'learner' => AppRole.learner,
@@ -49,19 +58,31 @@ class RoleStore implements RoleStorage {
 
   @override
   Future<void> saveRole(AppRole role) async {
-    await file.parent.create(recursive: true);
-    final temporary = File('${file.path}.tmp');
-    await temporary.writeAsString(
-      jsonEncode({'role': role.name}),
-      flush: true,
-    );
-    if (await file.exists()) await file.delete();
-    await temporary.rename(file.path);
+    final contents = jsonEncode({'role': role.name});
+    if (_file == null) {
+      await writeBrowserLocal('resonant.role', contents);
+      return;
+    }
+    final target = _file;
+    await target.parent.create(recursive: true);
+    final temporary = File('${target.path}.tmp');
+    await temporary.writeAsString(contents, flush: true);
+    if (await target.exists()) await target.delete();
+    await temporary.rename(target.path);
   }
 
   @override
   Future<void> clearRole() async {
-    if (await file.exists()) await file.delete();
+    if (_file == null) {
+      await removeBrowserLocal('resonant.role');
+    } else if (await _file.exists()) {
+      await _file.delete();
+    }
+  }
+
+  Future<String?> _readFile() async {
+    final source = _file!;
+    if (!await source.exists()) return null;
+    return source.readAsString();
   }
 }
-

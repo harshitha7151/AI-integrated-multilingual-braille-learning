@@ -44,6 +44,7 @@ void main() {
       );
       final response = await gateway.ask(
         question: 'What is this letter?',
+        language: 'English',
         history: const [TutorMessage('user', 'Hello')],
         lessonContext: 'Letter practice',
         verifiedExamples: const [
@@ -52,6 +53,7 @@ void main() {
       );
       final payload = jsonDecode(captured.body) as Map<String, dynamic>;
       expect(captured.url.path, '/ask');
+      expect(payload['language'], 'English');
       expect(payload['lesson_context'], 'Letter practice');
       expect(payload['history'], [
         {'role': 'user', 'content': 'Hello'},
@@ -82,6 +84,7 @@ void main() {
       await expectLater(
         gateway.ask(
           question: 'Explain Braille',
+          language: 'English',
           history: const [],
           lessonContext: '',
           verifiedExamples: const [],
@@ -137,6 +140,7 @@ void main() {
     );
     final response = await gateway.ask(
       question: 'Show cat in Braille',
+      language: 'English',
       history: const [],
       lessonContext: '',
       verifiedExamples: const [],
@@ -150,6 +154,39 @@ void main() {
       't',
     ]);
     expect(response.sources.single.title, 'ICEB UEB');
+    client.close();
+  });
+
+  test('gateway forwards the learner language without translating Braille cells', () async {
+    late http.Request captured;
+    final client = MockClient((request) async {
+      captured = request;
+      return http.Response(
+        jsonEncode({
+          'answer': 'Kannada tutor support is not validated yet.',
+          'source': 'unsupported_language',
+          'verified_examples': [],
+          'sources': [],
+        }),
+        200,
+      );
+    });
+    final gateway = HttpTutorGateway(
+      client: client,
+      baseUri: Uri.parse('http://localhost:8000'),
+    );
+
+    final response = await gateway.ask(
+      question: 'Explain this lesson',
+      language: 'Kannada',
+      history: const [],
+      lessonContext: 'Kannada Braille basics',
+      verifiedExamples: const [],
+    );
+
+    expect((jsonDecode(captured.body) as Map)['language'], 'Kannada');
+    expect(response.source, 'unsupported_language');
+    expect(response.verifiedExamples, isEmpty);
     client.close();
   });
 }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 
+import '../accessibility/accessible_action_surface.dart';
 import 'role_store.dart';
 
 /// Full-screen role-selection shown before any other app content.
@@ -12,7 +13,7 @@ import 'role_store.dart';
 /// - TTS speaks the prompt immediately and repeats every ~10 s until a choice
 ///   is made (via [onSpeak]/[onStop] callbacks, matching [WelcomeOnboarding]).
 /// - Swipe up anywhere on the learner zone → learner.
-/// - Tap the Teacher button → teacher.
+/// - Activate the focusable teacher surface → teacher.
 /// - Voice "learner" / "i am a learner" or "teacher" / "i am a teacher" →
 ///   handled by the caller via [onVoiceInput]; the page itself does not init
 ///   STT — the caller passes already-recognised text.
@@ -25,6 +26,7 @@ class RoleSelectionPage extends StatefulWidget {
   /// Called when the user has chosen a role. The caller should persist the
   /// choice via [RoleStore] and replace this widget with the appropriate page.
   final Future<void> Function(AppRole role) onRoleSelected;
+  final VoidCallback? onConnectToAimlLab;
 
   /// Optional: the caller feeds recognised voice text here so this widget can
   /// check for "learner" / "teacher" / "switch role" phrases.
@@ -35,6 +37,7 @@ class RoleSelectionPage extends StatefulWidget {
     required this.onSpeak,
     required this.onStop,
     required this.onRoleSelected,
+    this.onConnectToAimlLab,
     this.voiceInputStream,
   });
 
@@ -46,7 +49,7 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
   static const _prompt =
       'Are you a teacher or a learner? '
       'Swipe up if you are a learner. '
-      'Teachers, tap the Teacher button on screen.';
+      'Teachers, say teacher or activate the Teacher area.';
 
   Timer? _repeatTimer;
   StreamSubscription<String>? _voiceSub;
@@ -120,31 +123,41 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
       body: SafeArea(
         child: Column(
           children: [
-            // ── Top: Teacher button (40 % height) ──────────────────────
+            // ── Top: Teacher action surface (40 % height) ─────────────
             Expanded(
               flex: 4,
               child: Semantics(
-                label: 'Teacher selection area. Tap the Teacher button.',
+                label:
+                    'Teacher selection area. Say teacher or activate the Teacher area.',
                 child: Center(
-                  child: Semantics(
-                    button: true,
-                    label: 'I am a teacher. Tap to open the teacher dashboard.',
-                    child: ElevatedButton(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 420),
+                    child: AccessibleActionSurface(
                       key: const ValueKey('teacher-button'),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF2468D9),
-                        foregroundColor: Colors.white,
-                        minimumSize: const Size(240, 96),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        textStyle: const TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      semanticsLabel: 'I am a teacher',
+                      semanticsHint:
+                          'Double tap to open the teacher dashboard.',
+                      actionLabel: 'Continue as teacher',
+                      onActivate: () => unawaited(_choose(AppRole.teacher)),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.school_outlined,
+                            color: Color(0xFF8AB4F8),
+                            size: 34,
+                          ),
+                          SizedBox(width: 14),
+                          Text(
+                            'Teacher',
+                            style: TextStyle(
+                              color: Color(0xFFE8EAED),
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
-                      onPressed: () => unawaited(_choose(AppRole.teacher)),
-                      child: const Text('Teacher'),
                     ),
                   ),
                 ),
@@ -166,8 +179,8 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
                   label: 'Learner area. Swipe up to continue as a learner.',
                   hint: 'Swipe up anywhere in this area.',
                   customSemanticsActions: {
-                    const CustomSemanticsAction(label: 'I am a learner'):
-                        () => _choose(AppRole.learner),
+                    const CustomSemanticsAction(label: 'I am a learner'): () =>
+                        _choose(AppRole.learner),
                   },
                   child: Container(
                     width: double.infinity,
@@ -199,6 +212,49 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
                           ),
                           textAlign: TextAlign.center,
                         ),
+                        if (widget.onConnectToAimlLab != null) ...[
+                          const SizedBox(height: 18),
+                          AccessibleActionSurface(
+                            key: const ValueKey('connect-aiml-lab'),
+                            semanticsLabel:
+                                'Connect to AIML Lab before signing in',
+                            semanticsHint:
+                                'Opens the optional laptop demonstration pairing screen.',
+                            actionLabel: 'Connect to AIML Lab',
+                            onActivate: widget.onConnectToAimlLab,
+                            showDivider: false,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 12,
+                            ),
+                            child: const Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  Icons.hub_outlined,
+                                  color: Color(0xFF8AB4F8),
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  'Connect to AIML Lab',
+                                  style: TextStyle(
+                                    color: Color(0xFFE8EAED),
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 6),
+                          const Text(
+                            'Optional laptop demo connection · same Wi-Fi',
+                            style: TextStyle(
+                              color: Color(0xFF9AA0A6),
+                              fontSize: 12,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
                       ],
                     ),
                   ),
@@ -226,8 +282,10 @@ class RoleGate extends StatefulWidget {
   final Future<void> Function(String) onSpeak;
   final Future<void> Function() onStop;
   final Widget learnerHome;
+  final Widget Function(VoidCallback onSwitchRole)? learnerHomeBuilder;
   final Widget Function(void Function() onSwitchRole) teacherHome;
   final Stream<String>? voiceInputStream;
+  final VoidCallback? onConnectToAimlLab;
 
   const RoleGate({
     super.key,
@@ -236,7 +294,9 @@ class RoleGate extends StatefulWidget {
     required this.onStop,
     required this.learnerHome,
     required this.teacherHome,
+    this.learnerHomeBuilder,
     this.voiceInputStream,
+    this.onConnectToAimlLab,
   });
 
   @override
@@ -288,12 +348,12 @@ class _RoleGateState extends State<RoleGate> {
         onStop: widget.onStop,
         onRoleSelected: _onRoleSelected,
         voiceInputStream: widget.voiceInputStream,
+        onConnectToAimlLab: widget.onConnectToAimlLab,
       );
     }
     if (_role == AppRole.teacher) {
       return widget.teacherHome(_switchRole);
     }
-    return widget.learnerHome;
+    return widget.learnerHomeBuilder?.call(_switchRole) ?? widget.learnerHome;
   }
 }
-

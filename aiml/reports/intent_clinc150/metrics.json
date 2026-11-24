@@ -1,0 +1,1142 @@
+{
+  "provenance": {
+    "dataset": "CLINC150 data_full.json from UCI archive",
+    "source_url": "https://archive.ics.uci.edu/static/public/570/clinc150.zip",
+    "paper_url": "https://aclanthology.org/D19-1131/",
+    "official_repository": "https://github.com/clinc/oos-eval",
+    "archive_sha256": "0d8ecc3e1edd7b25cabde0177544ce536ddf773844bc80ef1a75f36e7f030ea2",
+    "archive_bytes": 1053960,
+    "license": "CC BY 3.0 according to the included UCI archive LICENSE; UCI catalog page lists CC BY 4.0, so preserve the archive terms and verify before redistribution.",
+    "downloaded": true
+  },
+  "task": "English 150-way in-scope intent classification plus one explicit OOS class; benchmark only, not Resonant Braille intent data.",
+  "seed": 20261120,
+  "split": "official CLINC train/validation/test with OOS train/validation/test combined; training-only exact-text overlaps with validation/test removed; evaluation partitions unchanged",
+  "counts": {
+    "official_train_rows": 15100,
+    "train_rows_after_leakage_filter": 15095,
+    "validation_rows": 3100,
+    "test_rows": 5500,
+    "class_count": 151,
+    "class_counts_train": {
+      "__out_of_scope__": 100,
+      "accept_reservations": 100,
+      "account_blocked": 100,
+      "alarm": 100,
+      "application_status": 100,
+      "apr": 100,
+      "are_you_a_bot": 100,
+      "balance": 100,
+      "bill_balance": 100,
+      "bill_due": 100,
+      "book_flight": 100,
+      "book_hotel": 100,
+      "calculator": 100,
+      "calendar": 100,
+      "calendar_update": 100,
+      "calories": 100,
+      "cancel": 100,
+      "cancel_reservation": 100,
+      "car_rental": 100,
+      "card_declined": 100,
+      "carry_on": 100,
+      "change_accent": 100,
+      "change_ai_name": 100,
+      "change_language": 100,
+      "change_speed": 100,
+      "change_user_name": 100,
+      "change_volume": 100,
+      "confirm_reservation": 100,
+      "cook_time": 100,
+      "credit_limit": 100,
+      "credit_limit_change": 100,
+      "credit_score": 100,
+      "current_location": 100,
+      "damaged_card": 100,
+      "date": 100,
+      "definition": 100,
+      "direct_deposit": 100,
+      "directions": 100,
+      "distance": 100,
+      "do_you_have_pets": 100,
+      "exchange_rate": 100,
+      "expiration_date": 100,
+      "find_phone": 100,
+      "flight_status": 100,
+      "flip_coin": 100,
+      "food_last": 100,
+      "freeze_account": 100,
+      "fun_fact": 100,
+      "gas": 100,
+      "gas_type": 100,
+      "goodbye": 100,
+      "greeting": 99,
+      "how_busy": 100,
+      "how_old_are_you": 99,
+      "improve_credit_score": 100,
+      "income": 100,
+      "ingredient_substitution": 100,
+      "ingredients_list": 100,
+      "insurance": 100,
+      "insurance_change": 100,
+      "interest_rate": 100,
+      "international_fees": 100,
+      "international_visa": 100,
+      "jump_start": 100,
+      "last_maintenance": 100,
+      "lost_luggage": 100,
+      "make_call": 100,
+      "maybe": 100,
+      "meal_suggestion": 100,
+      "meaning_of_life": 100,
+      "measurement_conversion": 100,
+      "meeting_schedule": 100,
+      "min_payment": 100,
+      "mpg": 100,
+      "new_card": 100,
+      "next_holiday": 100,
+      "next_song": 100,
+      "no": 100,
+      "nutrition_info": 100,
+      "oil_change_how": 100,
+      "oil_change_when": 100,
+      "order": 100,
+      "order_checks": 100,
+      "order_status": 100,
+      "pay_bill": 100,
+      "payday": 100,
+      "pin_change": 100,
+      "play_music": 100,
+      "plug_type": 100,
+      "pto_balance": 100,
+      "pto_request": 100,
+      "pto_request_status": 100,
+      "pto_used": 100,
+      "recipe": 100,
+      "redeem_rewards": 100,
+      "reminder": 100,
+      "reminder_update": 100,
+      "repeat": 100,
+      "replacement_card_duration": 100,
+      "report_fraud": 100,
+      "report_lost_card": 100,
+      "reset_settings": 100,
+      "restaurant_reservation": 100,
+      "restaurant_reviews": 100,
+      "restaurant_suggestion": 100,
+      "rewards_balance": 100,
+      "roll_dice": 100,
+      "rollover_401k": 100,
+      "routing": 100,
+      "schedule_maintenance": 100,
+      "schedule_meeting": 100,
+      "share_location": 100,
+      "shopping_list": 100,
+      "shopping_list_update": 100,
+      "smart_home": 100,
+      "spelling": 100,
+      "spending_history": 100,
+      "sync_device": 100,
+      "taxes": 100,
+      "tell_joke": 100,
+      "text": 100,
+      "thank_you": 100,
+      "time": 100,
+      "timer": 100,
+      "timezone": 100,
+      "tire_change": 100,
+      "tire_pressure": 100,
+      "todo_list": 99,
+      "todo_list_update": 100,
+      "traffic": 100,
+      "transactions": 100,
+      "transfer": 100,
+      "translate": 100,
+      "travel_alert": 100,
+      "travel_notification": 100,
+      "travel_suggestion": 100,
+      "uber": 100,
+      "update_playlist": 100,
+      "user_name": 100,
+      "vaccines": 100,
+      "w2": 100,
+      "weather": 100,
+      "what_are_your_hobbies": 100,
+      "what_can_i_ask_you": 100,
+      "what_is_your_name": 99,
+      "what_song": 100,
+      "where_are_you_from": 100,
+      "whisper_mode": 99,
+      "who_do_you_work_for": 100,
+      "who_made_you": 100,
+      "yes": 100
+    },
+    "class_counts_validation": {
+      "__out_of_scope__": 100,
+      "accept_reservations": 20,
+      "account_blocked": 20,
+      "alarm": 20,
+      "application_status": 20,
+      "apr": 20,
+      "are_you_a_bot": 20,
+      "balance": 20,
+      "bill_balance": 20,
+      "bill_due": 20,
+      "book_flight": 20,
+      "book_hotel": 20,
+      "calculator": 20,
+      "calendar": 20,
+      "calendar_update": 20,
+      "calories": 20,
+      "cancel": 20,
+      "cancel_reservation": 20,
+      "car_rental": 20,
+      "card_declined": 20,
+      "carry_on": 20,
+      "change_accent": 20,
+      "change_ai_name": 20,
+      "change_language": 20,
+      "change_speed": 20,
+      "change_user_name": 20,
+      "change_volume": 20,
+      "confirm_reservation": 20,
+      "cook_time": 20,
+      "credit_limit": 20,
+      "credit_limit_change": 20,
+      "credit_score": 20,
+      "current_location": 20,
+      "damaged_card": 20,
+      "date": 20,
+      "definition": 20,
+      "direct_deposit": 20,
+      "directions": 20,
+      "distance": 20,
+      "do_you_have_pets": 20,
+      "exchange_rate": 20,
+      "expiration_date": 20,
+      "find_phone": 20,
+      "flight_status": 20,
+      "flip_coin": 20,
+      "food_last": 20,
+      "freeze_account": 20,
+      "fun_fact": 20,
+      "gas": 20,
+      "gas_type": 20,
+      "goodbye": 20,
+      "greeting": 20,
+      "how_busy": 20,
+      "how_old_are_you": 20,
+      "improve_credit_score": 20,
+      "income": 20,
+      "ingredient_substitution": 20,
+      "ingredients_list": 20,
+      "insurance": 20,
+      "insurance_change": 20,
+      "interest_rate": 20,
+      "international_fees": 20,
+      "international_visa": 20,
+      "jump_start": 20,
+      "last_maintenance": 20,
+      "lost_luggage": 20,
+      "make_call": 20,
+      "maybe": 20,
+      "meal_suggestion": 20,
+      "meaning_of_life": 20,
+      "measurement_conversion": 20,
+      "meeting_schedule": 20,
+      "min_payment": 20,
+      "mpg": 20,
+      "new_card": 20,
+      "next_holiday": 20,
+      "next_song": 20,
+      "no": 20,
+      "nutrition_info": 20,
+      "oil_change_how": 20,
+      "oil_change_when": 20,
+      "order": 20,
+      "order_checks": 20,
+      "order_status": 20,
+      "pay_bill": 20,
+      "payday": 20,
+      "pin_change": 20,
+      "play_music": 20,
+      "plug_type": 20,
+      "pto_balance": 20,
+      "pto_request": 20,
+      "pto_request_status": 20,
+      "pto_used": 20,
+      "recipe": 20,
+      "redeem_rewards": 20,
+      "reminder": 20,
+      "reminder_update": 20,
+      "repeat": 20,
+      "replacement_card_duration": 20,
+      "report_fraud": 20,
+      "report_lost_card": 20,
+      "reset_settings": 20,
+      "restaurant_reservation": 20,
+      "restaurant_reviews": 20,
+      "restaurant_suggestion": 20,
+      "rewards_balance": 20,
+      "roll_dice": 20,
+      "rollover_401k": 20,
+      "routing": 20,
+      "schedule_maintenance": 20,
+      "schedule_meeting": 20,
+      "share_location": 20,
+      "shopping_list": 20,
+      "shopping_list_update": 20,
+      "smart_home": 20,
+      "spelling": 20,
+      "spending_history": 20,
+      "sync_device": 20,
+      "taxes": 20,
+      "tell_joke": 20,
+      "text": 20,
+      "thank_you": 20,
+      "time": 20,
+      "timer": 20,
+      "timezone": 20,
+      "tire_change": 20,
+      "tire_pressure": 20,
+      "todo_list": 20,
+      "todo_list_update": 20,
+      "traffic": 20,
+      "transactions": 20,
+      "transfer": 20,
+      "translate": 20,
+      "travel_alert": 20,
+      "travel_notification": 20,
+      "travel_suggestion": 20,
+      "uber": 20,
+      "update_playlist": 20,
+      "user_name": 20,
+      "vaccines": 20,
+      "w2": 20,
+      "weather": 20,
+      "what_are_your_hobbies": 20,
+      "what_can_i_ask_you": 20,
+      "what_is_your_name": 20,
+      "what_song": 20,
+      "where_are_you_from": 20,
+      "whisper_mode": 20,
+      "who_do_you_work_for": 20,
+      "who_made_you": 20,
+      "yes": 20
+    },
+    "class_counts_test": {
+      "__out_of_scope__": 1000,
+      "accept_reservations": 30,
+      "account_blocked": 30,
+      "alarm": 30,
+      "application_status": 30,
+      "apr": 30,
+      "are_you_a_bot": 30,
+      "balance": 30,
+      "bill_balance": 30,
+      "bill_due": 30,
+      "book_flight": 30,
+      "book_hotel": 30,
+      "calculator": 30,
+      "calendar": 30,
+      "calendar_update": 30,
+      "calories": 30,
+      "cancel": 30,
+      "cancel_reservation": 30,
+      "car_rental": 30,
+      "card_declined": 30,
+      "carry_on": 30,
+      "change_accent": 30,
+      "change_ai_name": 30,
+      "change_language": 30,
+      "change_speed": 30,
+      "change_user_name": 30,
+      "change_volume": 30,
+      "confirm_reservation": 30,
+      "cook_time": 30,
+      "credit_limit": 30,
+      "credit_limit_change": 30,
+      "credit_score": 30,
+      "current_location": 30,
+      "damaged_card": 30,
+      "date": 30,
+      "definition": 30,
+      "direct_deposit": 30,
+      "directions": 30,
+      "distance": 30,
+      "do_you_have_pets": 30,
+      "exchange_rate": 30,
+      "expiration_date": 30,
+      "find_phone": 30,
+      "flight_status": 30,
+      "flip_coin": 30,
+      "food_last": 30,
+      "freeze_account": 30,
+      "fun_fact": 30,
+      "gas": 30,
+      "gas_type": 30,
+      "goodbye": 30,
+      "greeting": 30,
+      "how_busy": 30,
+      "how_old_are_you": 30,
+      "improve_credit_score": 30,
+      "income": 30,
+      "ingredient_substitution": 30,
+      "ingredients_list": 30,
+      "insurance": 30,
+      "insurance_change": 30,
+      "interest_rate": 30,
+      "international_fees": 30,
+      "international_visa": 30,
+      "jump_start": 30,
+      "last_maintenance": 30,
+      "lost_luggage": 30,
+      "make_call": 30,
+      "maybe": 30,
+      "meal_suggestion": 30,
+      "meaning_of_life": 30,
+      "measurement_conversion": 30,
+      "meeting_schedule": 30,
+      "min_payment": 30,
+      "mpg": 30,
+      "new_card": 30,
+      "next_holiday": 30,
+      "next_song": 30,
+      "no": 30,
+      "nutrition_info": 30,
+      "oil_change_how": 30,
+      "oil_change_when": 30,
+      "order": 30,
+      "order_checks": 30,
+      "order_status": 30,
+      "pay_bill": 30,
+      "payday": 30,
+      "pin_change": 30,
+      "play_music": 30,
+      "plug_type": 30,
+      "pto_balance": 30,
+      "pto_request": 30,
+      "pto_request_status": 30,
+      "pto_used": 30,
+      "recipe": 30,
+      "redeem_rewards": 30,
+      "reminder": 30,
+      "reminder_update": 30,
+      "repeat": 30,
+      "replacement_card_duration": 30,
+      "report_fraud": 30,
+      "report_lost_card": 30,
+      "reset_settings": 30,
+      "restaurant_reservation": 30,
+      "restaurant_reviews": 30,
+      "restaurant_suggestion": 30,
+      "rewards_balance": 30,
+      "roll_dice": 30,
+      "rollover_401k": 30,
+      "routing": 30,
+      "schedule_maintenance": 30,
+      "schedule_meeting": 30,
+      "share_location": 30,
+      "shopping_list": 30,
+      "shopping_list_update": 30,
+      "smart_home": 30,
+      "spelling": 30,
+      "spending_history": 30,
+      "sync_device": 30,
+      "taxes": 30,
+      "tell_joke": 30,
+      "text": 30,
+      "thank_you": 30,
+      "time": 30,
+      "timer": 30,
+      "timezone": 30,
+      "tire_change": 30,
+      "tire_pressure": 30,
+      "todo_list": 30,
+      "todo_list_update": 30,
+      "traffic": 30,
+      "transactions": 30,
+      "transfer": 30,
+      "translate": 30,
+      "travel_alert": 30,
+      "travel_notification": 30,
+      "travel_suggestion": 30,
+      "uber": 30,
+      "update_playlist": 30,
+      "user_name": 30,
+      "vaccines": 30,
+      "w2": 30,
+      "weather": 30,
+      "what_are_your_hobbies": 30,
+      "what_can_i_ask_you": 30,
+      "what_is_your_name": 30,
+      "what_song": 30,
+      "where_are_you_from": 30,
+      "whisper_mode": 30,
+      "who_do_you_work_for": 30,
+      "who_made_you": 30,
+      "yes": 30
+    },
+    "training_overlap_filter": {
+      "training_rows_removed": 5,
+      "distinct_overlapping_texts": 5,
+      "validation_rows_unchanged": 3100,
+      "test_rows_unchanged": 5500
+    }
+  },
+  "models": {
+    "tfidf_logistic_regression": {
+      "validation": {
+        "accuracy": 0.8816129032258064,
+        "macro_precision": 0.8921101806094244,
+        "macro_recall": 0.8972847682119206,
+        "macro_f1": 0.8899333999527571,
+        "weighted_precision": 0.8869067227995344,
+        "weighted_recall": 0.8816129032258064,
+        "weighted_f1": 0.8775080400630179,
+        "top_label_calibration": {
+          "expected_calibration_error": 0.24025799024343364,
+          "reliability_bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.1,
+              "count": 198,
+              "mean_confidence": 0.060934595399768844,
+              "accuracy": 0.3838383838383838
+            },
+            {
+              "lower": 0.1,
+              "upper": 0.2,
+              "count": 208,
+              "mean_confidence": 0.14787027964198782,
+              "accuracy": 0.625
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.30000000000000004,
+              "count": 188,
+              "mean_confidence": 0.25342760609312304,
+              "accuracy": 0.776595744680851
+            },
+            {
+              "lower": 0.30000000000000004,
+              "upper": 0.4,
+              "count": 188,
+              "mean_confidence": 0.3516005048394924,
+              "accuracy": 0.7925531914893617
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.5,
+              "count": 197,
+              "mean_confidence": 0.45226255150323785,
+              "accuracy": 0.8477157360406091
+            },
+            {
+              "lower": 0.5,
+              "upper": 0.6000000000000001,
+              "count": 235,
+              "mean_confidence": 0.5544938970043317,
+              "accuracy": 0.8936170212765957
+            },
+            {
+              "lower": 0.6000000000000001,
+              "upper": 0.7000000000000001,
+              "count": 263,
+              "mean_confidence": 0.6506488401518083,
+              "accuracy": 0.9467680608365019
+            },
+            {
+              "lower": 0.7000000000000001,
+              "upper": 0.8,
+              "count": 296,
+              "mean_confidence": 0.7509246158328614,
+              "accuracy": 0.9662162162162162
+            },
+            {
+              "lower": 0.8,
+              "upper": 0.9,
+              "count": 469,
+              "mean_confidence": 0.8551858625570528,
+              "accuracy": 0.9936034115138592
+            },
+            {
+              "lower": 0.9,
+              "upper": 1.0,
+              "count": 858,
+              "mean_confidence": 0.9530939255331821,
+              "accuracy": 0.9953379953379954
+            }
+          ]
+        },
+        "selective_risk": [
+          {
+            "requested_coverage": 0.5,
+            "actual_coverage": 0.5,
+            "selected": 1550,
+            "accuracy": 0.9896774193548387,
+            "risk": 0.010322580645161339
+          },
+          {
+            "requested_coverage": 0.8,
+            "actual_coverage": 0.8,
+            "selected": 2480,
+            "accuracy": 0.9508064516129032,
+            "risk": 0.049193548387096775
+          },
+          {
+            "requested_coverage": 1.0,
+            "actual_coverage": 1.0,
+            "selected": 3100,
+            "accuracy": 0.8816129032258064,
+            "risk": 0.11838709677419357
+          }
+        ]
+      },
+      "validation_selected_oos_threshold": {
+        "threshold": 0.034944096683771936,
+        "validation_precision": 0.6081081081081081,
+        "validation_recall": 0.45,
+        "validation_f1": 0.5172413793103449
+      },
+      "test": {
+        "accuracy": 0.766,
+        "macro_precision": 0.7928757982175042,
+        "macro_recall": 0.9002582781456954,
+        "macro_f1": 0.8327266665448771,
+        "weighted_precision": 0.8091849408804529,
+        "weighted_recall": 0.766,
+        "weighted_f1": 0.72824001445143,
+        "top_label_calibration": {
+          "expected_calibration_error": 0.1934864899025941,
+          "reliability_bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.1,
+              "count": 740,
+              "mean_confidence": 0.05887466994079006,
+              "accuracy": 0.2418918918918919
+            },
+            {
+              "lower": 0.1,
+              "upper": 0.2,
+              "count": 503,
+              "mean_confidence": 0.14382266415935263,
+              "accuracy": 0.3797216699801193
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.30000000000000004,
+              "count": 350,
+              "mean_confidence": 0.24988362778702003,
+              "accuracy": 0.56
+            },
+            {
+              "lower": 0.30000000000000004,
+              "upper": 0.4,
+              "count": 302,
+              "mean_confidence": 0.34875849143246784,
+              "accuracy": 0.7450331125827815
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.5,
+              "count": 323,
+              "mean_confidence": 0.45192117529705433,
+              "accuracy": 0.7925696594427245
+            },
+            {
+              "lower": 0.5,
+              "upper": 0.6000000000000001,
+              "count": 340,
+              "mean_confidence": 0.5540261090635717,
+              "accuracy": 0.9058823529411765
+            },
+            {
+              "lower": 0.6000000000000001,
+              "upper": 0.7000000000000001,
+              "count": 414,
+              "mean_confidence": 0.651680409459208,
+              "accuracy": 0.9202898550724637
+            },
+            {
+              "lower": 0.7000000000000001,
+              "upper": 0.8,
+              "count": 520,
+              "mean_confidence": 0.754477208278732,
+              "accuracy": 0.9557692307692308
+            },
+            {
+              "lower": 0.8,
+              "upper": 0.9,
+              "count": 725,
+              "mean_confidence": 0.8531639310680839,
+              "accuracy": 0.9848275862068966
+            },
+            {
+              "lower": 0.9,
+              "upper": 1.0,
+              "count": 1283,
+              "mean_confidence": 0.9548891746074473,
+              "accuracy": 0.9867498051441933
+            }
+          ]
+        },
+        "selective_risk": [
+          {
+            "requested_coverage": 0.5,
+            "actual_coverage": 0.5,
+            "selected": 2750,
+            "accuracy": 0.9752727272727273,
+            "risk": 0.02472727272727271
+          },
+          {
+            "requested_coverage": 0.8,
+            "actual_coverage": 0.8,
+            "selected": 4400,
+            "accuracy": 0.8865909090909091,
+            "risk": 0.1134090909090909
+          },
+          {
+            "requested_coverage": 1.0,
+            "actual_coverage": 1.0,
+            "selected": 5500,
+            "accuracy": 0.766,
+            "risk": 0.23399999999999999
+          }
+        ]
+      },
+      "test_error_analysis": {
+        "top_confusion_pairs": [
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "calculator",
+            "count": 38
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "recipe",
+            "count": 34
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "who_made_you",
+            "count": 30
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "w2",
+            "count": 30
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "restaurant_suggestion",
+            "count": 23
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "measurement_conversion",
+            "count": 23
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "travel_suggestion",
+            "count": 22
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "what_can_i_ask_you",
+            "count": 21
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "directions",
+            "count": 19
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "transactions",
+            "count": 18
+          }
+        ],
+        "out_of_scope_precision": 0.8853503184713376,
+        "out_of_scope_recall": 0.139,
+        "out_of_scope_f1": 0.24027657735522903,
+        "validation_threshold_oos": {
+          "precision": 0.8292682926829268,
+          "recall": 0.272,
+          "f1": 0.40963855421686746,
+          "threshold": 0.034944096683771936
+        }
+      },
+      "estimator": "Pipeline"
+    },
+    "tfidf_linear_svm": {
+      "validation": {
+        "accuracy": 0.8845161290322581,
+        "macro_precision": 0.8925635397243106,
+        "macro_recall": 0.9031788079470199,
+        "macro_f1": 0.8927641963738754,
+        "weighted_precision": 0.8873956468877529,
+        "weighted_recall": 0.8845161290322581,
+        "weighted_f1": 0.8770983922278216,
+        "uncertainty_note": "Unavailable: raw LinearSVC margins are not calibrated probabilities."
+      },
+      "test": {
+        "accuracy": 0.7649090909090909,
+        "macro_precision": 0.7825147944815624,
+        "macro_recall": 0.9049293598233996,
+        "macro_f1": 0.8299876325420213,
+        "weighted_precision": 0.8062957690445963,
+        "weighted_recall": 0.7649090909090909,
+        "weighted_f1": 0.7185346032666636,
+        "uncertainty_note": "Unavailable: raw LinearSVC margins are not calibrated probabilities."
+      },
+      "test_error_analysis": {
+        "top_confusion_pairs": [
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "who_made_you",
+            "count": 29
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "calculator",
+            "count": 27
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "restaurant_suggestion",
+            "count": 25
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "w2",
+            "count": 21
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "recipe",
+            "count": 21
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "bill_balance",
+            "count": 20
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "travel_suggestion",
+            "count": 18
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "restaurant_reviews",
+            "count": 18
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "find_phone",
+            "count": 17
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "sync_device",
+            "count": 16
+          }
+        ],
+        "out_of_scope_precision": 0.9173553719008265,
+        "out_of_scope_recall": 0.111,
+        "out_of_scope_f1": 0.19803746654772525,
+        "validation_threshold_oos": null
+      },
+      "estimator": "Pipeline"
+    },
+    "tfidf_calibrated_linear_svm": {
+      "validation": {
+        "accuracy": 0.8829032258064516,
+        "macro_precision": 0.8935580232272501,
+        "macro_recall": 0.8983443708609272,
+        "macro_f1": 0.8911212968566861,
+        "weighted_precision": 0.8866274935955789,
+        "weighted_recall": 0.8829032258064516,
+        "weighted_f1": 0.8785866932063304,
+        "top_label_calibration": {
+          "expected_calibration_error": 0.11996982999687225,
+          "reliability_bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.1,
+              "count": 24,
+              "mean_confidence": 0.08430456105380835,
+              "accuracy": 0.16666666666666666
+            },
+            {
+              "lower": 0.1,
+              "upper": 0.2,
+              "count": 43,
+              "mean_confidence": 0.15154445772910208,
+              "accuracy": 0.4186046511627907
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.30000000000000004,
+              "count": 71,
+              "mean_confidence": 0.25552817798184013,
+              "accuracy": 0.38028169014084506
+            },
+            {
+              "lower": 0.30000000000000004,
+              "upper": 0.4,
+              "count": 102,
+              "mean_confidence": 0.3558216679755681,
+              "accuracy": 0.38235294117647056
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.5,
+              "count": 142,
+              "mean_confidence": 0.4610488230488153,
+              "accuracy": 0.5352112676056338
+            },
+            {
+              "lower": 0.5,
+              "upper": 0.6000000000000001,
+              "count": 221,
+              "mean_confidence": 0.5517336408063029,
+              "accuracy": 0.7420814479638009
+            },
+            {
+              "lower": 0.6000000000000001,
+              "upper": 0.7000000000000001,
+              "count": 213,
+              "mean_confidence": 0.6548932540614482,
+              "accuracy": 0.8215962441314554
+            },
+            {
+              "lower": 0.7000000000000001,
+              "upper": 0.8,
+              "count": 317,
+              "mean_confidence": 0.7574931963566841,
+              "accuracy": 0.917981072555205
+            },
+            {
+              "lower": 0.8,
+              "upper": 0.9,
+              "count": 1332,
+              "mean_confidence": 0.8677149355956443,
+              "accuracy": 0.9834834834834835
+            },
+            {
+              "lower": 0.9,
+              "upper": 1.0,
+              "count": 635,
+              "mean_confidence": 0.9122858693341014,
+              "accuracy": 0.9968503937007874
+            }
+          ]
+        },
+        "selective_risk": [
+          {
+            "requested_coverage": 0.5,
+            "actual_coverage": 0.5,
+            "selected": 1550,
+            "accuracy": 0.9941935483870967,
+            "risk": 0.005806451612903274
+          },
+          {
+            "requested_coverage": 0.8,
+            "actual_coverage": 0.8,
+            "selected": 2480,
+            "accuracy": 0.9669354838709677,
+            "risk": 0.03306451612903227
+          },
+          {
+            "requested_coverage": 1.0,
+            "actual_coverage": 1.0,
+            "selected": 3100,
+            "accuracy": 0.8829032258064516,
+            "risk": 0.11709677419354836
+          }
+        ]
+      },
+      "validation_selected_oos_threshold": {
+        "threshold": 0.04809712133973936,
+        "validation_precision": 0.45081967213114754,
+        "validation_recall": 0.55,
+        "validation_f1": 0.49549549549549554
+      },
+      "test": {
+        "accuracy": 0.78,
+        "macro_precision": 0.7981989425679602,
+        "macro_recall": 0.9026953642384106,
+        "macro_f1": 0.8383006861480602,
+        "weighted_precision": 0.8196802199696108,
+        "weighted_recall": 0.78,
+        "weighted_f1": 0.7500586393479959,
+        "top_label_calibration": {
+          "expected_calibration_error": 0.07537933415867348,
+          "reliability_bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.1,
+              "count": 91,
+              "mean_confidence": 0.07779119426846727,
+              "accuracy": 0.18681318681318682
+            },
+            {
+              "lower": 0.1,
+              "upper": 0.2,
+              "count": 219,
+              "mean_confidence": 0.1523168590935478,
+              "accuracy": 0.1689497716894977
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.30000000000000004,
+              "count": 218,
+              "mean_confidence": 0.24986213291597095,
+              "accuracy": 0.1926605504587156
+            },
+            {
+              "lower": 0.30000000000000004,
+              "upper": 0.4,
+              "count": 226,
+              "mean_confidence": 0.35158015358950506,
+              "accuracy": 0.3495575221238938
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.5,
+              "count": 366,
+              "mean_confidence": 0.4548400459641829,
+              "accuracy": 0.4781420765027322
+            },
+            {
+              "lower": 0.5,
+              "upper": 0.6000000000000001,
+              "count": 435,
+              "mean_confidence": 0.550123008038525,
+              "accuracy": 0.639080459770115
+            },
+            {
+              "lower": 0.6000000000000001,
+              "upper": 0.7000000000000001,
+              "count": 366,
+              "mean_confidence": 0.6515789304045373,
+              "accuracy": 0.7240437158469946
+            },
+            {
+              "lower": 0.7000000000000001,
+              "upper": 0.8,
+              "count": 571,
+              "mean_confidence": 0.7570738760894016,
+              "accuracy": 0.8441330998248686
+            },
+            {
+              "lower": 0.8,
+              "upper": 0.9,
+              "count": 2077,
+              "mean_confidence": 0.8667833482053301,
+              "accuracy": 0.9566682715454983
+            },
+            {
+              "lower": 0.9,
+              "upper": 1.0,
+              "count": 931,
+              "mean_confidence": 0.913054006097808,
+              "accuracy": 0.9967776584317938
+            }
+          ]
+        },
+        "selective_risk": [
+          {
+            "requested_coverage": 0.5,
+            "actual_coverage": 0.5,
+            "selected": 2750,
+            "accuracy": 0.9756363636363636,
+            "risk": 0.024363636363636365
+          },
+          {
+            "requested_coverage": 0.8,
+            "actual_coverage": 0.8,
+            "selected": 4400,
+            "accuracy": 0.899090909090909,
+            "risk": 0.10090909090909095
+          },
+          {
+            "requested_coverage": 1.0,
+            "actual_coverage": 1.0,
+            "selected": 5500,
+            "accuracy": 0.78,
+            "risk": 0.21999999999999997
+          }
+        ]
+      },
+      "test_error_analysis": {
+        "top_confusion_pairs": [
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "calculator",
+            "count": 35
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "who_made_you",
+            "count": 24
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "restaurant_suggestion",
+            "count": 24
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "recipe",
+            "count": 24
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "bill_balance",
+            "count": 20
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "w2",
+            "count": 19
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "travel_suggestion",
+            "count": 19
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "what_can_i_ask_you",
+            "count": 16
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "sync_device",
+            "count": 16
+          },
+          {
+            "true_intent": "__out_of_scope__",
+            "predicted_intent": "directions",
+            "count": 15
+          }
+        ],
+        "out_of_scope_precision": 0.92,
+        "out_of_scope_recall": 0.207,
+        "out_of_scope_f1": 0.3379591836734694,
+        "validation_threshold_oos": {
+          "precision": 0.758095238095238,
+          "recall": 0.398,
+          "f1": 0.5219672131147541,
+          "threshold": 0.04809712133973936
+        }
+      },
+      "estimator": "Pipeline"
+    }
+  }
+}

@@ -70,12 +70,51 @@ The keyboard matches the current landscape reference image: screen-left dots
 4, 5, 6 from top to bottom and screen-right dots 1, 2, 3. Dot values and
 six-bit cell encoding remain unchanged.
 
+## Adaptive word order
+
+Eligible word practice is ranked by `AdaptiveWordRecommender`, an explainable
+deterministic rule rather than a trained model. Incorrect responses, repeated
+attempts, and hints increase the weight of involved characters; later correct
+evidence can reduce it. The recommender can only reorder the current verified
+word bank. It cannot add content, change a Braille mapping, alter the fixed
+mastery test set, or unlock a chapter whose prerequisite is incomplete.
+
+The same bounded policy can rank validated Hindi and Kannada word banks using
+script-specific evidence. With no learner evidence, catalog order is retained.
+
+## Chapters 4 and 5: phrases and complete sentences
+
+After word mastery, every supported language exposes two authored phrase
+exercises followed by two complete-sentence exercises. Content is admitted only
+when the existing language engine can encode the full target.
+
+| Language | Example phrase | Personalized sentence fallback |
+|---|---|---|
+| English | `I AM` | `My name is Sam.` |
+| Hindi | `मेरा नाम` | `मेरा नाम कमल है.` |
+| Kannada | `ನನ್ನ ಹೆಸರು` | `ನನ್ನ ಹೆಸರು ಕಮಲ.` |
+
+When the saved learner name is fully encodable in the selected language, it is
+inserted into the sentence. Otherwise the verified fallback remains
+authoritative. The learner enters every ordered cell, including capitalization
+indicators, blank space cells, and punctuation. The keyboard announces progress
+and supports repeat target, hint, backspace, and full-response reset actions.
+TalkBack custom actions can start writing without requiring a visible button.
+
+Composed responses are stored as structured lesson assessments with expected
+and submitted cell arrays. Correct work advances only to the next eligible
+exercise; named navigation and tutor actions cannot skip earlier phrases or
+open sentence writing before phrase completion.
+
 ## Current limits
 
 The curriculum uses uncontracted English cells and does not teach UEB
 contractions. Letter and word mappings use the project's documented English
-Braille subset. A–E and its full word bank are covered end to end by widget
-tests. The stage table, word restrictions, and cell round trips for every bank
-are automated-tested; full hands-on interaction with F–Z has not been run on a
-physical phone. See [Braille standards](braille-standards.md) for language and
-UEB limitations.
+Braille subset. The phrase and sentence banks are small, authored,
+engine-validated starting content rather than complete English, Hindi, or
+Kannada language curricula. A–E and its full word bank plus one personalized
+English sentence are covered end to end by widget tests. The stage table, word
+restrictions, and cell round trips for all authored phrase/sentence targets are
+automated-tested; full hands-on interaction with F–Z and multilingual writing
+has not been run on a physical phone. See [Braille standards](braille-standards.md)
+for language and UEB limitations.

@@ -1,0 +1,268 @@
+{
+  "dataset": "data\\authored\\resonant_tutor_intents_authored.csv",
+  "data_origin": "assistant_authored_only",
+  "rows": 80,
+  "languages": [
+    "English"
+  ],
+  "class_counts": {
+    "dot_pattern_explanation": 8,
+    "general_braille_question": 8,
+    "language_learning_question": 8,
+    "lesson_explanation": 8,
+    "mapping_request": 8,
+    "mistake_explanation": 8,
+    "navigation_help": 8,
+    "out_of_scope": 8,
+    "practice_hint": 8,
+    "progress_help": 8
+  },
+  "split_counts_per_class": {
+    "train": 5,
+    "validation": 1,
+    "test": 2
+  },
+  "limitations": [
+    "All examples were authored by the same assistant for code demonstration.",
+    "No examples are real learner queries and no educator/community review is claimed.",
+    "One validation and two test examples per class are far too few for stable metrics.",
+    "Results are a pipeline smoke test only; no trained artifact is exported.",
+    "Intent labels never supply or validate Braille cell values."
+  ],
+  "models": {
+    "tfidf_logistic_regression": {
+      "validation": {
+        "accuracy": 0.4,
+        "macro_f1": 0.36666666666666664,
+        "predictions": [
+          "dot_pattern_explanation",
+          "lesson_explanation",
+          "lesson_explanation",
+          "practice_hint",
+          "dot_pattern_explanation",
+          "navigation_help",
+          "dot_pattern_explanation",
+          "language_learning_question",
+          "out_of_scope",
+          "general_braille_question"
+        ],
+        "truth": [
+          "mapping_request",
+          "dot_pattern_explanation",
+          "lesson_explanation",
+          "practice_hint",
+          "mistake_explanation",
+          "navigation_help",
+          "progress_help",
+          "language_learning_question",
+          "general_braille_question",
+          "out_of_scope"
+        ]
+      },
+      "test": {
+        "accuracy": 0.3,
+        "macro_f1": 0.2533333333333333,
+        "predictions": [
+          "dot_pattern_explanation",
+          "mapping_request",
+          "mistake_explanation",
+          "general_braille_question",
+          "practice_hint",
+          "practice_hint",
+          "practice_hint",
+          "mistake_explanation",
+          "dot_pattern_explanation",
+          "mistake_explanation",
+          "navigation_help",
+          "navigation_help",
+          "general_braille_question",
+          "navigation_help",
+          "language_learning_question",
+          "mapping_request",
+          "mapping_request",
+          "progress_help",
+          "progress_help",
+          "navigation_help"
+        ],
+        "truth": [
+          "mapping_request",
+          "mapping_request",
+          "dot_pattern_explanation",
+          "dot_pattern_explanation",
+          "lesson_explanation",
+          "lesson_explanation",
+          "practice_hint",
+          "practice_hint",
+          "mistake_explanation",
+          "mistake_explanation",
+          "navigation_help",
+          "navigation_help",
+          "progress_help",
+          "progress_help",
+          "language_learning_question",
+          "language_learning_question",
+          "general_braille_question",
+          "general_braille_question",
+          "out_of_scope",
+          "out_of_scope"
+        ]
+      }
+    },
+    "tfidf_linear_svm": {
+      "validation": {
+        "accuracy": 0.4,
+        "macro_f1": 0.36666666666666664,
+        "predictions": [
+          "dot_pattern_explanation",
+          "lesson_explanation",
+          "lesson_explanation",
+          "practice_hint",
+          "dot_pattern_explanation",
+          "navigation_help",
+          "dot_pattern_explanation",
+          "language_learning_question",
+          "out_of_scope",
+          "general_braille_question"
+        ],
+        "truth": [
+          "mapping_request",
+          "dot_pattern_explanation",
+          "lesson_explanation",
+          "practice_hint",
+          "mistake_explanation",
+          "navigation_help",
+          "progress_help",
+          "language_learning_question",
+          "general_braille_question",
+          "out_of_scope"
+        ]
+      },
+      "test": {
+        "accuracy": 0.3,
+        "macro_f1": 0.2533333333333333,
+        "predictions": [
+          "dot_pattern_explanation",
+          "mapping_request",
+          "mistake_explanation",
+          "general_braille_question",
+          "practice_hint",
+          "practice_hint",
+          "practice_hint",
+          "mistake_explanation",
+          "dot_pattern_explanation",
+          "mistake_explanation",
+          "navigation_help",
+          "navigation_help",
+          "general_braille_question",
+          "navigation_help",
+          "language_learning_question",
+          "mapping_request",
+          "mapping_request",
+          "progress_help",
+          "progress_help",
+          "navigation_help"
+        ],
+        "truth": [
+          "mapping_request",
+          "mapping_request",
+          "dot_pattern_explanation",
+          "dot_pattern_explanation",
+          "lesson_explanation",
+          "lesson_explanation",
+          "practice_hint",
+          "practice_hint",
+          "mistake_explanation",
+          "mistake_explanation",
+          "navigation_help",
+          "navigation_help",
+          "progress_help",
+          "progress_help",
+          "language_learning_question",
+          "language_learning_question",
+          "general_braille_question",
+          "general_braille_question",
+          "out_of_scope",
+          "out_of_scope"
+        ]
+      }
+    },
+    "tfidf_calibrated_linear_svm": {
+      "validation": {
+        "accuracy": 0.5,
+        "macro_f1": 0.4666666666666667,
+        "predictions": [
+          "dot_pattern_explanation",
+          "progress_help",
+          "lesson_explanation",
+          "practice_hint",
+          "dot_pattern_explanation",
+          "navigation_help",
+          "dot_pattern_explanation",
+          "language_learning_question",
+          "general_braille_question",
+          "practice_hint"
+        ],
+        "truth": [
+          "mapping_request",
+          "dot_pattern_explanation",
+          "lesson_explanation",
+          "practice_hint",
+          "mistake_explanation",
+          "navigation_help",
+          "progress_help",
+          "language_learning_question",
+          "general_braille_question",
+          "out_of_scope"
+        ]
+      },
+      "test": {
+        "accuracy": 0.3,
+        "macro_f1": 0.22333333333333333,
+        "predictions": [
+          "dot_pattern_explanation",
+          "mapping_request",
+          "language_learning_question",
+          "general_braille_question",
+          "practice_hint",
+          "practice_hint",
+          "practice_hint",
+          "practice_hint",
+          "dot_pattern_explanation",
+          "lesson_explanation",
+          "navigation_help",
+          "navigation_help",
+          "general_braille_question",
+          "navigation_help",
+          "language_learning_question",
+          "mapping_request",
+          "mapping_request",
+          "lesson_explanation",
+          "progress_help",
+          "navigation_help"
+        ],
+        "truth": [
+          "mapping_request",
+          "mapping_request",
+          "dot_pattern_explanation",
+          "dot_pattern_explanation",
+          "lesson_explanation",
+          "lesson_explanation",
+          "practice_hint",
+          "practice_hint",
+          "mistake_explanation",
+          "mistake_explanation",
+          "navigation_help",
+          "navigation_help",
+          "progress_help",
+          "progress_help",
+          "language_learning_question",
+          "language_learning_question",
+          "general_braille_question",
+          "general_braille_question",
+          "out_of_scope",
+          "out_of_scope"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "prediction": 0,
+  "probability_correct": 0.3918909660537665,
+  "model_version": "assistments-rf-v1",
+  "experiment_id": "assistments2009-grouped-unseen-learners-v1",
+  "dataset_id": "assistments-2009-2010-skill-builder-corrected-collapsed",
+  "prediction_target": "first-attempt answer correctness (correct=1)",
+  "experimental": true,
+  "learning_action": null,
+  "scope": "Experimental educational outcome estimate; not a Braille mastery score or a Resonant learning action."
+}
